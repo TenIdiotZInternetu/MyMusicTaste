@@ -1,0 +1,31 @@
+@using MyMusicTaste.Models
+
+<EditForm Model="Song" OnValidSubmit="Submit" FormName="NewSong">
+    <DataAnnotationsValidator/>
+    <label>
+        Title:
+        <InputText @bind-Value="Song.Title"/>
+    </label>
+    <label>
+        Artist:
+        <InputText @bind-Value="Song.Artist"/>
+    </label>
+    <button type="submit">Submit</button>
+</EditForm>
+
+@if (_submitted) {
+    <p>Submitted!</p>
+    <p>@Song.Title</p>
+}
+
+@code {
+    [SupplyParameterFromForm]
+    private SongModel Song { get; set; } = new();
+    
+    private bool _submitted = false;
+    
+    private void Submit()
+    {
+        _submitted = true;
+    }
+}
