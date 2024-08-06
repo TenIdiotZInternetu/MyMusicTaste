@@ -1,4 +1,6 @@
-@using MyMusicTaste.Models
+@using MongoDB.Driver
+@using MyMusicTaste.Database
+@using MyMusicTaste.Database.Models
 
 <EditForm Model="Song" OnValidSubmit="Submit" FormName="NewSong">
     <DataAnnotationsValidator/>
@@ -20,12 +22,18 @@
 
 @code {
     [SupplyParameterFromForm]
-    private SongModel Song { get; set; } = new();
+    private SongModel? Song { get; set; }
+
+    protected override void OnInitialized() => Song ??= new SongModel();
     
     private bool _submitted = false;
     
     private void Submit()
     {
+        var collection = SongModel.Collection;
+
+        collection.InsertOneAsync(Song);
+        
         _submitted = true;
     }
 }
