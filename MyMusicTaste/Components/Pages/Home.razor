@@ -6,13 +6,4 @@
 
 <PageTitle>Home</PageTitle>
 
-@foreach (var doc in dbs)
-{
-    <p>@doc.ToString()</p>
-}
-
-@code {
-    private List<BsonDocument> dbs = MongoDbConnection.Client.ListDatabases().ToList();
-}
-
-Welcome to your new app.
+<h1>Welcome to MyMusicTaste!!</h1>
