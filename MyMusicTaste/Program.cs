@@ -1,10 +1,14 @@
 using MyMusicTaste.Components;
+using MyMusicTaste.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+string? dbConnectionString = builder.Configuration["MONGODB_URI"];
+MongoDbConnection.Connect(dbConnectionString);
 
 var app = builder.Build();
 

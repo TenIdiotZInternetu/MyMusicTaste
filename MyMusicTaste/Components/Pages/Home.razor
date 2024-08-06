@@ -1,7 +1,18 @@
 ﻿@page "/"
+@using MongoDB.Bson
+@using MongoDB.Driver
+@using MyMusicTaste.Components.Forms
+@using MyMusicTaste.Database
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+@foreach (var doc in dbs)
+{
+    <p>@doc.ToString()</p>
+}
+
+@code {
+    private List<BsonDocument> dbs = MongoDbConnection.Client.ListDatabases().ToList();
+}
 
 Welcome to your new app.
