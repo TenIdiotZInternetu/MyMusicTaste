@@ -5,22 +5,20 @@ namespace MyMusicTaste.Database.Operations;
 
 public static class SongSubmission
 {
-    public static Task SubmitSong(ISongModel songModel)
+    public static async Task SubmitSongAsync(ISongModel songModel)
     {
         var song = songModel.ToFullModel();
 
-        if (AlreadyExists(song))
+        if (await AlreadyExistsAsync(song))
         {
-            var exception = new DatabaseOperationException("The submitted song already exists in the database.");
-            return Task.FromException(exception);
+            throw new DatabaseOperationException("The submitted song already exists in the database.");
         }
         
         var collection = SongFullModel.Collection;
-        collection.InsertOne(song);
-        return Task.CompletedTask;
+        await collection.InsertOneAsync(song);
     }
 
-    private static bool AlreadyExists(SongFullModel song)
+    private static async Task<bool> AlreadyExistsAsync(SongFullModel song)
     {
         var builder = Builders<SongFullModel>.Filter;
 
@@ -28,7 +26,7 @@ public static class SongSubmission
                       builder.Eq(x => x.Artist, song.Artist)) |
                       builder.Eq(x => x.Id, song.Id);
         
-        var doc = SongFullModel.Collection.Find(filter).FirstOrDefault();
+        var doc = await SongFullModel.Collection.Find(filter).FirstOrDefaultAsync();
         return doc != null;
     }
 }
