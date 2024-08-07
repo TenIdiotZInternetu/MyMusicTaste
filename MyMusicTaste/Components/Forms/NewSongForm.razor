@@ -2,38 +2,20 @@
 @using MyMusicTaste.Database
 @using MyMusicTaste.Database.Models
 
-<EditForm Model="Song" OnValidSubmit="Submit" FormName="NewSong">
+<EditForm Model="_model" OnValidSubmit="Submit" FormName="NewSong">
     <DataAnnotationsValidator/>
     <label>
         Title:
-        <InputText @bind-Value="Song.Title"/>
+        <InputText @bind-Value="_model.Title"/>
     </label>
     <label>
         Artist:
-        <InputText @bind-Value="Song.Artist"/>
+        <InputText @bind-Value="_model.Artist"/>
     </label>
     <button type="submit">Submit</button>
 </EditForm>
 
 @if (_submitted) {
     <p>Submitted!</p>
-    <p>@Song.Title</p>
-}
-
-@code {
-    [SupplyParameterFromForm]
-    private SongModel? Song { get; set; }
-
-    protected override void OnInitialized() => Song ??= new SongModel();
-    
-    private bool _submitted = false;
-    
-    private void Submit()
-    {
-        var collection = SongModel.Collection;
-
-        collection.InsertOneAsync(Song);
-        
-        _submitted = true;
-    }
+    <p>@_model.Title</p>
 }
