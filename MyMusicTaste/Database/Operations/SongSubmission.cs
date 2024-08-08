@@ -23,7 +23,7 @@ public static class SongSubmission
         var builder = Builders<SongFullModel>.Filter;
 
         var filter = (builder.Eq(x => x.Title, song.Title) &
-                      builder.Eq(x => x.Artist, song.Artist)) |
+                      builder.Eq(x => x.Author, song.Author)) |
                       builder.Eq(x => x.Id, song.Id);
         
         var doc = await SongFullModel.Collection.Find(filter).FirstOrDefaultAsync();

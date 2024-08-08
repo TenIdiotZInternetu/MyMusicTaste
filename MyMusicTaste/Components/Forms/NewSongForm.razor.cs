@@ -15,14 +15,14 @@ public partial class NewSongForm : ComponentBase
         
         [Required(ErrorMessage = "Artist is required.")]
         [StringLength(64)]
-        public string Artist { get; set; }
+        public string Author { get; set; }
 
         public SongFullModel ToFullModel()
         {
             return new SongFullModel
             {
                 Title = Title,
-                Artist = Artist
+                Author = Author
             };
         }
     }
