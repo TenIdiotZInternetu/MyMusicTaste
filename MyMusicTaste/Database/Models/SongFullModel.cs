@@ -6,11 +6,11 @@ using MongoDB.Driver;
 
 namespace MyMusicTaste.Database.Models;
 
-public class SongFullModel : ISongModel
+public class SongFullModel : ISongModel, IMongoDbModel<SongFullModel>
 {
     private static readonly DateOnly InvalidDate = DateOnly.MaxValue;
 
-    public static IMongoCollection<SongFullModel> Collection = MongoDbConnection.Client
+    public static IMongoCollection<SongFullModel> Collection { get; } = MongoDbConnection.Client
         .GetDatabase("Core")
         .GetCollection<SongFullModel>("Songs");
     
