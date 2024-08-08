@@ -1,7 +1,20 @@
-@page "/Song"
+@page "/songs/{SongId}"
 
-<h1>Song</h1>
+@if (_pageState == PageState.Loading)
+{
+    <p>Loading...</p>
+}
 
-@code {
-    
+@if (_pageState == PageState.SongNotFound)
+{
+    <p>Song not found</p>
+}
+
+@if (_pageState == PageState.Loaded)
+{
+    <h1>@_song!.Title</h1>
+    <p>Author: @_song.Author</p>
+    <p>Album: @_song.Album</p>
+    <p>Genre: @_song.Genre</p>
+    <p>Release Date: @_song.ReleaseDateString</p>
 }
