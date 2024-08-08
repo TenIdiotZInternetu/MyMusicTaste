@@ -15,8 +15,7 @@ public class SongFullModel : ISongModel
         .GetCollection<SongFullModel>("Songs");
     
     [BsonElement("_id")]
-    [BindNever]
-    public string Id { get; set; }
+    public ObjectId Id { get; set; }
 
     public string? Title { get; set; }
     public string? Artist { get; set; }
