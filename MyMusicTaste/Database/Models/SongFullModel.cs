@@ -18,7 +18,7 @@ public class SongFullModel : ISongModel
     public ObjectId Id { get; set; }
 
     public string? Title { get; set; }
-    public string? Artist { get; set; }
+    public string? Author { get; set; }
 
     public string Album { get; set; } = "Unknown";
 
