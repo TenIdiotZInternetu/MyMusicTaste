@@ -2,7 +2,7 @@
 @using MyMusicTaste.Database
 @using MyMusicTaste.Database.Models
 
-<EditForm Model="_model" OnValidSubmit="Submit" FormName="NewSong">
+<EditForm Model="_model" OnValidSubmit="SubmitAsync" FormName="NewSong">
     <DataAnnotationsValidator/>
     <label>
         Title:
@@ -15,7 +15,13 @@
     <button type="submit">Submit</button>
 </EditForm>
 
-@if (_submitted) {
+@if (_submitted) 
+{
     <p>Submitted!</p>
     <p>@_model.Title</p>
+}
+
+@if (_alreadyExists)
+{
+    <p>Song with this Title and Author already exists in the database.</p>
 }
