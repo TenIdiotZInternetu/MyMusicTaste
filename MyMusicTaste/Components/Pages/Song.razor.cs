@@ -20,33 +20,12 @@ public partial class Song : ComponentBase
     {
         try
         {
-            LoadSongModel();
+            _song = GenericDbOperations.GetModelById<SongFullModel>(SongId);
             _pageState = PageState.Loaded;
         }
         catch (EntryNotFoundException e)
         {
             _pageState = PageState.SongNotFound;
-        }
-    }
-
-    private void LoadSongModel()
-    {
-        bool idIsValid = ObjectId.TryParse(SongId, out ObjectId objectId);
-        
-        if (!idIsValid)
-        {
-            throw new EntryNotFoundException("Invalid song ID!");
-        }
-        
-        var collection = SongFullModel.Collection;
-        var filter = Builders<SongFullModel>.Filter
-            .Eq(x => x.Id, objectId);
-
-        _song = collection.Find(filter).FirstOrDefault();
-
-        if (_song == null)
-        {
-            throw new EntryNotFoundException("Song not found!");
         }
     }
 }
