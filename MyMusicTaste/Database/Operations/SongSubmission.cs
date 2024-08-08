@@ -11,7 +11,7 @@ public static class SongSubmission
 
         if (await AlreadyExistsAsync(song))
         {
-            throw new DatabaseOperationException("The submitted song already exists in the database.");
+            throw new EntryAlreadyExistsException("The submitted song already exists in the database.");
         }
         
         var collection = SongFullModel.Collection;
