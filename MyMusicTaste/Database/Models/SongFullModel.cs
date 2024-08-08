@@ -24,7 +24,7 @@ public class SongFullModel : ISongModel
 
     public string Genre { get; set; } = "Unknown";
 
-    public DateOnly ReleaseDate { get; set; }
+    public DateOnly ReleaseDate { get; set; } = InvalidDate;
     
     public string ReleaseDateString => ReleaseDate == InvalidDate ? 
         "Unknown" : ReleaseDate.ToString();
