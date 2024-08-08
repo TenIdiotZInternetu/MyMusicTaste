@@ -30,10 +30,10 @@ public partial class NewSongForm : ComponentBase
     [SupplyParameterFromForm]
     private NewSongModel _model { get; set; } = new();
     
-    private bool _submitted = false;
-    private bool _alreadyExists = false;
+    private bool _submitted { get; set; } = false;
+    private bool _alreadyExists { get; set; } = false;
 
-    private async void SubmitAsync()
+    private async Task SubmitAsync()
     {
         try
         {
