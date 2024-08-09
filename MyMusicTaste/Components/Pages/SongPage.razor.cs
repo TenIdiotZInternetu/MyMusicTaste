@@ -5,7 +5,7 @@ using MyMusicTaste.Database.Operations;
 
 namespace MyMusicTaste.Components.Pages;
 
-public partial class Song : ComponentBase
+public partial class SongPage : ComponentBase
 {
     private enum PageState { Loading, Loaded, SongNotFound}
     
