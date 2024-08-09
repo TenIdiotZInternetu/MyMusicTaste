@@ -1,16 +1,18 @@
 @using MongoDB.Driver
 @using MyMusicTaste.Database
-@using MyMusicTaste.Database.Models
+@using MyMusicTaste.Database.Operations
 
-<EditForm Model="_model" OnValidSubmit="SubmitAsync" FormName="NewSong">
+@inject ISongSubmission SongSubmission
+
+<EditForm Model="_songDto" OnValidSubmit="SubmitAsync" FormName="NewSong">
     <DataAnnotationsValidator/>
     <label>
         Title:
-        <InputText @bind-Value="_model.Title"/>
+        <InputText @bind-Value="_songDto.Title"/>
     </label>
     <label>
         Author:
-        <InputText @bind-Value="_model.Author"/>
+        <InputText @bind-Value="_songDto.Author"/>
     </label>
     <button type="submit">Submit</button>
 </EditForm>
@@ -18,7 +20,7 @@
 @if (_submitted) 
 {
     <p>Submitted!</p>
-    <p>@_model.Title</p>
+    <p>@_songDto.Title</p>
 }
 
 @if (_alreadyExists)
