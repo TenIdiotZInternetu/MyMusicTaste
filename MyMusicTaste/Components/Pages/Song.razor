@@ -1,4 +1,7 @@
 @page "/songs/{SongId}"
+@using MyMusicTaste.Database
+
+@inject IDbRepository<Models.Song> SongRepository
 
 @if (_pageState == PageState.Loading)
 {
