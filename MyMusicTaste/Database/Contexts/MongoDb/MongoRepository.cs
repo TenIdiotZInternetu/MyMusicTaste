@@ -7,13 +7,13 @@ namespace MyMusicTaste.Database.Contexts.MongoDb;
 
 public class MongoRepository<TModel> : IDbRepository<TModel>
 {
-    public IMongoCollection<MongoDto<TModel>> Collection { get; init; }
+    public IMongoCollection<TModel> Collection { get; init; }
     public IMongoDatabase Database => Collection.Database;
 
     public MongoRepository(string databaseName, string collectionName)
     {
         var client = MongoDbContext.Client;
-        Collection = client.GetDatabase(databaseName).GetCollection<MongoDto<TModel>>(collectionName);
+        Collection = client.GetDatabase(databaseName).GetCollection<TModel>(collectionName);
     }
     
     public TModel GetById(string? id)
@@ -30,17 +30,17 @@ public class MongoRepository<TModel> : IDbRepository<TModel>
     
     public TModel GetById(ObjectId id)
     {
-        var filter = Builders<MongoDto<TModel>>.Filter
-            .Eq(x => x.Id, id);
+        var filter = Builders<TModel>.Filter
+            .Eq("_id", id);
 
-        MongoDto<TModel> dto = Collection.Find(filter).FirstOrDefault();
+        TModel model = Collection.Find(filter).FirstOrDefault();
         
-        if (dto.ModelIsValid)
+        if (model == null)
         {
             throw new EntryNotFoundException("Entry not found!");
         }
 
-        return dto.Model!;
+        return model;
     }
 
     public Task<TModel> GetByIdAsync(string? id)
