@@ -2,45 +2,47 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using MyMusicTaste.Database.Connections;
 using MyMusicTaste.Database.Operations;
+using MyMusicTaste.Models;
 
 namespace MyMusicTaste.Database.Contexts.MongoDb;
 
 public class MongoRepository<TModel> : IDbRepository<TModel>
+    where TModel : Model
 {
-    public IMongoCollection<MongoDto<TModel>> Collection { get; init; }
+    public IMongoCollection<TModel> Collection { get; init; }
     public IMongoDatabase Database => Collection.Database;
 
     public MongoRepository(string databaseName, string collectionName)
     {
         var client = MongoDbContext.Client;
-        Collection = client.GetDatabase(databaseName).GetCollection<MongoDto<TModel>>(collectionName);
+        Collection = client.GetDatabase(databaseName).GetCollection<TModel>(collectionName);
     }
     
     public TModel GetById(string? id)
     {
-        bool idIsValid = ObjectId.TryParse(id, out ObjectId objectId);
+        bool idIsValid = Guid.TryParse(id, out Guid guid);
         
         if (!idIsValid)
         {
             throw new EntryNotFoundException("Invalid ID!");
         }
 
-        return GetById(objectId);
+        return GetById(guid);
     }
     
-    public TModel GetById(ObjectId id)
+    public TModel GetById(Guid id)
     {
-        var filter = Builders<MongoDto<TModel>>.Filter
+        var filter = Builders<TModel>.Filter
             .Eq(x => x.Id, id);
 
-        MongoDto<TModel> dto = Collection.Find(filter).FirstOrDefault();
+        TModel model = Collection.Find(filter).FirstOrDefault();
         
-        if (dto.ModelIsValid)
+        if (model == null)
         {
             throw new EntryNotFoundException("Entry not found!");
         }
 
-        return dto.Model!;
+        return model;
     }
 
     public Task<TModel> GetByIdAsync(string? id)
@@ -55,7 +57,7 @@ public class MongoRepository<TModel> : IDbRepository<TModel>
 
     public Task CreateAsync(TModel model)
     {
-        throw new NotImplementedException();
+        return Collection.InsertOneAsync(model);
     }
 
     public void Update(TModel model)

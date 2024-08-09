@@ -11,11 +11,11 @@ public partial class NewSongForm : ComponentBase
     {
         [Required(ErrorMessage = "Title is required.")]
         [StringLength(128)]
-        public string Title { get; set; }
+        public string? Title { get; set; }
         
         [Required(ErrorMessage = "Artist is required.")]
         [StringLength(64)]
-        public string Author { get; set; }
+        public string? Author { get; set; }
     }
     
     [SupplyParameterFromForm]
@@ -42,6 +42,7 @@ public partial class NewSongForm : ComponentBase
     {
         return new Song
         {
+            Id = Guid.NewGuid(),
             Title = songDto.Title,
             Author = songDto.Author
         };

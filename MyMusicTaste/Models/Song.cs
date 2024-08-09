@@ -1,6 +1,6 @@
 namespace MyMusicTaste.Models;
 
-public class Song
+public class Song : Model
 {
     private static readonly DateOnly InvalidDate = DateOnly.MaxValue;
 
