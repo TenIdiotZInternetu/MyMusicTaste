@@ -15,6 +15,4 @@ public class Song
     
     public string ReleaseDateString => ReleaseDate == InvalidDate ? 
         "Unknown" : ReleaseDate.ToString();
-    
-    public Song ToFullModel() => this;
 }
