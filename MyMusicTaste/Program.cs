@@ -13,8 +13,7 @@ builder.Services.AddRazorComponents()
 string? dbConnectionString = builder.Configuration["MONGODB_URI"];
 MongoDbContext.Connect(dbConnectionString);
 
-builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
-    .AddMongoDbStores<ApplicationUser, ApplicationRole, ObjectId>(dbConnectionString, "Security");
+
 
 var app = builder.Build();
 
