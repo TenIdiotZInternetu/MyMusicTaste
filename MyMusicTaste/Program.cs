@@ -1,5 +1,9 @@
+using AspNetCore.Identity.MongoDbCore.Models;
+using MongoDB.Bson;
 using MyMusicTaste.Components;
 using MyMusicTaste.Database;
+using MyMusicTaste.Database.Connections;
+using MyMusicTaste.Database.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +13,9 @@ builder.Services.AddRazorComponents()
 
 string? dbConnectionString = builder.Configuration["MONGODB_URI"];
 MongoDbConnection.Connect(dbConnectionString);
+
+builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
+    .AddMongoDbStores<ApplicationUser, ApplicationRole, ObjectId>(dbConnectionString, "Security");
 
 var app = builder.Build();
 

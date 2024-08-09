@@ -1,8 +1,7 @@
-using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
+using MyMusicTaste.Database.Connections;
 
 namespace MyMusicTaste.Database.Models;
 

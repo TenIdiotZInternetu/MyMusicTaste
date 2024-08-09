@@ -1,6 +1,6 @@
 using MongoDB.Driver;
 
-namespace MyMusicTaste.Database;
+namespace MyMusicTaste.Database.Connections;
 
 public class MongoDbConnection
 {
