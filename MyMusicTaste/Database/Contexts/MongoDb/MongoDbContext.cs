@@ -2,7 +2,7 @@ using MongoDB.Driver;
 
 namespace MyMusicTaste.Database.Connections;
 
-public class MongoDbConnection
+public class MongoDbContext
 {
     private static readonly ServerApiVersion ApiVersion = ServerApiVersion.V1;
     public static MongoClient Client { get; private set; }
