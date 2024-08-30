@@ -1,6 +1,7 @@
 using MyMusicTaste;
 using MyMusicTaste.Components;
 using MyMusicTaste.Database.Connections;
+using MyMusicTaste.Database.Contexts.MongoDb;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,7 @@ string? dbConnectionString = builder.Configuration["MONGODB_URI"];
 MongoDbContext.Connect(dbConnectionString);
 
 builder.Services.InjectDependencies();
+MongoIdentity.Configure(builder);
 
 var app = builder.Build();
 
@@ -27,6 +29,9 @@ app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();

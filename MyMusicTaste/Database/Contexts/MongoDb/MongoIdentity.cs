@@ -1,4 +1,6 @@
 using AspNetCore.Identity.MongoDbCore.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
 using MongoDB.Bson;
 using MongoDbGenericRepository.Attributes;
 
@@ -12,20 +14,35 @@ public class MongoRole : MongoIdentityRole<ObjectId> {}
 
 public class MongoIdentity : IIdentityProvider<MongoUser, MongoRole>
 {
-    public void AddIdentity(WebApplicationBuilder builder)
+    private readonly UserManager<MongoUser> _userManager;
+
+    public MongoIdentity(UserManager<MongoUser> userManager)
+    {
+        _userManager = userManager;
+    }
+
+    public static void Configure(WebApplicationBuilder builder)
     {
         var dbConnectionString = builder.Configuration["MONGO_URI"];
-        
+
         builder.Services.AddIdentity<MongoUser, MongoRole>()
-            .AddMongoDbStores<MongoUser, MongoRole, ObjectId>(dbConnectionString, "Security");
+            .AddMongoDbStores<MongoUser, MongoRole, ObjectId>(dbConnectionString, "Security")
+            .AddDefaultTokenProviders();
+        
+        builder.Services.AddScoped<IIdentityProvider<MongoUser, MongoRole>, MongoIdentity>();
     }
 
-    public void RegisterUser(MongoUser user)
+    public async Task RegisterUserAsync(MongoUser user)
     {
-        throw new NotImplementedException();
+        var result = await _userManager.CreateAsync(user);
+        
+        if (!result.Succeeded)
+        {
+            throw new AuthenticationFailureException("Failed to register user.");
+        }
     }
 
-    public void AssignRole(MongoUser user, MongoRole role)
+    public async Task AssignRoleAsync(MongoUser user, MongoRole role)
     {
         throw new NotImplementedException();
     }
