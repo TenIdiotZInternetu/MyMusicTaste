@@ -42,7 +42,6 @@ public partial class NewSongForm : ComponentBase
     {
         return new Song
         {
-            Id = Guid.NewGuid(),
             Title = songDto.Title,
             Author = songDto.Author
         };

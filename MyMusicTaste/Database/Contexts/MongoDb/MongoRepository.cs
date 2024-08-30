@@ -20,7 +20,7 @@ public class MongoRepository<TModel> : IDbRepository<TModel>
     
     public TModel GetById(string? id)
     {
-        bool idIsValid = Guid.TryParse(id, out Guid guid);
+        bool idIsValid = ObjectId.TryParse(id, out ObjectId guid);
         
         if (!idIsValid)
         {
@@ -30,7 +30,7 @@ public class MongoRepository<TModel> : IDbRepository<TModel>
         return GetById(guid);
     }
     
-    public TModel GetById(Guid id)
+    public TModel GetById(ObjectId id)
     {
         var filter = Builders<TModel>.Filter
             .Eq(x => x.Id, id);

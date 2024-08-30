@@ -1,6 +1,8 @@
+using MongoDB.Bson;
+
 namespace MyMusicTaste.Models;
 
 public abstract class Model
 {
-    public Guid Id { get; set; }
+    public ObjectId Id { get; set; }
 }
