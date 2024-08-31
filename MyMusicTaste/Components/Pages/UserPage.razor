@@ -1,10 +1,26 @@
-@page "/users/{id:int}"
+@page "/users/{id}"
+@using MyMusicTaste.Database
+@using MyMusicTaste.Models
 
-<PageTitle>@Id</PageTitle>
+@inject IDbRepository<User> UserRepository
+@inject IIdentityProvider Identity
 
-<h1>User @Id</h1>
 
-@code {
-    [Parameter] 
-    public int Id { get; set; }
+@if (_pageState == PageState.Loading)
+{
+    <PageTitle>Loading...</PageTitle>
+    <p>Loading...</p>
 }
+
+@if (_pageState == PageState.UserNotFound)
+{
+    <p>User not found</p>
+}
+
+@if (_pageState == PageState.Loaded)
+{
+    <PageTitle>@_user!.Username</PageTitle>
+}
+
+
+<h1></h1>

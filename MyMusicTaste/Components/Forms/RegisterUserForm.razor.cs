@@ -29,7 +29,7 @@ public partial class RegisterUserForm : ComponentBase
     
     private async Task SubmitAsync()
     {
-        await _identity.RegisterUserAsync(_newUser);
+        await Identity.RegisterUserAsync(_newUser);
         _submitted = true;
     }
 }

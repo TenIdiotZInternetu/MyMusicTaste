@@ -1,6 +1,6 @@
 @using MyMusicTaste.Database
 
-@inject IIdentityProvider _identity
+@inject IIdentityProvider Identity
 
 <EditForm Model="_newUser" OnValidSubmit="SubmitAsync" FormName="RegisterUser">
     <DataAnnotationsValidator/>
