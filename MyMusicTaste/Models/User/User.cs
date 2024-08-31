@@ -8,6 +8,5 @@ public class User : Model
     public string? ProfilePictureLink { get; set; }
     public string? BannerPictureLink { get; set; }
     
-    public UserStats? Stats { get; set; }
-    public List<UserSongListEntry> List { get; set; } = new();
+    public List<UserCollectionEntry> List { get; set; } = new();
 }

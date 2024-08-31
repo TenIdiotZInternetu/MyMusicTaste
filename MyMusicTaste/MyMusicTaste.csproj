@@ -22,7 +22,6 @@
 
     <ItemGroup>
       <Folder Include="Components\Pages\Identity\" />
-      <Folder Include="Database\Identity\" />
     </ItemGroup>
 
 </Project>

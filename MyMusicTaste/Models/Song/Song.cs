@@ -11,8 +11,6 @@ public class Song : Model
     public string Genre { get; set; } = "Unknown";
     public DateOnly ReleaseDate { get; set; } = InvalidDate;
     
-    public SongStats? Stats { get; set; }
-    
     public string ReleaseDateString => ReleaseDate == InvalidDate ? 
         "Unknown" : ReleaseDate.ToString();
 }
