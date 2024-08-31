@@ -8,10 +8,10 @@ public class Song : Model
     public string? Author { get; set; }
 
     public string Album { get; set; } = "Unknown";
-
     public string Genre { get; set; } = "Unknown";
-
     public DateOnly ReleaseDate { get; set; } = InvalidDate;
+    
+    public SongStats? Stats { get; set; }
     
     public string ReleaseDateString => ReleaseDate == InvalidDate ? 
         "Unknown" : ReleaseDate.ToString();
