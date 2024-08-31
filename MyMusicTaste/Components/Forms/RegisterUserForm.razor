@@ -1,5 +1,28 @@
-<h3>RegisterUserForm</h3>
+@using MyMusicTaste.Database
 
-@code {
-    
+@inject IIdentityProvider _identity
+
+<EditForm Model="_newUser" OnValidSubmit="SubmitAsync" FormName="RegisterUser">
+    <DataAnnotationsValidator/>
+    <label>
+        Username:
+        <InputText @bind-Value="_newUser.Username"/>
+    </label>
+    <br/>
+    <label>
+        Email:
+        <InputText @bind-Value="_newUser.Email"/>
+    </label>
+    <br/>
+    <label>
+        Password:
+        <InputText @bind-Value="_newUser.Password"/>
+    </label>
+    <button type="submit">Submit</button>
+</EditForm>
+
+@if (_submitted)
+{
+    <p>Submitted!</p>
+    <p>@_newUser.Username</p>
 }

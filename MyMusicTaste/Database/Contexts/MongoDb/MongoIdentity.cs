@@ -12,7 +12,7 @@ public class MongoUser : MongoIdentityUser<ObjectId> {}
 [CollectionName("Roles")]
 public class MongoRole : MongoIdentityRole<ObjectId> {}
 
-public class MongoIdentity : IIdentityProvider<MongoUser, MongoRole>
+public class MongoIdentity : IIdentityProvider
 {
     private readonly UserManager<MongoUser> _userManager;
 
@@ -21,20 +21,24 @@ public class MongoIdentity : IIdentityProvider<MongoUser, MongoRole>
         _userManager = userManager;
     }
 
-    public static void Configure(WebApplicationBuilder builder)
+    public static void Configure(IServiceCollection services, string connectionString)
     {
-        var dbConnectionString = builder.Configuration["MONGO_URI"];
-
-        builder.Services.AddIdentity<MongoUser, MongoRole>()
-            .AddMongoDbStores<MongoUser, MongoRole, ObjectId>(dbConnectionString, "Security")
+        services.AddIdentity<MongoUser, MongoRole>()
+            .AddMongoDbStores<MongoUser, MongoRole, ObjectId>(connectionString, "Security")
             .AddDefaultTokenProviders();
         
-        builder.Services.AddScoped<IIdentityProvider<MongoUser, MongoRole>, MongoIdentity>();
+        services.AddScoped<IIdentityProvider, MongoIdentity>();
     }
 
-    public async Task RegisterUserAsync(MongoUser user)
+    public async Task RegisterUserAsync(IRegisterUserDto newUser)
     {
-        var result = await _userManager.CreateAsync(user);
+        var mongoUser = new MongoUser
+        {
+            UserName = newUser.Username,
+            Email = newUser.Email
+        };
+        
+        var result = await _userManager.CreateAsync(mongoUser, newUser.Password);
         
         if (!result.Succeeded)
         {
