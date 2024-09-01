@@ -2,13 +2,24 @@
     --b-radius: 0.4em;
     
     display: flex;
+    align-items: center;
+    
     height: 60px;
     margin-bottom: 0.4em;
     padding: 0.1em 0.4em;
     
+    background: white;
+    
     border-style: solid;
     border-color: #c2c2c2;
     border-radius: var(--b-radius);
+}
+
+#container:hover {
+    color: white;
+    background-color: var(--bs-secondary);
+    transition: background-color 0.3s ease,
+                color 0.3s ease;
 }
 
 .cover-container {
