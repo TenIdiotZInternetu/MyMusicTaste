@@ -10,8 +10,10 @@
 <h1>Debug</h1>
 
 <div class="list-group">
-    <SongSearchItem Song="@_song" />
-    
+    @for (int i = 0; i < 20; i++)
+    {
+        <SongSearchItem Song="@_song"/>
+    }
 </div>
 
 @code {

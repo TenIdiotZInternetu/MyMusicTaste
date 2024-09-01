@@ -1,3 +1,16 @@
+#container {
+    --b-radius: 0.4em;
+    
+    display: flex;
+    height: 60px;
+    margin-bottom: 0.4em;
+    padding: 0.1em 0.4em;
+    
+    border-style: solid;
+    border-color: #c2c2c2;
+    border-radius: var(--b-radius);
+}
+
 .cover-container {
     padding: 0.4em;
     height: 100%;
@@ -7,12 +20,7 @@
 .cover-placeholder {
     height: 100%;
     background: #6b6b6b;
-    border-radius: 20%;
-}
-
-#container {
-    height: 60px;
-    padding: 0.1em 0.4em;
+    border-radius: var(--b-radius);
 }
 
 .item-text {
@@ -22,5 +30,5 @@
 }
 
 .song-title {
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
