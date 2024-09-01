@@ -1,5 +1,18 @@
-<h3>SongSearchItem</h3>
+<div class="list-group-item d-flex" id="container">
+    <div class="cover-container">
+        @if (_hasCover)
+        {
 
-@code {
-    
-}
+        }
+        else
+        {
+        <div class="cover-placeholder align-content-center">
+        </div>
+        }
+    </div>
+
+    <div class="px-2 align-content-center">
+        <p class=" item-text song-title">@Song.Title</p>
+        <p class="item-text">@Song.Author - @Song.Album</p>
+    </div>
+</div>

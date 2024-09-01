@@ -1,11 +1,25 @@
 @page "/debug"
 @using MyMusicTaste.Components.Forms
+@using MyMusicTaste.Database
+@using MyMusicTaste.Database.Contexts.MongoDb
+@using MyMusicTaste.Models
+@using MyMusicTaste.Components.SearchComps
+
+@inject IDbRepository<Song> Repo
 
 <h1>Debug</h1>
 
-@* <NewSongForm /> *@
-<RegisterUserForm/>
+<div class="list-group">
+    <SongSearchItem Song="@_song" />
+    
+</div>
 
 @code {
+    private Song _song = new Song();
     
+    protected override void OnInitialized()
+    {
+        _song = Repo.GetById("66d1d6c36e6d7d803a3a7824");
+    }
+
 }
