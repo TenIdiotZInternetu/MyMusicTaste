@@ -11,6 +11,8 @@ public class Song : Model
     public string Genre { get; set; } = "Unknown";
     public DateOnly ReleaseDate { get; set; } = InvalidDate;
     
+    public string? CoverImageLink { get; set; }
+    
     public string ReleaseDateString => ReleaseDate == InvalidDate ? 
         "Unknown" : ReleaseDate.ToString();
 }
