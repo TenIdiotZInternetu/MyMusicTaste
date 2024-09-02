@@ -1,3 +1,4 @@
+using MongoDB.Bson;
 using MongoDB.Driver;
 using MyMusicTaste.Database.Connections;
 using MyMusicTaste.Database.Operations;
@@ -8,9 +9,14 @@ namespace MyMusicTaste.Database.Contexts.MongoDb.Operations;
 public class SongSearch : ISearchOperation<Song>
 {
     private IMongoCollection<Song> _collection = MongoCollectionFactory.Create<Song>();
-    
-    public Task<IEnumerable<Song>> Search(string query, int resultsCount)
+
+    public List<Song> Search(string query, int resultsCount)
     {
-        throw new NotImplementedException();
+        return _collection.Aggregate()
+            .Search(
+                Builders<Song>.Search.Autocomplete(song => song.Title, query),
+                indexName: "SongsIndex")
+            .Limit(resultsCount)
+            .ToList();
     }
 }
