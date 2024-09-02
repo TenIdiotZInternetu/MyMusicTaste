@@ -1,9 +1,10 @@
 @page "/debug"
-@using MyMusicTaste.Components.Forms
 @using MyMusicTaste.Database
-@using MyMusicTaste.Database.Contexts.MongoDb
 @using MyMusicTaste.Models
 @using MyMusicTaste.Components.SearchComps
+
+@rendermode InteractiveServer
+
 
 @inject IDbRepository<Song> Repo
 
@@ -17,7 +18,7 @@
 </div>
 
 @code {
-    private Song _song = new Song();
+    private Song _song { get; set; } = new();
     
     protected override void OnInitialized()
     {

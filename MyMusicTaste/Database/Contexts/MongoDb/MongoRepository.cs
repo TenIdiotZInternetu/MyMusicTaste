@@ -42,6 +42,7 @@ public class MongoRepository<TModel> : IDbRepository<TModel>
             throw new EntryNotFoundException("Entry not found!");
         }
 
+        model.Id = id;
         return model;
     }
 
