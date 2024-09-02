@@ -6,7 +6,7 @@ namespace MyMusicTaste.Database.Contexts.MongoDb.Operations;
 
 public class SongSubmission : ISongSubmission
 {
-    private static readonly MongoRepository<Song> _repository = new("Core", "Songs");
+    private static readonly MongoRepository<Song> _repository = new();
     
     public void SubmitSong(Song songModel)
     {

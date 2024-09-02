@@ -16,12 +16,14 @@ public static class DependencyInjections
     
     private static void InjectDbRepositories(this IServiceCollection services)
     {
-        services.AddTransient<IDbRepository<Song>, MongoRepository<Song>>(_ => 
-            new MongoRepository<Song>("Core", "Songs"));
+        services.AddTransient<IDbRepository<Song>, MongoRepository<Song>>();
+        services.AddTransient<IDbRepository<User>, MongoRepository<User>>();
     }
     
     private static void InjectDbOperations(this IServiceCollection services)
     {
         services.AddSingleton<ISongSubmission, SongSubmission>();
+        services.AddTransient<ISearchOperation<Song>, SongSearch>();
+        services.AddTransient<ISearchOperation<User>, UserSearch>();
     }
 }

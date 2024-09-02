@@ -9,15 +9,9 @@ namespace MyMusicTaste.Database.Contexts.MongoDb;
 public class MongoRepository<TModel> : IDbRepository<TModel>
     where TModel : Model
 {
-    public IMongoCollection<TModel> Collection { get; init; }
+    public IMongoCollection<TModel> Collection { get; } = MongoCollectionFactory.Create<TModel>();
     public IMongoDatabase Database => Collection.Database;
 
-    public MongoRepository(string databaseName, string collectionName)
-    {
-        var client = MongoDbContext.Client;
-        Collection = client.GetDatabase(databaseName).GetCollection<TModel>(collectionName);
-    }
-    
     public TModel GetById(string? id)
     {
         bool idIsValid = ObjectId.TryParse(id, out ObjectId guid);
