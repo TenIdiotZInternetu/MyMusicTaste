@@ -9,9 +9,9 @@ public partial class SongSearch : ComponentBase
     [Parameter] 
     public int ResultsCount { get; set; }
     
-    private List<Song> _results { get; set; }
+    private List<Song>? _results { get; set; }
 
-    private void SearchSongs(string query)
+    private void UpdateResults(string query)
     {
         _results = Searcher.Search(query, ResultsCount);
     }

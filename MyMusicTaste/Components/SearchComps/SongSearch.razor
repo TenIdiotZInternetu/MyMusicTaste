@@ -3,7 +3,16 @@
 
 @inject ISearchOperation<Song> Searcher
 
-@foreach (var song in _results)
+@if (_results == null)
 {
-    <SongSearchItem Song="song"/>
+    <p>Start typing in the search bar...</p>
+}
+else
+{
+    <div class="list-group">
+        @foreach (var song in _results)
+        {
+            <SongSearchItem Song="song"/>
+        }
+    </div>
 }

@@ -1,7 +1,32 @@
+@using MyMusicTaste.Components.SearchComps
 @attribute [Route(RouteTemplate)]
 
-<h3>BrowsePage</h3>
+<InputText class="form-control mb-3" @onchange="UpdateSearches"/>
 
-@code {
+<div class="d-flex">
+    <button type="button" class="btn btn-secondary" @onclick="ChangeTabToAll">All</button>
+    <button type="button" class="btn btn-secondary" @onclick="ChangeTabToSongs">Songs</button>
+    <button type="button" class="btn btn-secondary" @onclick="ChangeTabToUsers">Users</button>
+</div>
+<hr/>
+
+@if (_currentTab == Tab.All)
+{
+    <h4>Songs</h4>
+    <hr/>
+    <SongSearch @ref="AllTabSongSearch" ResultsCount="4"/>
     
+    <h4>Users</h4>
+    <hr/>
+    <UserSearch @ref="AllTabUserSearch" ResultsCount="4"/>
+}
+
+@if (_currentTab == Tab.Songs)
+{
+    <SongSearch @ref="SongTabSearch" ResultsCount="30"/>
+}
+
+@if (_currentTab == Tab.Users)
+{
+    <UserSearch @ref="UserTabSearch" ResultsCount="30"/>
 }
