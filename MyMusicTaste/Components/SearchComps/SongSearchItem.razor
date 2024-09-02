@@ -1,6 +1,7 @@
 @inject NavigationManager Navigation
+@rendermode InteractiveServer
 
-<button type="button" onclick="GoToSongPage" class="" id="container">
+<button type="button" @onclick="GoToSongPage" id="container">
     <div class="cover-container">
         @if (_hasCover)
         {
