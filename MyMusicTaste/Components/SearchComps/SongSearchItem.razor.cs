@@ -9,4 +9,8 @@ public partial class SongSearchItem : ComponentBase
     public Song? Song {get; set;}
     
     private bool _hasCover => Song.CoverImageLink != null;
+
+    private void GoToSongPage()
+    {
+    }
 }

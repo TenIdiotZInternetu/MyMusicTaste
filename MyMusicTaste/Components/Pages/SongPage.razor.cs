@@ -7,13 +7,19 @@ namespace MyMusicTaste.Components.Pages;
 
 public partial class SongPage : ComponentBase
 {
-    private enum PageState { Loading, Loaded, SongNotFound}
+    public const string RouteTemplate = "/songs/{SongId}";
     
     [Parameter]
     public string? SongId { get; set; }
     
+    private enum PageState { Loading, Loaded, SongNotFound}
     private Models.Song? _song { get; set; }
     private PageState _pageState { get; set; } = PageState.Loading;
+
+    public static string GetRoute(ObjectId songId)
+    {
+        return RouteTemplate.Replace("{SongId}", songId.ToString());
+    }
     
     protected override void OnInitialized()
     {

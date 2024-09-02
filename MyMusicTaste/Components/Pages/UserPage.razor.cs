@@ -1,19 +1,24 @@
 using Microsoft.AspNetCore.Components;
 using MongoDB.Bson;
-using MongoDB.Driver;
 using MyMusicTaste.Database.Operations;
 
 namespace MyMusicTaste.Components.Pages;
 
 public partial class UserPage : ComponentBase
 {
-    private enum PageState { Loading, Loaded, UserNotFound }
+    public const string RouteTemplate = "/users/{UserId}";
     
     [Parameter]
     public string? UserId { get; set; }
     
+    private enum PageState { Loading, Loaded, UserNotFound }
     private Models.User? _user { get; set; }
     private PageState _pageState { get; set; } = PageState.Loading;
+
+    public static string GetRoute(ObjectId userId)
+    {
+        return RouteTemplate.Replace("{UserId}", userId.ToString());
+    }
     
     protected override void OnInitialized()
     {

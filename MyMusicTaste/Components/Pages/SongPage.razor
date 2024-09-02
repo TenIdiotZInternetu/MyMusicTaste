@@ -1,4 +1,5 @@
-@page "/songs/{SongId}"
+@attribute [Route(RouteTemplate)]
+
 @using MyMusicTaste.Database
 
 @inject IDbRepository<Models.Song> SongRepository
