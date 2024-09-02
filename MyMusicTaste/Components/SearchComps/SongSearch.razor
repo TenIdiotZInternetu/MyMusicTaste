@@ -1,5 +1,9 @@
-<h3>SongSearchComponent</h3>
+@using MyMusicTaste.Database.Operations
+@using MyMusicTaste.Models
 
-@code {
-    
+@inject ISearchOperation<Song> Searcher
+
+@foreach (var song in _results)
+{
+    <SongSearchItem Song="song"/>
 }
