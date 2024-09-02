@@ -1,4 +1,7 @@
-﻿<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark px-3">
+﻿@using MyMusicTaste.Components.Pages
+@using MyMusicTaste.Components.Pages.Identity
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark px-3">
     <a class="navbar-brand mx-5" href="">MyMusicTaste</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,19 +10,19 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
         <div class="nav-item">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+            <NavLink class="nav-link" href="@HomePage.GetRoute()" Match="NavLinkMatch.All">
                 Home
             </NavLink>
         </div>
         <div class="nav-item">
-            <NavLink class="nav-link" href="/search" Match="NavLinkMatch.All">
+            <NavLink class="nav-link" href="@SearchPage.GetRoute()" Match="NavLinkMatch.All">
                 Search
             </NavLink>
         </div>
     </div>
 
     <div class="nav-item">
-        <NavLink class="nav-link" href="/login" Match="NavLinkMatch.All">
+        <NavLink class="nav-link" href="@LoginPage.GetRoute()" Match="NavLinkMatch.All">
             Login
         </NavLink>
     </div>
