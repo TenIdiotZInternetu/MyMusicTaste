@@ -5,24 +5,16 @@
 
 @rendermode InteractiveServer
 
-
 @inject IDbRepository<Song> Repo
 
-<h1>Debug</h1>
+<SongSearch @ref="Search" ResultsCount="10"/>
 
-<div class="list-group">
-    @for (int i = 0; i < 20; i++)
-    {
-        <SongSearchItem Song="@_song"/>
-    }
-</div>
-
-@code {
-    private Song _song { get; set; } = new();
+@code 
+{
+    private SongSearch Search { get; set; } = new();
     
-    protected override void OnInitialized()
+    protected override void OnAfterRender(bool _)
     {
-        _song = Repo.GetById("66d1d6c36e6d7d803a3a7824");
+        Search.UpdateResults("Lo");
     }
-
 }

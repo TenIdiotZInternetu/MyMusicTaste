@@ -11,8 +11,9 @@ public partial class SongSearch : ComponentBase
     
     private List<Song>? _results { get; set; }
 
-    private void UpdateResults(string query)
+    public void UpdateResults(string query)
     {
         _results = Searcher.Search(query, ResultsCount);
+        StateHasChanged();
     }
 }

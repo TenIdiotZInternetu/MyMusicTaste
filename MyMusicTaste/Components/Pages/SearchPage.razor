@@ -1,7 +1,9 @@
 @using MyMusicTaste.Components.SearchComps
 @attribute [Route(RouteTemplate)]
 
-<InputText class="form-control mb-3" @onchange="UpdateSearches"/>
+@rendermode InteractiveServer
+
+<InputText class="form-control mb-3" @oninput="UpdateQuery" @bind-Value="_searchQuery"/>
 
 <div class="d-flex">
     <button type="button" class="btn btn-secondary" @onclick="ChangeTabToAll">All</button>
@@ -14,19 +16,19 @@
 {
     <h4>Songs</h4>
     <hr/>
-    <SongSearch @ref="AllTabSongSearch" ResultsCount="4"/>
+    <SongSearch @ref="_allTabSongSearch" ResultsCount="4"/>
     
     <h4>Users</h4>
     <hr/>
-    <UserSearch @ref="AllTabUserSearch" ResultsCount="4"/>
+    @* <UserSearch @ref="_allTabUserSearch" ResultsCount="4"/> *@
 }
 
 @if (_currentTab == Tab.Songs)
 {
-    <SongSearch @ref="SongTabSearch" ResultsCount="30"/>
+    <SongSearch @ref="_songTabSearch" ResultsCount="30"/>
 }
 
-@if (_currentTab == Tab.Users)
-{
-    <UserSearch @ref="UserTabSearch" ResultsCount="30"/>
-}
+@* @if (_currentTab == Tab.Users) *@
+@* { *@
+@*     <UserSearch @ref="_userTabSearch" ResultsCount="30"/> *@
+@* } *@
