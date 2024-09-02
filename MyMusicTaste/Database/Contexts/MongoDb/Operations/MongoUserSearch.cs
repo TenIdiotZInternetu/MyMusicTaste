@@ -3,7 +3,7 @@ using MyMusicTaste.Models;
 
 namespace MyMusicTaste.Database.Contexts.MongoDb.Operations;
 
-public class UserSearch : ISearchOperation<User>
+public class MongoUserSearch : ISearchOperation<User>
 {
     public List<User>? Search(string query, int resultsCount)
     {

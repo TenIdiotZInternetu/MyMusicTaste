@@ -23,7 +23,7 @@ public static class DependencyInjections
     private static void InjectDbOperations(this IServiceCollection services)
     {
         services.AddSingleton<ISongSubmission, SongSubmission>();
-        services.AddTransient<ISearchOperation<Song>, SongSearch>();
-        services.AddTransient<ISearchOperation<User>, UserSearch>();
+        services.AddTransient<ISearchOperation<Song>, MongoSongSearch>();
+        services.AddTransient<ISearchOperation<User>, MongoUserSearch>();
     }
 }
