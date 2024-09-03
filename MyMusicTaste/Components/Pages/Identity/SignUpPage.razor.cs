@@ -2,8 +2,8 @@ using Microsoft.AspNetCore.Components;
 
 namespace MyMusicTaste.Components.Pages.Identity;
 
-public partial class SignInPage : ComponentBase
+public partial class SignupPage : ComponentBase
 {
-    public const string RouteTemplate = "/signin";
+    public const string RouteTemplate = "/signup";
     public static string GetRoute() => RouteTemplate;
 }

@@ -13,7 +13,7 @@ public class EntryAlreadyExistsException(string message) : DatabaseOperationExce
 
 public class EntryNotFoundException(string message) : DatabaseOperationException(message);
 
-public class UserRegistrationFailedException(IEnumerable<IdentityError> errors) : DatabaseOperationException
+public class UserSignupFailedException(IEnumerable<IdentityError> errors) : DatabaseOperationException
 {
     public readonly IEnumerable<IdentityError> Errors = errors;
 }

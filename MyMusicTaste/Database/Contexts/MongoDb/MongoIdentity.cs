@@ -34,21 +34,21 @@ public class MongoIdentity : IIdentityProvider
         services.AddScoped<IIdentityProvider, MongoIdentity>();
     }
 
-    public async Task RegisterUserAsync(IRegisterUserDto newUser)
+    public async Task SignUpUserAsync(IUserSignupDto newUserSignup)
     {
         var mongoUser = new MongoUser
         {
-            UserName = newUser.Username,
-            Email = newUser.Email
+            UserName = newUserSignup.Username,
+            Email = newUserSignup.Email
         };
         
-        var result = await _userManager.CreateAsync(mongoUser, newUser.Password);
+        var result = await _userManager.CreateAsync(mongoUser, newUserSignup.Password);
         if (!result.Succeeded)
         {
-            throw new UserRegistrationFailedException(result.Errors);
+            throw new UserSignupFailedException(result.Errors);
         }
 
-        var userModel = new User(newUser.Username);
+        var userModel = new User(newUserSignup.Username);
         await _userRepository.CreateAsync(userModel);
     }
 

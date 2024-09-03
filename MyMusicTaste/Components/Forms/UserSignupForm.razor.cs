@@ -7,9 +7,9 @@ using MyMusicTaste.Database.Operations;
 
 namespace MyMusicTaste.Components.Forms;
 
-public partial class RegisterUserForm : ComponentBase
+public partial class UserSignupForm : ComponentBase
 {
-    private class NewUserDto : IRegisterUserDto
+    private class _newUserSignupDto : IUserSignupDto
     {
         [Required(ErrorMessage = "Enter your username.")]
         [StringLength(24)]
@@ -25,7 +25,7 @@ public partial class RegisterUserForm : ComponentBase
     }
     
     [SupplyParameterFromForm]
-    private NewUserDto _newUser { get; set; } = new();
+    private _newUserSignupDto NewUserSignup { get; set; } = new();
     
     private bool _submitted { get; set; } = false;
     private IEnumerable<string> _errors = new List<string>();
@@ -34,10 +34,10 @@ public partial class RegisterUserForm : ComponentBase
     {
         try
         {
-            await Identity.RegisterUserAsync(_newUser);
+            await Identity.SignUpUserAsync(NewUserSignup);
             _submitted = true;
         }
-        catch (UserRegistrationFailedException e)
+        catch (UserSignupFailedException e)
         {
             _errors = e.Errors.Select(err => err.Description);
         }

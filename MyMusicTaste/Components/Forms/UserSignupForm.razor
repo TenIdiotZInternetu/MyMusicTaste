@@ -2,21 +2,21 @@
 
 @inject IIdentityProvider Identity
 
-<EditForm Model="_newUser" OnValidSubmit="SubmitAsync" FormName="RegisterUser">
+<EditForm Model="NewUserSignup" OnValidSubmit="SubmitAsync" FormName="UserSignup">
     <DataAnnotationsValidator/>
     <label>
         Username:
-        <InputText @bind-Value="_newUser.Username"/>
+        <InputText @bind-Value="NewUserSignup.Username"/>
     </label>
     <br/>
     <label>
         Email:
-        <InputText @bind-Value="_newUser.Email"/>
+        <InputText @bind-Value="NewUserSignup.Email"/>
     </label>
     <br/>
     <label>
         Password:
-        <InputText @bind-Value="_newUser.Password"/>
+        <InputText @bind-Value="NewUserSignup.Password"/>
     </label>
     <button type="submit">Submit</button>
 </EditForm>
@@ -29,5 +29,5 @@
 @if (_submitted)
 {
     <p>Submitted!</p>
-    <p>@_newUser.Username</p>
+    <p>@NewUserSignup.Username</p>
 }
