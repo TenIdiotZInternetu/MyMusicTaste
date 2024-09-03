@@ -9,4 +9,9 @@ public class User : Model
     public string? BannerPictureLink { get; set; }
     
     public List<UserCollectionEntry> List { get; set; } = new();
+
+    public User(string username)
+    {
+        Username = username;
+    }
 }
