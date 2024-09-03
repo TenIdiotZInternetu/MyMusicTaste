@@ -3,10 +3,12 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using MongoDB.Bson;
 using MongoDbGenericRepository.Attributes;
+using MyMusicTaste.Database.Operations;
+using MyMusicTaste.Models;
 
 namespace MyMusicTaste.Database.Contexts.MongoDb;
 
-[CollectionName("Users")]
+[CollectionName("Accounts")]
 public class MongoUser : MongoIdentityUser<ObjectId> {}
 
 [CollectionName("Roles")]
@@ -15,10 +17,12 @@ public class MongoRole : MongoIdentityRole<ObjectId> {}
 public class MongoIdentity : IIdentityProvider
 {
     private readonly UserManager<MongoUser> _userManager;
+    private readonly IDbRepository<User> _userRepository;
 
-    public MongoIdentity(UserManager<MongoUser> userManager)
+    public MongoIdentity(UserManager<MongoUser> userManager, IDbRepository<User> userRepository)
     {
         _userManager = userManager;
+        _userRepository = userRepository;
     }
 
     public static void Configure(IServiceCollection services, string connectionString)
@@ -39,11 +43,13 @@ public class MongoIdentity : IIdentityProvider
         };
         
         var result = await _userManager.CreateAsync(mongoUser, newUser.Password);
-        
         if (!result.Succeeded)
         {
-            throw new AuthenticationFailureException("Failed to register user.");
+            throw new UserRegistrationFailedException(result.Errors);
         }
+
+        var userModel = new User(newUser.Username);
+        await _userRepository.CreateAsync(userModel);
     }
 
     public async Task AssignRoleAsync(MongoUser user, MongoRole role)

@@ -2,12 +2,13 @@
 @using MyMusicTaste.Database
 @using MyMusicTaste.Models
 @using MyMusicTaste.Components.SearchComps
+@using MyMusicTaste.Components.Forms
 
 @rendermode InteractiveServer
 
 @inject IDbRepository<Song> Repo
 
-<SongSearch Query="Lo" ResultsCount="10"/>
+<RegisterUserForm/>
 
 @code 
 {
