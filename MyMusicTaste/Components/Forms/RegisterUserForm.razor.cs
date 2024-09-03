@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Components;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 using MyMusicTaste.Database;
 using MyMusicTaste.Database.Contexts.MongoDb;
+using MyMusicTaste.Database.Operations;
 
 namespace MyMusicTaste.Components.Forms;
 
@@ -26,10 +28,18 @@ public partial class RegisterUserForm : ComponentBase
     private NewUserDto _newUser { get; set; } = new();
     
     private bool _submitted { get; set; } = false;
+    private IEnumerable<string> _errors = new List<string>();
     
     private async Task SubmitAsync()
     {
-        await Identity.RegisterUserAsync(_newUser);
-        _submitted = true;
+        try
+        {
+            await Identity.RegisterUserAsync(_newUser);
+            _submitted = true;
+        }
+        catch (UserRegistrationFailedException e)
+        {
+            _errors = e.Errors.Select(err => err.Description);
+        }
     }
 }

@@ -21,6 +21,11 @@
     <button type="submit">Submit</button>
 </EditForm>
 
+@foreach (var error in _errors) 
+{
+    <p>@error</p>
+}
+
 @if (_submitted)
 {
     <p>Submitted!</p>
