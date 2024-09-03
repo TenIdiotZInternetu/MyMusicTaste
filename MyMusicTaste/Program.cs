@@ -14,6 +14,7 @@ MongoDbContext.Connect(dbConnectionString);
 
 builder.Services.InjectDependencies();
 MongoIdentity.Configure(builder.Services, dbConnectionString!);
+IdentitySettings.Setup(builder.Services);
 
 var app = builder.Build();
 
