@@ -7,14 +7,8 @@
 
 @inject IDbRepository<Song> Repo
 
-<SongSearch @ref="Search" ResultsCount="10"/>
+<SongSearch Query="Lo" ResultsCount="10"/>
 
 @code 
 {
-    private SongSearch Search { get; set; } = new();
-    
-    protected override void OnAfterRender(bool _)
-    {
-        Search.UpdateResults("Lo");
-    }
 }

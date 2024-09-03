@@ -16,7 +16,7 @@
 {
     <h4>Songs</h4>
     <hr/>
-    <SongSearch @ref="_allTabSongSearch" ResultsCount="4"/>
+    <SongSearch Query="@_searchQuery" ResultsCount="4"/>
     
     <h4>Users</h4>
     <hr/>
@@ -25,7 +25,7 @@
 
 @if (_currentTab == Tab.Songs)
 {
-    <SongSearch @ref="_songTabSearch" ResultsCount="30"/>
+    <SongSearch Query="@_searchQuery" ResultsCount="30"/>
 }
 
 @* @if (_currentTab == Tab.Users) *@
