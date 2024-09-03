@@ -12,6 +12,7 @@ public class MongoCollectionFactory
     private static readonly Dictionary<Type, CollectionInfo> _collectionMapping = new()
     {
         { typeof(User), new CollectionInfo("Core", "Users") },
+        { typeof(Song), new CollectionInfo("Core", "Songs") },
         { typeof(MongoSongModel), new CollectionInfo("Core", "Songs") }
     };
     
