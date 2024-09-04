@@ -4,7 +4,11 @@ namespace MyMusicTaste.Models;
 
 public class SongRating : Model
 {
-    public ObjectId UserId { get; set; }
-    public ObjectId SongId { get; set; }
-    public int Rating { get; set; }
+    private const byte NOT_RATED = 255;
+    
+    public User? User { get; set; }
+    public Song? Song { get; set; }
+    public byte Rating { get; set; } = NOT_RATED;
+
+    public bool IsValid => User != null && Song != null;
 }
