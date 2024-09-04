@@ -3,13 +3,28 @@
 @using MyMusicTaste.Models
 @using MyMusicTaste.Components.SearchComps
 @using MyMusicTaste.Components.Forms
+@using MyMusicTaste.Database.Contexts.MongoDb.Operations
+@using MyMusicTaste.Database.Operations
+@using NuGet.Protocol.Core.Types
 
 @rendermode InteractiveServer
 
-@inject IDbRepository<Song> Repo
+@inject IDbRepository<User> Repo
+@inject ISongRatingListing RatingListing
 
-<UserSignupForm/>
+@foreach  (var rating in _ratings){
+    <p>@rating.User.Username</p>
+    <p>@rating.Song.Title</p>
+    <p>@rating.Rating</p>
+}
 
 @code 
 {
+    private List<SongRating> _ratings;
+
+    protected override void OnInitialized()
+    {
+        User user = Repo.GetById("66d765fa8916a6174af348ca");
+        _ratings = RatingListing.GetRatingsByUser(user).ToList();
+    }
 }
