@@ -1,6 +1,8 @@
-namespace MyMusicTaste.Models;
+using MyMusicTaste.Models;
 
-public class UserCollectionEntry : Model
+namespace MyMusicTaste.CanonicalModels;
+
+public class SongRating : Model
 {
     public User? User { get; set; }
     public Song? Song { get; set; }
