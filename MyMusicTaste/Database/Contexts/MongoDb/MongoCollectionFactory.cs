@@ -1,6 +1,5 @@
 using MongoDB.Driver;
 using MyMusicTaste.Database.Connections;
-using MyMusicTaste.Database.Contexts.MongoDb.Models;
 using MyMusicTaste.Models;
 
 namespace MyMusicTaste.Database.Contexts.MongoDb;
@@ -12,7 +11,7 @@ public class MongoCollectionFactory
     private static readonly Dictionary<Type, CollectionInfo> _collectionMapping = new()
     {
         { typeof(User), new CollectionInfo("Core", "Users") },
-        { typeof(MongoSongModel), new CollectionInfo("Core", "Songs") }
+        { typeof(Song), new CollectionInfo("Core", "Songs") }
     };
     
     public static IMongoCollection<TModel> Create<TModel>() where TModel : Model
