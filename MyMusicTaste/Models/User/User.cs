@@ -1,5 +1,3 @@
-using MyMusicTaste.CanonicalModels;
-
 namespace MyMusicTaste.Models;
 
 public class User : Model
@@ -10,7 +8,7 @@ public class User : Model
     public string? ProfilePictureLink { get; set; }
     public string? BannerPictureLink { get; set; }
     
-    public List<SongRating> SongRatings { get; set; } = new();
+    public List<UserCollectionEntry> List { get; set; } = new();
 
     public User(string username)
     {
