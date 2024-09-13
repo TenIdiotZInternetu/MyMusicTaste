@@ -10,8 +10,8 @@ public class MongoSongRatingListing : ISongRatingListing
 {
     private class RatingDto : SongRating
     {
-        public ObjectId UserId;
-        public ObjectId SongId;
+        public ObjectId UserId { get; set; }
+        public ObjectId SongId { get; set; }
     }
     
     // Collection acquirement is subject to change
@@ -30,7 +30,7 @@ public class MongoSongRatingListing : ISongRatingListing
     public IEnumerable<SongRating> GetRatingsByUser(User user)
     {
         var filter = Builders<RatingDto>.Filter
-            .Eq(x => x.UserId, user.Id);
+            .Eq(dto => dto.UserId, user.Id);
 
         List<RatingDto> results = _collection.Find(filter).ToList();
         return results.ToList().Select(dto => new SongRating()
@@ -44,6 +44,16 @@ public class MongoSongRatingListing : ISongRatingListing
 
     public IEnumerable<SongRating> GetRatingsBySong(Song song)
     {
-        throw new NotImplementedException();
+        var filter = Builders<RatingDto>.Filter
+            .Eq(dto => dto.SongId, song.Id);
+        
+        List<RatingDto> results = _collection.Find(filter).ToList();
+        return results.ToList().Select(dto => new SongRating()
+        {
+            Id = dto.Id,
+            User = _usersRepo.GetById(dto.UserId),
+            Song = song,
+            Rating = dto.Rating
+        });
     }
 }
