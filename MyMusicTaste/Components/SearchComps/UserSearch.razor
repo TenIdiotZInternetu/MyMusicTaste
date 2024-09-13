@@ -1,6 +1,19 @@
+@using MyMusicTaste.Models
 
-<h3>UserSearchComponent</h3>
+@inherits SearchComponent<User>
 
-@code {
-    
+@rendermode InteractiveServer
+
+@if (Results == null)
+{
+    <p>Start typing in the search bar...</p>
+}
+else
+{
+    <div class="list-group">
+        @foreach (var user in Results)
+        {
+            <UserSearchItem User="user"/>
+        }
+    </div>
 }

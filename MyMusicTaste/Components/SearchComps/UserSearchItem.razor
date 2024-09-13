@@ -1,5 +1,20 @@
-<h3>UserSearchItem</h3>
+@inject NavigationManager Navigation
+@rendermode InteractiveServer
 
-@code {
-    
-}
+<button type="button" @onclick="GoToUserPage" id="container">
+    <div class="cover-container">
+        @if (_hasProfilePicture)
+        {
+
+        }
+        else
+        {
+            <div class="cover-placeholder align-content-center">
+            </div>
+        }
+    </div>
+
+    <div class="px-2 text-start">
+        <p class="item-text song-title">@User!.Username</p>
+    </div>
+</button>

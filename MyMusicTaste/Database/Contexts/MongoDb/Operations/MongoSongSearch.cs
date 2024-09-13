@@ -6,6 +6,7 @@ namespace MyMusicTaste.Database.Contexts.MongoDb.Operations;
 
 public class MongoSongSearch : ISearchOperation<Song>
 {
+    private const string SEARCH_INDEX = "SongsIndex";
     private IMongoCollection<Song> _collection = MongoCollectionFactory.Create<Song>();
 
     public List<Song>? Search(string query, int resultsCount)
@@ -18,7 +19,7 @@ public class MongoSongSearch : ISearchOperation<Song>
         return _collection.Aggregate()
             .Search(
                 Builders<Song>.Search.Autocomplete(song => song.Title, query),
-                indexName: "SongsIndex")
+                indexName: SEARCH_INDEX)
             .Limit(resultsCount)
             .ToList();
     }

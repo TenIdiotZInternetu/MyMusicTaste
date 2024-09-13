@@ -1,4 +1,3 @@
-@using MyMusicTaste.Database.Operations
 @using MyMusicTaste.Models
 
 @inherits SearchComponent<Song>
@@ -18,8 +17,9 @@ else
             <SongSearchItem Song="song"/>
         }
     </div>
-    <p>
-        Couldn't find the song you were looking for? <br/>
-        Add it to our database!
-    </p>
 }
+
+<p>
+    Couldn't find the song you were looking for? <br/>
+    Add it to our database!
+</p>

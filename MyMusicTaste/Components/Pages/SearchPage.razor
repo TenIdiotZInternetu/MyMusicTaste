@@ -20,7 +20,7 @@
     
     <h4>Users</h4>
     <hr/>
-    @* <UserSearch @ref="_allTabUserSearch" ResultsCount="4"/> *@
+    <UserSearch Query="@_searchQuery" ResultsCount="4"/>
 }
 
 @if (_currentTab == Tab.Songs)
@@ -28,7 +28,7 @@
     <SongSearch Query="@_searchQuery" ResultsCount="30"/>
 }
 
-@* @if (_currentTab == Tab.Users) *@
-@* { *@
-@*     <UserSearch @ref="_userTabSearch" ResultsCount="30"/> *@
-@* } *@
+@if (_currentTab == Tab.Users)
+{
+     <UserSearch Query="@_searchQuery" ResultsCount="30"/>
+}
