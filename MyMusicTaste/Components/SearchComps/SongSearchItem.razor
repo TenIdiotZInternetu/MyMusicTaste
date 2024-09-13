@@ -1,19 +1,13 @@
+@using MyMusicTaste.Components.Misc
+@using MyMusicTaste.Models
+
 @inject NavigationManager Navigation
+
 @rendermode InteractiveServer
 
 <button type="button" @onclick="GoToSongPage" id="container">
-    <div class="cover-container">
-        @if (_hasCover)
-        {
-
-        }
-        else
-        {
-        <div class="cover-placeholder align-content-center">
-        </div>
-        }
-    </div>
-
+    <Thumbnail ImageLink="@Song!.CoverImageLink"></Thumbnail>
+    
     <div class="px-2 text-start">
         <p class="item-text song-title">@Song.Title</p>
         <p class="item-text">@Song.Author - @Song.Album</p>

@@ -1,0 +1,11 @@
+.thumbnail-container {
+    padding: 0.4em;
+    height: 100%;
+    aspect-ratio: 1/1;
+}
+
+.thumbnail-placeholder {
+    height: 100%;
+    background: #6b6b6b;
+    border-radius: var(--b-radius);
+}

@@ -9,9 +9,6 @@ public partial class UserSearchItem : ComponentBase
     [Parameter] 
     public User? User { get; set; }
     
-    private bool _hasProfilePicture => User?.ProfilePictureLink != null;
-
-
     private void GoToUserPage()
     {
         Navigation.NavigateTo(UserPage.GetRoute(User!.Id));

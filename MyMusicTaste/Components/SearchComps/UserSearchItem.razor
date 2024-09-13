@@ -1,18 +1,11 @@
+@using MyMusicTaste.Components.Misc
+
 @inject NavigationManager Navigation
+
 @rendermode InteractiveServer
 
 <button type="button" @onclick="GoToUserPage" id="container">
-    <div class="cover-container">
-        @if (_hasProfilePicture)
-        {
-
-        }
-        else
-        {
-            <div class="cover-placeholder align-content-center">
-            </div>
-        }
-    </div>
+    <Thumbnail ImageLink="@User!.ProfilePictureLink"></Thumbnail>
 
     <div class="px-2 text-start">
         <p class="item-text song-title">@User!.Username</p>
