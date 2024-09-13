@@ -1,9 +1,12 @@
 @attribute [Route(RouteTemplate)]
 
+@using Microsoft.IdentityModel.Tokens
 @using MyMusicTaste.Database
+@using MyMusicTaste.Database.Operations
 @using MyMusicTaste.Models
 
 @inject IDbRepository<User> UserRepository
+@inject ISongRatingListing RatingListing
 @inject IIdentityProvider Identity
 
 
@@ -15,10 +18,21 @@
 
 @if (_pageState == PageState.UserNotFound)
 {
+    <PageTitle>404</PageTitle>
     <p>User not found</p>
 }
 
 @if (_pageState == PageState.Loaded)
 {
     <PageTitle>@_user!.Username</PageTitle>
+    
+    <h1>@_user!.Username</h1>
+    
+    <h4>About Me:</h4>
+    <p>@_aboutMeText</p>
+    
+    @foreach (var rating in _ratings)
+    {
+        <p>@rating.Song.Title - @rating.Rating</p>
+    }
 }
