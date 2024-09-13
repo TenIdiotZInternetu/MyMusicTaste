@@ -24,7 +24,7 @@
 
     protected override void OnInitialized()
     {
-        User user = Repo.GetById("66d765fa8916a6174af348ca");
+        User user = Repo.GetById("66d76c58ab4d0cf312baa3d0");
         _ratings = RatingListing.GetRatingsByUser(user).ToList();
     }
 }

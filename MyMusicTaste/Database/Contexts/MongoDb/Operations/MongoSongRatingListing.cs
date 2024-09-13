@@ -42,7 +42,7 @@ public class MongoSongRatingListing : ISongRatingListing
         });
     }
 
-    public IEnumerable<SongRating> GetRaginsBySong(Song song)
+    public IEnumerable<SongRating> GetRatingsBySong(Song song)
     {
         throw new NotImplementedException();
     }
