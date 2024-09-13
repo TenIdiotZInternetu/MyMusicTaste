@@ -1,21 +1,25 @@
 @using MyMusicTaste.Database.Operations
 @using MyMusicTaste.Models
 
-@inject ISearchOperation<Song> Searcher
+@inherits SearchComponent<Song>
 
 @rendermode InteractiveServer
 
 
-@if (_results == null)
+@if (Results == null)
 {
     <p>Start typing in the search bar...</p>
 }
 else
 {
     <div class="list-group">
-        @foreach (var song in _results)
+        @foreach (var song in Results)
         {
             <SongSearchItem Song="song"/>
         }
     </div>
+    <p>
+        Couldn't find the song you were looking for? <br/>
+        Add it to our database!
+    </p>
 }
