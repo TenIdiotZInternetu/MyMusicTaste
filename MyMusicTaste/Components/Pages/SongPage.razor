@@ -6,16 +6,19 @@
 
 @if (_pageState == PageState.Loading)
 {
+    <PageTitle>Loading...</PageTitle>
     <p>Loading...</p>
 }
 
 @if (_pageState == PageState.SongNotFound)
 {
+    <PageTitle>404</PageTitle>
     <p>Song not found</p>
 }
 
 @if (_pageState == PageState.Loaded)
 {
+    <PageTitle>@_song!.Title</PageTitle>
     <h1>@_song!.Title</h1>
     <p>Author: @_song.Author</p>
     <p>Album: @_song.Album</p>
