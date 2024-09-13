@@ -1,7 +1,4 @@
-using Microsoft.IdentityModel.Tokens;
-using MongoDB.Bson;
 using MongoDB.Driver;
-using MyMusicTaste.Database.Connections;
 using MyMusicTaste.Database.Operations;
 using MyMusicTaste.Models;
 
@@ -13,7 +10,7 @@ public class MongoSongSearch : ISearchOperation<Song>
 
     public List<Song>? Search(string query, int resultsCount)
     {
-        if (query.IsNullOrEmpty())
+        if (string.IsNullOrEmpty(query))
         {
             return null;
         }

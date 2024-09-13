@@ -1,3 +1,4 @@
+using MongoDB.Driver;
 using MyMusicTaste.Database.Operations;
 using MyMusicTaste.Models;
 
@@ -5,8 +6,20 @@ namespace MyMusicTaste.Database.Contexts.MongoDb.Operations;
 
 public class MongoUserSearch : ISearchOperation<User>
 {
+    private IMongoCollection<User> _collection = MongoCollectionFactory.Create<User>();
+
     public List<User>? Search(string query, int resultsCount)
     {
-        throw new NotImplementedException();
+        if (string.IsNullOrEmpty(query))
+        {
+            return null;
+        }
+
+        return _collection.Aggregate()
+            .Search(
+                Builders<User>.Search.Autocomplete(user => user.Username, query),
+                indexName: "UsersIndex")
+            .Limit(resultsCount)
+            .ToList();
     }
 }
