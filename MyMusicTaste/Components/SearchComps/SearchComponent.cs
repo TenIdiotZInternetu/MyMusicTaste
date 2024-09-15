@@ -17,22 +17,27 @@ public class SearchComponent<TModel> : ComponentBase
     [Inject] 
     protected ISearchOperation<TModel>? Searcher { get; set; }
     
-    protected List<TModel>? Results { get; set; }
+    protected IEnumerable<TModel>? Results { get; set; }
     
-    public void UpdateResults()
+    public async Task UpdateResults()
     {
         if (Query == null)
         {
             Results = null;
             return;
         }
+
+        if (Searcher == null)
+        {
+            throw new NullReferenceException("Injected ISearchOperation is null");
+        }
         
-        Results = Searcher.Search(Query, ResultsCount);
+        Results = await Searcher.SearchAsync(Query, ResultsCount);
         StateHasChanged();
     }
 
-    protected override void OnAfterRender(bool _)
+    protected override async Task OnAfterRenderAsync(bool _)
     {
-        UpdateResults();
+        await UpdateResults();
     }
 }

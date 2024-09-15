@@ -9,18 +9,18 @@ public class MongoSongSearch : ISearchOperation<Song>
     private const string SEARCH_INDEX = "SongsIndex";
     private IMongoCollection<Song> _collection = MongoCollectionFactory.Create<Song>();
 
-    public List<Song>? Search(string query, int resultsCount)
+    public async Task<IEnumerable<Song>?> SearchAsync(string query, int resultsCount)
     {
         if (string.IsNullOrEmpty(query))
         {
             return null;
         }
         
-        return _collection.Aggregate()
+        return await _collection.Aggregate()
             .Search(
                 Builders<Song>.Search.Autocomplete(song => song.Title, query),
                 indexName: SEARCH_INDEX)
             .Limit(resultsCount)
-            .ToList();
+            .ToListAsync();
     }
 }
