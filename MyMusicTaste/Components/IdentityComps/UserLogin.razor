@@ -1,0 +1,22 @@
+@using MyMusicTaste.Database
+
+@inject IIdentityProvider Identity
+
+<EditForm Model="LoginDto" OnValidSubmit="SubmitAsync" FormName="UserLogin">
+    <DataAnnotationsValidator/>
+    <label>
+        Username:
+        <InputText @bind-Value="LoginDto.Username"/>
+    </label>
+    <br/>
+    <label>
+        Password:
+        <InputText @bind-Value="LoginDto.Password"/>
+    </label>
+    <button type="submit">Submit</button>
+</EditForm>
+
+@if (_invalidCredentials)
+{
+    <p>The Username or Password is not correct</p>
+}

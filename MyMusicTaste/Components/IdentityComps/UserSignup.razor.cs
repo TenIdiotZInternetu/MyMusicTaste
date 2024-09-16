@@ -22,7 +22,7 @@ public partial class UserSignup : ComponentBase
         public string? Password { get; set; }
     }
     
-    [SupplyParameterFromForm]
+    [SupplyParameterFromForm(FormName = "UserSignup")]
     private _newUserSignupDto NewUserSignup { get; set; } = new();
     
     private bool _submitted { get; set; } = false;
@@ -34,7 +34,8 @@ public partial class UserSignup : ComponentBase
 
         if (!result.Succeeded)
         {
-            _errors = result.Errors.Select(err => err.Description);;
+            _errors = result.Errors.Select(err => err.Description);
+            return;
         }
         
         _submitted = true;
