@@ -1,2 +1,14 @@
+@using MyMusicTaste.Components.IdentityComps
 @attribute [Route(RouteTemplate)]
 
+<div class="d-flex">
+    <div>
+        <p>Log in to your account</p>
+        <UserLoginForm/>
+    </div>
+    <div class="vr"></div>
+    <div>
+        <p>Or sign up if you're new</p>
+        <UserSignupForm/>
+    </div>
+</div>
