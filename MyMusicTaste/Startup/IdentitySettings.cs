@@ -16,5 +16,7 @@ public static class IdentitySettings
 
             options.Password.RequireNonAlphanumeric = false;
         });
+        
+        services.AddCascadingAuthenticationState();
     }
 }
