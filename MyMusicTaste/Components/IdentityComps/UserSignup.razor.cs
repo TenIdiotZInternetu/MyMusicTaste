@@ -1,13 +1,11 @@
-using Microsoft.AspNetCore.Components;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Components;
 using MyMusicTaste.Database;
-using MyMusicTaste.Database.Contexts.MongoDb;
 using MyMusicTaste.Database.Operations;
 
-namespace MyMusicTaste.Components.Forms;
+namespace MyMusicTaste.Components.IdentityComps;
 
-public partial class UserSignupForm : ComponentBase
+public partial class UserSignup : ComponentBase
 {
     private class _newUserSignupDto : IUserSignupDto
     {
@@ -32,14 +30,13 @@ public partial class UserSignupForm : ComponentBase
     
     private async Task SubmitAsync()
     {
-        try
+        var result = await Identity.SignUpUserAsync(NewUserSignup);
+
+        if (!result.Succeeded)
         {
-            await Identity.SignUpUserAsync(NewUserSignup);
-            _submitted = true;
+            _errors = result.Errors.Select(err => err.Description);;
         }
-        catch (UserSignupFailedException e)
-        {
-            _errors = e.Errors.Select(err => err.Description);
-        }
+        
+        _submitted = true;
     }
 }

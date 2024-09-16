@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components;
 
-namespace MyMusicTaste.Components.Pages.Identity;
+namespace MyMusicTaste.Components.Pages;
 
 public partial class LoginPage : ComponentBase
 {
