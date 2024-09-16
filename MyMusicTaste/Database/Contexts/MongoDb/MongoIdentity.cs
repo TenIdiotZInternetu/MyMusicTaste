@@ -9,51 +9,79 @@ using MyMusicTaste.Models;
 namespace MyMusicTaste.Database.Contexts.MongoDb;
 
 [CollectionName("Accounts")]
-public class MongoUser : MongoIdentityUser<ObjectId> {}
+public class MongoAccount : MongoIdentityUser<ObjectId>
+{
+    public ObjectId UserId;
+}
 
 [CollectionName("Roles")]
 public class MongoRole : MongoIdentityRole<ObjectId> {}
 
 public class MongoIdentity : IIdentityProvider
 {
-    private readonly UserManager<MongoUser> _userManager;
     private readonly IDbRepository<User> _userRepository;
+    private readonly SignInManager<MongoAccount> _signInManager;
+    private UserManager<MongoAccount> _userManager => _signInManager.UserManager;
 
-    public MongoIdentity(UserManager<MongoUser> userManager, IDbRepository<User> userRepository)
+    public MongoIdentity(SignInManager<MongoAccount> signInManager, IDbRepository<User> userRepository)
     {
-        _userManager = userManager;
+        _signInManager = signInManager;
         _userRepository = userRepository;
     }
 
     public static void Configure(IServiceCollection services, string connectionString)
     {
-        services.AddIdentity<MongoUser, MongoRole>()
-            .AddMongoDbStores<MongoUser, MongoRole, ObjectId>(connectionString, "Security")
+        services.AddIdentity<MongoAccount, MongoRole>()
+            .AddMongoDbStores<MongoAccount, MongoRole, ObjectId>(connectionString, "Security")
             .AddDefaultTokenProviders();
         
         services.AddScoped<IIdentityProvider, MongoIdentity>();
     }
 
-    public async Task SignUpUserAsync(IUserSignupDto newUserSignup)
+    public async Task<IdentityResult> SignUpUserAsync(IUserSignupDto newUserSignup)
     {
-        var mongoUser = new MongoUser
-        {
-            UserName = newUserSignup.Username,
-            Email = newUserSignup.Email
-        };
+        var userId = new ObjectId();
+        var result = await CreateAccountAsync(newUserSignup, userId);
         
-        var result = await _userManager.CreateAsync(mongoUser, newUserSignup.Password);
         if (!result.Succeeded)
         {
-            throw new UserSignupFailedException(result.Errors);
+            return result;
         }
 
-        var userModel = new User(newUserSignup.Username);
-        await _userRepository.CreateAsync(userModel);
+        await CreateUserAsync(newUserSignup, userId);
+        return result;
     }
 
-    public async Task AssignRoleAsync(MongoUser user, MongoRole role)
+    public Task<SignInResult> LoginUserAsync(IUserLoginDto userLogin)
+    {
+        return _signInManager
+            .PasswordSignInAsync(userLogin.Username, userLogin.Password, true, false);
+    }
+
+    public Task<IdentityResult> AssignRoleAsync(IdentityUser user, IdentityRole role)
     {
         throw new NotImplementedException();
+    }
+
+    private async Task<IdentityResult> CreateAccountAsync(IUserSignupDto newUserSignup, ObjectId userId)
+    {
+        var mongoUser = new MongoAccount
+        {
+            UserName = newUserSignup.Username,
+            Email = newUserSignup.Email,
+            UserId = userId
+        };
+        
+        return await _userManager.CreateAsync(mongoUser, newUserSignup.Password);
+    }
+
+    private async Task CreateUserAsync(IUserSignupDto newUserSignup, ObjectId userId)
+    {
+        var userModel = new User(newUserSignup.Username)
+        {
+            Id = userId
+        };
+
+        await _userRepository.CreateAsync(userModel);
     }
 }

@@ -9,22 +9,9 @@
 
 @rendermode InteractiveServer
 
-@inject IDbRepository<User> Repo
-@inject ISongRatingListing RatingListing
-
-@foreach  (var rating in _ratings){
-    <p>@rating.User.Username</p>
-    <p>@rating.Song.Title</p>
-    <p>@rating.Rating</p>
-}
+<NewSongForm/>
 
 @code 
 {
-    private List<SongRating> _ratings;
-
-    protected override void OnInitialized()
-    {
-        User user = Repo.GetById("66d76c58ab4d0cf312baa3d0");
-        _ratings = RatingListing.GetRatingsByUser(user).ToList();
-    }
+    
 }
