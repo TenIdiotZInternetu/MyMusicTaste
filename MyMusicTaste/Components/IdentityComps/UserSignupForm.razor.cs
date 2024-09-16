@@ -5,7 +5,7 @@ using MyMusicTaste.Database.Operations;
 
 namespace MyMusicTaste.Components.IdentityComps;
 
-public partial class UserSignup : ComponentBase
+public partial class UserSignupForm : ComponentBase
 {
     private class _newUserSignupDto : IUserSignupDto
     {

@@ -6,7 +6,7 @@ using MyMusicTaste.Database.Operations;
 
 namespace MyMusicTaste.Components.IdentityComps;
 
-public partial class UserLogin : ComponentBase
+public partial class UserLoginForm : ComponentBase
 {
     private class _LoginDto : IUserLoginDto
     {
