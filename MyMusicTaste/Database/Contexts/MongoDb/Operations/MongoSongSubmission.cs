@@ -6,7 +6,7 @@ namespace MyMusicTaste.Database.Contexts.MongoDb.Operations;
 
 public class SongSubmission : ISongSubmission
 {
-    private static readonly MongoRepository<Song> _repository = new();
+    private static readonly MongoRepository<Song> REPOSITORY = new();
     
     public void SubmitSong(Song songModel)
     {
@@ -20,7 +20,7 @@ public class SongSubmission : ISongSubmission
             throw new EntryAlreadyExistsException("The submitted song already exists in the database.");
         }
         
-        await _repository.CreateAsync(song);
+        await REPOSITORY.CreateAsync(song);
     }
     
     private async Task<bool> AlreadyExistsAsync(Song song)
@@ -30,7 +30,7 @@ public class SongSubmission : ISongSubmission
         var filter = builder.Eq(x => x.Title, song.Title) &
                      builder.Eq(x => x.Author, song.Author);
         
-        var collection = _repository.Collection;
+        var collection = REPOSITORY.Collection;
         var doc = collection.Find(filter).FirstOrDefault();
         return doc != null;
     }

@@ -4,7 +4,7 @@ namespace MyMusicTaste.Database.Connections;
 
 public class MongoDbContext
 {
-    private static readonly ServerApiVersion ApiVersion = ServerApiVersion.V1;
+    private static readonly ServerApiVersion API_VERSION = ServerApiVersion.V1;
     public static MongoClient Client { get; private set; }
     
     public static void Connect(string? key)
@@ -15,7 +15,7 @@ public class MongoDbContext
         }
 
         var mongoSettings = MongoClientSettings.FromConnectionString(key);
-        mongoSettings.ServerApi = new ServerApi(ApiVersion);
+        mongoSettings.ServerApi = new ServerApi(API_VERSION);
         
         Client = new MongoClient(mongoSettings);
     }
