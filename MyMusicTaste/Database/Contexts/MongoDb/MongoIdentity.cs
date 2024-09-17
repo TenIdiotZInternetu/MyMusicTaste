@@ -58,6 +58,11 @@ public class MongoIdentity : IIdentityProvider
             .PasswordSignInAsync(userLogin.Username, userLogin.Password, true, false);
     }
 
+    public async Task LogOutUserAsync()
+    {
+        await _signInManager.SignOutAsync();
+    }
+
     public Task<IdentityResult> AssignRoleAsync(IdentityUser user, IdentityRole role)
     {
         throw new NotImplementedException();

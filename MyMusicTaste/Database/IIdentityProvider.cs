@@ -6,6 +6,7 @@ public interface IIdentityProvider
 {
     public Task<IdentityResult> SignUpUserAsync(IUserSignupDto userSignup);
     public Task<SignInResult> LoginUserAsync(IUserLoginDto userLoginDto);
+    public Task LogOutUserAsync();
     public Task<IdentityResult> AssignRoleAsync(IdentityUser user, IdentityRole role);
 }
 
