@@ -1,0 +1,15 @@
+@using MyMusicTaste.Components.Pages
+@using MyMusicTaste.Database
+
+@inject IIdentityProvider _identity
+@inject NavigationManager _navigation
+
+<PageTitle>Logout</PageTitle>
+
+<form action="/Logout/Logout" method="post">
+    <input type="submit" value="Logout" />
+</form>
+
+@code {
+
+}

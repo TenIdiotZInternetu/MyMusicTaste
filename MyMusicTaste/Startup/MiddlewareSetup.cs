@@ -16,5 +16,6 @@ public static class MiddlewareSetup
 
         app.MapRazorComponents<App>()
             .AddInteractiveServerRenderMode();
+        app.MapDefaultControllerRoute();
     }
 }

@@ -13,6 +13,7 @@ string? dbConnectionString = builder.Configuration["MONGODB_URI"];
 MongoDbContext.Connect(dbConnectionString);
 
 builder.Services.InjectDependencies();
+builder.Services.AddControllers();
 MongoIdentity.Configure(builder.Services, dbConnectionString!);
 IdentitySettings.Setup(builder.Services);
 
