@@ -1,10 +1,17 @@
+@using Azure.Core
 @using MyMusicTaste.Components.IdentityComps
+@using MyMusicTaste.Controllers
 @attribute [Route(RouteTemplate)]
 
 <div class="d-flex">
     <div>
         <p>Log in to your account</p>
-        <UserLoginForm/>
+        <form method="post" action="@AuthController.LOGIN_URI">
+            <input name="Username"/>
+            <input name="Password"/>
+            <input type="hidden" name="ReturnUrl" value="@HomePage.GetRoute()"/>
+            <button type="submit">Submit</button>
+        </form>
     </div>
     <div class="vr"></div>
     <div>
