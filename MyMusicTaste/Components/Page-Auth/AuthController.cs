@@ -7,8 +7,8 @@ namespace MyMusicTaste.Components.Page_Auth;
 
 [Route("auth")]
 public class AuthController : Controller {
-    public const string LOGIN_URI = "auth/login";
-    public const string LOGOUT_URI = "auth/logout";
+    public const string LOGIN_ROUTE = "auth/login";
+    public const string LOGOUT_ROUTE = "auth/logout";
     
     public class LoginDto : IUserLoginDto
     {

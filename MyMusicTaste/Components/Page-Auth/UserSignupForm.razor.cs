@@ -16,15 +16,13 @@ public partial class UserSignupForm : ComponentBase
         public string Email { get; set; } = null!;
         
         [Required(ErrorMessage = "Enter your password.")]
-        [MinLength(8)]
-        [MaxLength(32)]
         public string Password { get; set; } = null!;
     }
     
     [SupplyParameterFromForm(FormName = "UserSignup")]
-    private _NewUserSignupDto NewUserSignup { get; set; } = null!;
+    private _NewUserSignupDto NewUserSignup { get; set; } = new();
     
-    private bool _submitted { get; set; } = false;
+    private bool _submitted { get; set; }
     private IEnumerable<string> _errors = new List<string>();
     
     private async Task SubmitAsync()

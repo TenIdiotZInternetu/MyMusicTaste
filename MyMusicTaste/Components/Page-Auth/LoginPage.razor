@@ -1,11 +1,11 @@
 @using MyMusicTaste.Components.Page_Home
 @namespace MyMusicTaste.Components.Page_Auth
-@attribute [Route(RouteTemplate)]
+@attribute [Route(ROUTE_TEMPLATE)]
 
 <div class="d-flex">
     <div>
         <p>Log in to your account</p>
-        <form method="post" action="@AuthController.LOGIN_URI">
+        <form method="post" action="@AuthController.LOGIN_ROUTE">
             <input name="Username"/>
             <input name="Password"/>
             <input type="hidden" name="ReturnUrl" value="@HomePage.GetRoute()"/>

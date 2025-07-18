@@ -4,6 +4,6 @@ namespace MyMusicTaste.Components.Page_Auth;
 
 public partial class LoginPage : ComponentBase
 {
-    public const string RouteTemplate = "/login";
-    public static string GetRoute() => RouteTemplate;
+    public const string ROUTE_TEMPLATE = "/login";
+    public static string GetRoute() => ROUTE_TEMPLATE;
 }
