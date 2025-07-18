@@ -1,9 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
-using MyMusicTaste.Components.Pages;
+using MyMusicTaste.Components.Page_Home;
 using MyMusicTaste.Database;
 
-namespace MyMusicTaste.Controllers;
+namespace MyMusicTaste.Components.Page_Auth;
 
 [Route("auth")]
 public class AuthController : Controller {

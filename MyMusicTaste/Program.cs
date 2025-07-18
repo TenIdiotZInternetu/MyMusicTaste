@@ -1,7 +1,5 @@
-using MyMusicTaste;
-using MyMusicTaste.Components;
-using MyMusicTaste.Database.Connections;
 using MyMusicTaste.Database.Contexts.MongoDb;
+using MyMusicTaste.Startup;
 
 var builder = WebApplication.CreateBuilder(args);
 

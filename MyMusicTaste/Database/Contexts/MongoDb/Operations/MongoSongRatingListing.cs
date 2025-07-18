@@ -1,6 +1,5 @@
 using MongoDB.Bson;
 using MongoDB.Driver;
-using MyMusicTaste.Database.Connections;
 using MyMusicTaste.Database.Operations;
 using MyMusicTaste.Models;
 

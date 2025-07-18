@@ -1,10 +1,9 @@
 using Microsoft.AspNetCore.Components;
-using Microsoft.IdentityModel.Tokens;
 using MongoDB.Bson;
 using MyMusicTaste.Database.Operations;
 using MyMusicTaste.Models;
 
-namespace MyMusicTaste.Components.Pages;
+namespace MyMusicTaste.Components.Page_User;
 
 public partial class UserPage : ComponentBase
 {
@@ -13,7 +12,7 @@ public partial class UserPage : ComponentBase
     [Parameter]
     public string? UserId { get; set; }
     
-    private User? _user { get; set; }
+    private Models.User? _user { get; set; }
     private IEnumerable<SongRating> _ratings { get; set; }
     
     private enum PageState { Loading, Loaded, UserNotFound }
@@ -34,7 +33,7 @@ public partial class UserPage : ComponentBase
             _ratings = RatingListing.GetRatingsByUser(_user);
             _pageState = PageState.Loaded;
         }
-        catch (EntryNotFoundException e)
+        catch (EntryNotFoundException)
         {
             _pageState = PageState.UserNotFound;
         }

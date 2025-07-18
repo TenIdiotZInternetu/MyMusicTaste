@@ -1,13 +1,12 @@
 using Microsoft.AspNetCore.Components;
-using MyMusicTaste.Components.Pages;
-using MyMusicTaste.Models;
+using MyMusicTaste.Components.Page_Song;
 
-namespace MyMusicTaste.Components.SearchComps;
+namespace MyMusicTaste.Components.Page_Search;
 
 public partial class SongSearchItem : ComponentBase
 {
     [Parameter] 
-    public Song? Song { get; set; } = new();
+    public Models.Song? Song { get; set; } = new();
 
     private void GoToSongPage()
     {

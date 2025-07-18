@@ -1,9 +1,8 @@
 using Microsoft.AspNetCore.Components;
-using MongoDB.Driver.Search;
 using MyMusicTaste.Database.Operations;
 using MyMusicTaste.Models;
 
-namespace MyMusicTaste.Components.SearchComps;
+namespace MyMusicTaste.Components.Page_Search;
 
 public class SearchComponent<TModel> : ComponentBase
     where TModel : Model

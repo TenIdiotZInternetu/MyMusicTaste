@@ -1,10 +1,9 @@
-@attribute [Route(RouteTemplate)]
-
-@using Microsoft.IdentityModel.Tokens
 @using MyMusicTaste.Database
 @using MyMusicTaste.Database.Operations
 @using MyMusicTaste.Models
-@using MyMusicTaste.Components.UserPageComps
+
+@namespace MyMusicTaste.Components.Page_User
+@attribute [Route(RouteTemplate)]
 
 @inject IDbRepository<User> UserRepository
 @inject ISongRatingListing RatingListing

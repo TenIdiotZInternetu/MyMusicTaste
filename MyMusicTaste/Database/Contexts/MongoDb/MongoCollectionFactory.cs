@@ -1,10 +1,9 @@
 using MongoDB.Driver;
-using MyMusicTaste.Database.Connections;
 using MyMusicTaste.Models;
 
 namespace MyMusicTaste.Database.Contexts.MongoDb;
 
-public class MongoCollectionFactory
+public static class MongoCollectionFactory
 {
     private record struct CollectionInfo(string DbName, string CollectionName);
 
@@ -17,6 +16,12 @@ public class MongoCollectionFactory
     public static IMongoCollection<TModel> Create<TModel>() where TModel : Model
     {
         var client = MongoDbContext.Client;
+
+        if (client == null)
+        {
+            throw new NullReferenceException("Mongo Client not initialized");
+        }
+        
         var collInfo = COLL_MAPPING[typeof(TModel)];
         return client.GetDatabase(collInfo.DbName).GetCollection<TModel>(collInfo.CollectionName);
     }

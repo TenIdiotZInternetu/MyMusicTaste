@@ -1,11 +1,11 @@
 using MongoDB.Driver;
 
-namespace MyMusicTaste.Database.Connections;
+namespace MyMusicTaste.Database.Contexts.MongoDb;
 
 public class MongoDbContext
 {
     private static readonly ServerApiVersion API_VERSION = ServerApiVersion.V1;
-    public static MongoClient Client { get; private set; }
+    public static MongoClient? Client { get; private set; }
     
     public static void Connect(string? key)
     {

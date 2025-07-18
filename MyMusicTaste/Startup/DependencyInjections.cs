@@ -4,7 +4,7 @@ using MyMusicTaste.Database.Contexts.MongoDb.Operations;
 using MyMusicTaste.Database.Operations;
 using MyMusicTaste.Models;
 
-namespace MyMusicTaste;
+namespace MyMusicTaste.Startup;
 
 public static class DependencyInjections
 {

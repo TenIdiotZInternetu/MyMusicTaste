@@ -1,13 +1,12 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Components;
 using MyMusicTaste.Database;
-using MyMusicTaste.Database.Operations;
 
-namespace MyMusicTaste.Components.IdentityComps;
+namespace MyMusicTaste.Components.Page_Auth;
 
 public partial class UserSignupForm : ComponentBase
 {
-    private class _newUserSignupDto : IUserSignupDto
+    private class _NewUserSignupDto : IUserSignupDto
     {
         [Required(ErrorMessage = "Enter your username.")]
         [StringLength(24)]
@@ -23,7 +22,7 @@ public partial class UserSignupForm : ComponentBase
     }
     
     [SupplyParameterFromForm(FormName = "UserSignup")]
-    private _newUserSignupDto NewUserSignup { get; set; } = new();
+    private _NewUserSignupDto NewUserSignup { get; set; } = new();
     
     private bool _submitted { get; set; } = false;
     private IEnumerable<string> _errors = new List<string>();

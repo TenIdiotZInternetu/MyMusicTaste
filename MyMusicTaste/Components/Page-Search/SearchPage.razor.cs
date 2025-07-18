@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Components;
-using Microsoft.Net.Http.Headers;
-using MyMusicTaste.Components.SearchComps;
 
-namespace MyMusicTaste.Components.Pages;
+namespace MyMusicTaste.Components.Page_Search;
 
 public partial class SearchPage : ComponentBase
 {

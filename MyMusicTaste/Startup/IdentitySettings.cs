@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace MyMusicTaste;
+namespace MyMusicTaste.Startup;
 
 public static class IdentitySettings
 {

@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Components;
 
-namespace MyMusicTaste.Components.Pages;
+namespace MyMusicTaste.Components.Misc;
 
 public partial class ErrorPage : ComponentBase
 {

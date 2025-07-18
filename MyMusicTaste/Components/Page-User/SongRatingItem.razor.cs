@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Components;
-using MyMusicTaste.Components.Pages;
+using MyMusicTaste.Components.Page_Song;
 using MyMusicTaste.Models;
 
-namespace MyMusicTaste.Components.UserPageComps;
+namespace MyMusicTaste.Components.Page_User;
 
 public partial class SongRatingItem : ComponentBase {
     [Parameter]
     public SongRating? Rating { get; set; } = new();
-    public Song Song => Rating.Song;
+    public Song? Song => Rating?.Song;
     
     protected override void OnParametersSet()
     {

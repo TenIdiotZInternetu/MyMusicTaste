@@ -1,13 +1,12 @@
 using Microsoft.AspNetCore.Components;
-using MyMusicTaste.Components.Pages;
-using MyMusicTaste.Models;
+using MyMusicTaste.Components.Page_User;
 
-namespace MyMusicTaste.Components.SearchComps;
+namespace MyMusicTaste.Components.Page_Search;
 
 public partial class UserSearchItem : ComponentBase
 {
     [Parameter] 
-    public User? User { get; set; }
+    public Models.User? User { get; set; }
     
     private void GoToUserPage()
     {

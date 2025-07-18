@@ -1,4 +1,3 @@
-using MongoDB.Driver;
 using MyMusicTaste.Models;
 
 namespace MyMusicTaste.Database.Operations;

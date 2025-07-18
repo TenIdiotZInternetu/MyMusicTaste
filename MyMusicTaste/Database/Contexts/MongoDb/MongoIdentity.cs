@@ -1,9 +1,7 @@
 using AspNetCore.Identity.MongoDbCore.Models;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using MongoDB.Bson;
 using MongoDbGenericRepository.Attributes;
-using MyMusicTaste.Database.Operations;
 using MyMusicTaste.Models;
 
 namespace MyMusicTaste.Database.Contexts.MongoDb;

@@ -1,6 +1,6 @@
 using MyMusicTaste.Components;
 
-namespace MyMusicTaste;
+namespace MyMusicTaste.Startup;
 
 public static class MiddlewareSetup
 {

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 using MyMusicTaste.Database.Operations;
 using MyMusicTaste.Models;
 
-namespace MyMusicTaste.Components.Forms;
+namespace MyMusicTaste.Components.Misc;
 
 public partial class NewSongForm : ComponentBase
 {
@@ -32,7 +32,7 @@ public partial class NewSongForm : ComponentBase
             await SongSubmission.SubmitSongAsync(model);
             _submitted = true;
         }
-        catch (EntryAlreadyExistsException e)
+        catch (EntryAlreadyExistsException)
         {
             _alreadyExists = true;
         }
