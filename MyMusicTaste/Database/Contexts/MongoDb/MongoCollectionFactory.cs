@@ -10,7 +10,8 @@ public static class MongoCollectionFactory
     private static readonly Dictionary<Type, CollectionInfo> COLL_MAPPING = new()
     {
         { typeof(User), new CollectionInfo("Core", "Users") },
-        { typeof(Song), new CollectionInfo("Core", "Songs") }
+        { typeof(Song), new CollectionInfo("Core", "Songs") },
+        { typeof(SongRating), new CollectionInfo("Core", "SongRatings") }
     };
     
     public static IMongoCollection<TModel> Create<TModel>() where TModel : Model

@@ -7,13 +7,13 @@ namespace MyMusicTaste.Components.Page_User;
 
 public partial class UserPage : ComponentBase
 {
-    public const string RouteTemplate = "/users/{UserId}";
+    public const string ROUTE_TEMPLATE = "/users/{UserId}";
     
     [Parameter]
     public string? UserId { get; set; }
     
-    private Models.User? _user { get; set; }
-    private IEnumerable<SongRating> _ratings { get; set; }
+    private User? _user { get; set; }
+    private IEnumerable<SongRating>? _ratings { get; set; }
     
     private enum PageState { Loading, Loaded, UserNotFound }
     private PageState _pageState { get; set; } = PageState.Loading;
@@ -22,7 +22,7 @@ public partial class UserPage : ComponentBase
     
     public static string GetRoute(ObjectId userId)
     {
-        return RouteTemplate.Replace("{UserId}", userId.ToString());
+        return ROUTE_TEMPLATE.Replace("{UserId}", userId.ToString());
     }
     
     protected override void OnInitialized()

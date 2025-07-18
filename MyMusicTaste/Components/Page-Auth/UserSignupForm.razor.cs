@@ -10,19 +10,19 @@ public partial class UserSignupForm : ComponentBase
     {
         [Required(ErrorMessage = "Enter your username.")]
         [StringLength(24)]
-        public string? Username { get; set; }
+        public string Username { get; set; } = null!;
         
         [Required(ErrorMessage = "Enter your email.")]
-        public string? Email { get; set; }
+        public string Email { get; set; } = null!;
         
         [Required(ErrorMessage = "Enter your password.")]
         [MinLength(8)]
         [MaxLength(32)]
-        public string? Password { get; set; }
+        public string Password { get; set; } = null!;
     }
     
     [SupplyParameterFromForm(FormName = "UserSignup")]
-    private _NewUserSignupDto NewUserSignup { get; set; } = new();
+    private _NewUserSignupDto NewUserSignup { get; set; } = null!;
     
     private bool _submitted { get; set; } = false;
     private IEnumerable<string> _errors = new List<string>();

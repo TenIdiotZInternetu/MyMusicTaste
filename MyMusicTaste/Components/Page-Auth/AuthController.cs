@@ -14,14 +14,12 @@ public class AuthController : Controller {
     {
         [Required(ErrorMessage = "Enter your username.")]
         [StringLength(24)]
-        public string? Username { get; set; }
-        
+        public string Username { get; set; } = null!;
+
         [Required(ErrorMessage = "Enter your password.")]
         [MinLength(8)]
         [MaxLength(32)]
-        public string? Password { get; set; }
-        
-        public string? ReturnUrl { get; set; }
+        public string Password { get; set; } = null!;
     }
     
     private readonly IIdentityProvider _identity;

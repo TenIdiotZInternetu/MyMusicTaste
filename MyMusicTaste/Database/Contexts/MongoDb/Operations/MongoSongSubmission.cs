@@ -15,7 +15,7 @@ public class SongSubmission : ISongSubmission
 
     public async Task SubmitSongAsync(Song song)
     {
-        if (await AlreadyExistsAsync(song))
+        if (AlreadyExists(song))
         {
             throw new EntryAlreadyExistsException("The submitted song already exists in the database.");
         }
@@ -23,7 +23,7 @@ public class SongSubmission : ISongSubmission
         await REPOSITORY.CreateAsync(song);
     }
     
-    private async Task<bool> AlreadyExistsAsync(Song song)
+    private bool AlreadyExists(Song song)
     {
         var builder = Builders<Song>.Filter;
 

@@ -3,7 +3,7 @@
 @using MyMusicTaste.Models
 
 @namespace MyMusicTaste.Components.Page_User
-@attribute [Route(RouteTemplate)]
+@attribute [Route(ROUTE_TEMPLATE)]
 
 @inject IDbRepository<User> UserRepository
 @inject ISongRatingListing RatingListing
@@ -32,7 +32,7 @@
     <p>@_aboutMeText</p>
     
     <div class="list-group">
-        @foreach (var rating in _ratings)
+        @foreach (var rating in _ratings!)
         {
             <SongRatingItem @key="rating.Id" Rating="rating" />
         }

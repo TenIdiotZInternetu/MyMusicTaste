@@ -14,8 +14,7 @@ public class MongoSongRatingListing : ISongRatingListing
     }
     
     // Collection acquirement is subject to change
-    private IMongoCollection<RatingDto> _collection = MongoDbContext.Client
-        .GetDatabase("Core").GetCollection<RatingDto>("SongRatings");
+    private IMongoCollection<SongRating> _collection = MongoCollectionFactory.Create<SongRating>();
 
     private IDbRepository<User> _usersRepo;
     private IDbRepository<Song> _songsRepo;
@@ -28,29 +27,29 @@ public class MongoSongRatingListing : ISongRatingListing
 
     public IEnumerable<SongRating> GetRatingsByUser(User user)
     {
-        var filter = Builders<RatingDto>.Filter
-            .Eq(dto => dto.UserId, user.Id);
+        var filter = Builders<SongRating>.Filter
+            .Eq(dto => dto.User!.Id, user.Id);
 
-        List<RatingDto> results = _collection.Find(filter).ToList();
+        List<SongRating> results = _collection.Find(filter).ToList();
         return results.ToList().Select(dto => new SongRating()
         {
             Id = dto.Id,
             User = user,
-            Song = _songsRepo.GetById(dto.SongId),
+            Song = _songsRepo.GetById(dto.Song!.Id),
             Rating = dto.Rating
         });
     }
 
     public IEnumerable<SongRating> GetRatingsBySong(Song song)
     {
-        var filter = Builders<RatingDto>.Filter
-            .Eq(dto => dto.SongId, song.Id);
+        var filter = Builders<SongRating>.Filter
+            .Eq(dto => dto.Song!.Id, song.Id);
         
-        List<RatingDto> results = _collection.Find(filter).ToList();
+        List<SongRating> results = _collection.Find(filter).ToList();
         return results.ToList().Select(dto => new SongRating()
         {
             Id = dto.Id,
-            User = _usersRepo.GetById(dto.UserId),
+            User = _usersRepo.GetById(dto.User!.Id),
             Song = song,
             Rating = dto.Rating
         });
