@@ -4,6 +4,6 @@ namespace MyMusicTaste.Database.Operations;
 
 public interface ISongRatingListing
 {
-    public IEnumerable<SongRating> GetRatingsByUser(User user);
-    public IEnumerable<SongRating> GetRatingsBySong(Song song);
+    public Task<IEnumerable<SongRating>> GetRatingsByUserAsync(User user);
+    public Task<IEnumerable<SongRating>> GetRatingsBySongAsync(Song song);
 }

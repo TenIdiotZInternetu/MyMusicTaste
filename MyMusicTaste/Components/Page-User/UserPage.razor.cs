@@ -25,12 +25,12 @@ public partial class UserPage : ComponentBase
         return ROUTE_TEMPLATE.Replace("{UserId}", userId.ToString());
     }
     
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
         try
         {
             _user = UserRepository.GetById(UserId);
-            _ratings = RatingListing.GetRatingsByUser(_user);
+            _ratings = await RatingListing.GetRatingsByUserAsync(_user);
             _pageState = PageState.Loaded;
         }
         catch (EntryNotFoundException)

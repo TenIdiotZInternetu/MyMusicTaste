@@ -4,14 +4,14 @@
 
 @rendermode InteractiveServer
 
-@if (Rating is { IsValid: true })
+@if (Rating is { IsValid: true } && _componentState == ComponentState.Loaded)
 {
     <button type="button" @onclick="GoToSongPage" class="list-item-medium">
-        <Thumbnail ImageLink="@Song!.CoverImageLink"></Thumbnail>
+        <Thumbnail ImageLink="@_song!.CoverImageLink"></Thumbnail>
         
         <div class="px-2 text-start">
-            <p class="item-text song-title">@Song!.Title</p>
-            <p class="item-text">@Song!.Author - @Song!.Album</p>
+            <p class="item-text song-title">@_song!.Title</p>
+            <p class="item-text">@_song!.Author - @_song!.Album</p>
         </div>
         <div>
             <div class="border rounded-circle p-2">
