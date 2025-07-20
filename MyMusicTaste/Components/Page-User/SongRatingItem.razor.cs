@@ -19,7 +19,7 @@ public partial class SongRatingItem : ComponentBase {
         try
         {
             // TODO: Ineffective, should retrieve songs in bulk
-            _song = _songRepo.GetById(Rating.Id);
+            _song = _songRepo.GetById(Rating.SongId);
             _componentState = ComponentState.Loaded;
         }
         catch (EntryNotFoundException)
