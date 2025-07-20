@@ -26,5 +26,6 @@ public static class DependencyInjections
         services.AddTransient<ISearchOperation<Song>, MongoSongSearch>();
         services.AddTransient<ISearchOperation<User>, MongoUserSearch>();
         services.AddSingleton<ISongRatingListing, MongoSongRatingListing>();
+        services.AddTransient<ISongStatsCalculation, MongoSongsStatsCalculation>();
     }
 }

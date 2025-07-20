@@ -6,6 +6,8 @@ public class SongStats
     public float AverageRating { get; set; }
     public float MedianRating { get; set; }
     public int[] RatingDistribution { get; set; } = new int[20];
+    
+    public bool NoData => TotalListens <= 0;
 
     public static int[] CreateDistributionBoundaries()
     {

@@ -1,3 +1,4 @@
+@using Microsoft.IdentityModel.Tokens
 @using MyMusicTaste.Database
 @using MyMusicTaste.Database.Operations
 @using MyMusicTaste.Models
@@ -31,10 +32,27 @@
     <h4>About Me:</h4>
     <p>@_aboutMeText</p>
     
-    <div class="list-group">
-        @foreach (var rating in _ratings!)
-        {
-            <SongRatingItem @key="rating.Id" Rating="rating" />
-        }
-    </div>
+    @if (_ratings.IsNullOrEmpty())
+    {
+        <div>No ratings yet :(</div>
+    }
+    else
+    {
+        <div class="list-group">
+            @{
+                int lastRating = _ratings!.First().Rating;
+            }
+            @foreach (var rating in _ratings!)
+            {
+                <SongRatingItem @key="rating.Id" Rating="rating"/>
+    
+                if (lastRating != rating.Rating)
+                {
+                    <hr/>
+                }
+    
+                lastRating = rating.Rating;
+            }
+        </div>
+    }
 }

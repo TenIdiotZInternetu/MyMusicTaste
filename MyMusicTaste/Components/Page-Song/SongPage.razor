@@ -21,8 +21,31 @@
 {
     <PageTitle>@_song!.Title</PageTitle>
     <h1>@_song!.Title</h1>
-    <p>Author: @_song.Author</p>
-    <p>Album: @_song.Album</p>
-    <p>Genre: @_song.Genre</p>
-    <p>Release Date: @_song.ReleaseDateString</p>
+    <div>
+        <p>Author: @_song.Author</p>
+        <p>Album: @_song.Album</p>
+        <p>Genre: @_song.Genre</p>
+        <p>Release Date: @_song.ReleaseDateString</p>
+    </div>
+    <hr/>
+    <div>
+        <div>
+            <h4>Total Listeners:</h4>
+            <h2>@_stats!.TotalListens</h2>
+        </div> 
+        <div>
+            <h4>Average Rating:</h4>
+            <h2>@_stats!.AverageRating</h2>
+        </div>
+        <div>
+            <h4>Median Rating:</h4>
+            <h2>@_stats!.AverageRating</h2>
+        </div>
+        <div>
+            @foreach (var bucket in _stats.RatingDistribution)
+            {
+                <p>@bucket</p>
+            }
+        </div>
+    </div>
 }

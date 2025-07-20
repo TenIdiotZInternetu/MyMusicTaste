@@ -7,13 +7,6 @@ namespace MyMusicTaste.Database.Contexts.MongoDb.Operations;
 
 public class MongoSongRatingListing : ISongRatingListing
 {
-    private class RatingDto : SongRating
-    {
-        public ObjectId UserId { get; set; }
-        public ObjectId SongId { get; set; }
-    }
-    
-    // Collection acquirement is subject to change
     private IMongoCollection<SongRating> _collection = MongoCollectionFactory.Create<SongRating>();
 
     private IDbRepository<User> _usersRepo;
@@ -25,33 +18,27 @@ public class MongoSongRatingListing : ISongRatingListing
         _songsRepo = songsRepo;
     }
 
-    public IEnumerable<SongRating> GetRatingsByUser(User user)
+    public async Task<IEnumerable<SongRating>> GetRatingsByUserAsync(User user)
     {
-        var filter = Builders<SongRating>.Filter
-            .Eq(dto => dto.User!.Id, user.Id);
-
-        List<SongRating> results = _collection.Find(filter).ToList();
-        return results.ToList().Select(dto => new SongRating()
-        {
-            Id = dto.Id,
-            User = user,
-            Song = _songsRepo.GetById(dto.Song!.Id),
-            Rating = dto.Rating
-        });
+        var filter = CreateUserFilter(user);
+        return await _collection.Find(filter).ToListAsync();
     }
 
-    public IEnumerable<SongRating> GetRatingsBySong(Song song)
+    public async Task<IEnumerable<SongRating>> GetRatingsBySongAsync(Song song)
     {
-        var filter = Builders<SongRating>.Filter
-            .Eq(dto => dto.Song!.Id, song.Id);
-        
-        List<SongRating> results = _collection.Find(filter).ToList();
-        return results.ToList().Select(dto => new SongRating()
-        {
-            Id = dto.Id,
-            User = _usersRepo.GetById(dto.User!.Id),
-            Song = song,
-            Rating = dto.Rating
-        });
+        var filter = CreateSongFilter(song);
+        return await _collection.Find(filter).ToListAsync();
+    }
+
+    private FilterDefinition<SongRating> CreateUserFilter(User user)
+    {
+        return Builders<SongRating>.Filter
+            .Eq(rating => rating.UserId, user.Id);
+    }
+
+    private FilterDefinition<SongRating> CreateSongFilter(Song song)
+    {
+        return Builders<SongRating>.Filter
+            .Eq(rating => rating.SongId, song.Id);
     }
 }
