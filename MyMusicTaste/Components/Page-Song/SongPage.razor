@@ -23,9 +23,18 @@
     <h1>@_song!.Title</h1>
     <div>
         <p>Author: @_song.Author</p>
-        <p>Album: @_song.Album</p>
-        <p>Genre: @_song.Genre</p>
-        <p>Release Date: @_song.ReleaseDateString</p>
+        <p>Album: @(_song.Album ?? "Unknown")</p>
+        <p>Genre: @(_song.Genre ?? "Unknown")</p>
+        <p>Release Date: @(_song.ReleaseDateString ?? "Unknown")</p>
+        
+        @if (_song.SourceLink != null)
+        {
+            <a href="@_song.SourceLink">Listen to this song</a>
+        }
+        else
+        {
+            <p>No source was provided :(</p>
+        }
     </div>
     <hr/>
     <div>
