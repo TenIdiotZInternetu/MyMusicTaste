@@ -4,8 +4,17 @@
     aspect-ratio: 1/1;
 }
 
+.thumbnail {
+    max-height: 100%;
+    border-radius: var(--b-radius);
+}
+
 .thumbnail-placeholder {
     height: 100%;
     background: #6b6b6b;
-    border-radius: var(--b-radius);
+}
+
+img {
+    height: auto;
+    object-fit: cover;
 }

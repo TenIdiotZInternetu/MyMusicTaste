@@ -2,6 +2,7 @@
 @using MyMusicTaste.Database
 @using MyMusicTaste.Database.Operations
 @using MyMusicTaste.Models
+@using MyMusicTaste.Components.Misc
 
 @namespace MyMusicTaste.Components.Page_User
 @attribute [Route(ROUTE_TEMPLATE)]
@@ -26,11 +27,14 @@
 @if (_pageState == PageState.Loaded)
 {
     <PageTitle>@_user!.Username</PageTitle>
-    
-    <h1>@_user!.Username</h1>
-    
-    <h4>About Me:</h4>
-    <p>@_aboutMeText</p>
+    <div class="general-info">
+        <Thumbnail ImageLink=@_user!.ProfilePictureLink AltText="@(_user!.Username + "'s Profile Picture")"/>
+        <div class="general-info-text">
+            <h1>@_user!.Username</h1>
+            <h4>About Me:</h4>
+            <p>@_aboutMeText</p>
+        </div>
+    </div>
     
     @if (_ratings.IsNullOrEmpty())
     {

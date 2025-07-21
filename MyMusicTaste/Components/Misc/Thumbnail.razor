@@ -1,10 +1,10 @@
 <div class="thumbnail-container">
-    @if (_validLink)
+    @if (_isLinkValid)
     {
-
+        <img class="thumbnail" src="@ImageLink" alt="@AltText"/>
     }
     else
     {
-        <div class="thumbnail-placeholder align-content-center"></div>
+        <div class="thumbnail thumbnail-placeholder align-content-center"></div>
     }
 </div>

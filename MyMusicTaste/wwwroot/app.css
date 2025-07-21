@@ -2,6 +2,17 @@ html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+.general-info {
+    display: flex;
+    height: 30%;
+    gap: 0.5em;
+}
+
+.general-info-text {
+    flex-grow: 1;
+    padding: 0.6em;
+}
+
 .list-item-medium {
     --b-radius: 0.4em;
 

@@ -2,6 +2,8 @@
 @attribute [Route(ROUTE_TEMPLATE)]
 
 @using MyMusicTaste.Database
+@using MyMusicTaste.Utils
+@using MyMusicTaste.Components.Misc
 
 @inject IDbRepository<Models.Song> SongRepository
 
@@ -20,21 +22,24 @@
 @if (_pageState == PageState.Loaded)
 {
     <PageTitle>@_song!.Title</PageTitle>
-    <h1>@_song!.Title</h1>
-    <div>
-        <p>Author: @_song.Author</p>
-        <p>Album: @(_song.Album ?? "Unknown")</p>
-        <p>Genre: @(_song.Genre ?? "Unknown")</p>
-        <p>Release Date: @(_song.ReleaseDateString ?? "Unknown")</p>
-        
-        @if (_song.SourceLink != null)
-        {
-            <a href="@_song.SourceLink">Listen to this song</a>
-        }
-        else
-        {
-            <p>No source was provided :(</p>
-        }
+    <div class="general-info">
+        <Thumbnail ImageLink=@_song!.CoverImageLink AltText="@(_song.Title + "Cover Image")"/>
+        <div class="general-info-text">
+            <h1>@_song!.Title</h1>
+            <p>Author: @_song.Author</p>
+            <p>Album: @(_song.Album ?? "Unknown")</p>
+            <p>Genre: @(_song.Genre ?? "Unknown")</p>
+            <p>Release Date: @(_song.ReleaseDateString ?? "Unknown")</p>
+    
+            @if (LinkValidation.IsSongLinkValid(_song.SourceLink))
+            {
+                <a href="@_song.SourceLink">Listen to this song</a>
+            }
+            else
+            {
+                <p>No source was provided :(</p>
+            }
+        </div>
     </div>
     <hr/>
     <div>

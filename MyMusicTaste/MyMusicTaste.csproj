@@ -24,4 +24,8 @@
       <_ContentIncludedByDefault Remove="Components\Page.User\SongRatingItem.razor" />
       <_ContentIncludedByDefault Remove="Components\Page.User\UserPage.razor" />
     </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Components\Page-Song\SongPage.razor.scc.css" />
+    </ItemGroup>
 </Project>
