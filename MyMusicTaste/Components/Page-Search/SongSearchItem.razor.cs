@@ -5,8 +5,7 @@ namespace MyMusicTaste.Components.Page_Search;
 
 public partial class SongSearchItem : ComponentBase
 {
-    [Parameter] 
-    public Models.Song? Song { get; set; } = new();
+    [Parameter] public Models.Song? Song { get; set; } = new();
 
     private void GoToSongPage()
     {

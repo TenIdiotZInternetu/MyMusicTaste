@@ -7,14 +7,10 @@ namespace MyMusicTaste.Components.Page_Search;
 public class SearchComponent<TModel> : ComponentBase
     where TModel : Model
 {
-    [Parameter]
-    public string? Query { get; set; }
-    
-    [Parameter] 
-    public int ResultsCount { get; set; }
+    [Parameter] public string? Query { get; set; }
+    [Parameter] public int ResultsCount { get; set; }
 
-    [Inject] 
-    protected ISearchOperation<TModel>? Searcher { get; set; }
+    [Inject] protected ISearchOperation<TModel>? Searcher { get; set; }
     
     protected IEnumerable<TModel>? Results { get; set; }
     

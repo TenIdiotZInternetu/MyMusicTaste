@@ -5,8 +5,7 @@ namespace MyMusicTaste.Components.Page_Search;
 
 public partial class UserSearchItem : ComponentBase
 {
-    [Parameter] 
-    public Models.User? User { get; set; }
+    [Parameter] public Models.User? User { get; set; }
     
     private void GoToUserPage()
     {

@@ -9,8 +9,7 @@ public partial class UserPage : ComponentBase
 {
     public const string ROUTE_TEMPLATE = "/users/{UserId}";
     
-    [Parameter]
-    public string? UserId { get; set; }
+    [Parameter] public string? UserId { get; set; }
     
     private User? _user { get; set; }
     private IEnumerable<SongRating>? _ratings { get; set; }
