@@ -1,22 +1,24 @@
 @page "/debug"
 @using MyMusicTaste.Components.Dialogs
 
-<ConfirmDialog @ref="_dialog" Question="Am i working?" CancelText="AAA"/>
+<InputDialog @ref="_dialog" Title="Am i working?" CancelText="AAA"/>
 <button @onclick="Click">Dialog</button>
 
 @if (_success)
 {
-    <p>im so good</p>
+    <p>@_message</p>
 }
 
 @code {
+    private string _message;
     private bool _success;
-    private ConfirmDialog _dialog;
+    private InputDialog _dialog;
     
     private async Task Click()
     {
         var result = await _dialog.OpenDialog();
-        _success = result.Result;
+        _success = result.WasConfirmed;
+        _message = result.Result ?? "Didnt confirm";
         StateHasChanged();
     }
 }

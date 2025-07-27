@@ -1,7 +1,7 @@
-using Microsoft.AspNetCore.Components;
-
 namespace MyMusicTaste.Components.Dialogs;
 
-public partial class InputDialog : ComponentBase
+public partial class InputDialog : Dialog<string>
 {
+    private string _inputText = "";
+    protected override string GetResult() => _inputText;
 }
