@@ -1,35 +1,39 @@
 using Microsoft.AspNetCore.Components;
+using Mono.TextTemplating;
 
 namespace MyMusicTaste.Components.Dialogs;
 
 public partial class DialogBase : ComponentBase
 {
-    [Parameter] public string? Title { get; set; }
-    [Parameter] public RenderFragment? BodyContent { get; set; }
-    [Parameter] public RenderFragment? FooterContent { get; set; }
-    [Parameter] public bool ClickableBackdrop { get; set; } = true;
-    public TaskCompletionSource<bool> CompletionToken { get; private set; } = new();
+    [Parameter, EditorRequired] public RenderFragment BodyContent { get; set; } = null!;
+    public string? Title { get; set; }
+    public string ConfirmText { get; set; } = "Yes";
+    public string CancelText { get; set; } = "No";
+    
+    public bool IsVisible { get; private set; }
 
-    private bool _isVisible;
+    public event Action? ConfirmPressed;
+    public event Action? CancelPressed;
 
     public void Open()
     {
-        CompletionToken = new();
-        _isVisible = true;
+        IsVisible = true;
         StateHasChanged();
     }
 
     public void Close()
     {
-        _isVisible = false;
+        IsVisible = false;
         StateHasChanged();
     }
-    
-    private void OnClickBackdrop()
+
+    private void Confirm()
     {
-        if (ClickableBackdrop)
-        {
-            CompletionToken.TrySetResult(false);
-        }
+        ConfirmPressed?.Invoke();
+    }
+
+    private void Cancel()
+    {
+        CancelPressed?.Invoke();
     }
 }

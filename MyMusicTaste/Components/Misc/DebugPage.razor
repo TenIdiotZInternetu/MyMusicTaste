@@ -15,7 +15,8 @@
     
     private async Task Click()
     {
-        _success = await _dialog.OpenDialog();
+        var result = await _dialog.OpenDialog();
+        _success = result.Result;
         StateHasChanged();
     }
 }
