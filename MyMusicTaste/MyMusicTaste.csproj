@@ -19,13 +19,4 @@
       <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.4" />
       <PackageReference Include="MongoDB.Driver" Version="2.28.0" />
     </ItemGroup>
-
-    <ItemGroup>
-      <_ContentIncludedByDefault Remove="Components\Page.User\SongRatingItem.razor" />
-      <_ContentIncludedByDefault Remove="Components\Page.User\UserPage.razor" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Remove="Components\Page-Song\SongPage.razor.scc.css" />
-    </ItemGroup>
 </Project>

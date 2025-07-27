@@ -1,0 +1,24 @@
+@using Microsoft.IdentityModel.Tokens
+@if (_isVisible) 
+{
+    // TODO: Clickable Backdrop
+    <div class="modal-backdrop fade show" @onclick="OnClickBackdrop"></div>
+    <div class="modal show d-block" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                @if (!Title.IsNullOrEmpty())
+                {
+                    <div class="modal-header">
+                        <h5 class="modal-title">@Title</h5>
+                    </div>
+                }
+                <div class="modal-body">
+                    @BodyContent
+                </div>
+                <div class="modal-footer">
+                    @FooterContent
+                </div>
+            </div>
+        </div>
+    </div>
+}

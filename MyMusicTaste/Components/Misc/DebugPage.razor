@@ -1,9 +1,21 @@
 @page "/debug"
+@using MyMusicTaste.Components.Dialogs
 
-@rendermode InteractiveServer
+<ConfirmDialog @ref="_dialog" Question="Am i working?" CancelText="AAA"/>
+<button @onclick="Click">Dialog</button>
 
-
-@code 
+@if (_success)
 {
+    <p>im so good</p>
+}
+
+@code {
+    private bool _success;
+    private ConfirmDialog _dialog;
     
+    private async Task Click()
+    {
+        _success = await _dialog.OpenDialog();
+        StateHasChanged();
+    }
 }
