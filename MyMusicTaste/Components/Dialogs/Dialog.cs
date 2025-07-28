@@ -5,8 +5,8 @@ namespace MyMusicTaste.Components.Dialogs;
 public abstract class Dialog<TResult> : ComponentBase
 {
     [Parameter] public string? Title { get; set; }
-    [Parameter] public string ConfirmText { get; set; } = "Yes";
-    [Parameter] public string CancelText { get; set; } = "No";
+    [Parameter] public string ConfirmText { get; set; } = "Confirm";
+    [Parameter] public string CancelText { get; set; } = "Cancel";
 
     protected DialogBase BaseDialog { get; set; } = null!;
     protected TaskCompletionSource<bool> CompletionToken { get; private set; } = new();

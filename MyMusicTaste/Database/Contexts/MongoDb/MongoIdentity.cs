@@ -80,8 +80,9 @@ public class MongoIdentity : IIdentityProvider
 
     private async Task CreateUserAsync(IUserSignupDto newUserSignup, ObjectId userId)
     {
-        var userModel = new User(newUserSignup.Username)
+        var userModel = new User
         {
+            Username = newUserSignup.Username,
             Id = userId
         };
 

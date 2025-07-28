@@ -56,12 +56,12 @@ public class MongoRepository<TModel> : IDbRepository<TModel>
 
     public void Update(TModel model)
     {
-        throw new NotImplementedException();
+        Collection.ReplaceOne(doc => doc.Id == model.Id, model);
     }
 
-    public Task UpdateAsync(TModel model)
+    public async Task UpdateAsync(TModel model)
     {
-        throw new NotImplementedException();
+        await Collection.ReplaceOneAsync(doc => doc.Id == model.Id, model);
     }
 
     public void Delete(TModel model)
