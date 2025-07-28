@@ -1,24 +1,18 @@
 @page "/debug"
+@using Microsoft.VisualBasic
+@using MongoDB.Bson
 @using MyMusicTaste.Components.Dialogs
+@using MyMusicTaste.Models
 
-<InputDialog @ref="_dialog" Title="Am i working?" CancelText="AAA"/>
-<button @onclick="Click">Dialog</button>
-
-@if (_success)
-{
-    <p>@_message</p>
-}
+<CommentComp Comment="@(new Comment
+                      {
+                          UserId = new ObjectId("66e8c1f3c17f8842795db055"),
+                          CommentPageType = CommentPageType.Song,
+                          PageId = new ObjectId("66d5d8501f2a985af64034fd"),
+                          Content = "Best shit I've ever heard",
+                          DateAndTime = DateTime.Now,
+                      })"/>
 
 @code {
-    private string _message;
-    private bool _success;
-    private InputDialog _dialog;
     
-    private async Task Click()
-    {
-        var result = await _dialog.OpenDialog();
-        _success = result.WasConfirmed;
-        _message = result.Result ?? "Didnt confirm";
-        StateHasChanged();
-    }
 }
