@@ -1,4 +1,7 @@
+using System.Security.Claims;
+using Amazon.Auth.AccessControlPolicy;
 using AspNetCore.Identity.MongoDbCore.Models;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Identity;
 using MongoDB.Bson;
 using MongoDbGenericRepository.Attributes;
@@ -7,24 +10,29 @@ using MyMusicTaste.Models;
 namespace MyMusicTaste.Database.Contexts.MongoDb;
 
 [CollectionName("Accounts")]
-public class MongoAccount : MongoIdentityUser<ObjectId>
-{
-    public ObjectId UserId;
-}
+public class MongoAccount : MongoIdentityUser<ObjectId> {}
 
 [CollectionName("Roles")]
 public class MongoRole : MongoIdentityRole<ObjectId> {}
 
 public class MongoIdentity : IIdentityProvider
 {
+    private const string USER_ID_CLAIM = "UserId";
+
     private readonly IDbRepository<User> _userRepository;
     private readonly SignInManager<MongoAccount> _signInManager;
+    private readonly IHttpContextAccessor _httpContextAccessor;
+    
     private UserManager<MongoAccount> _userManager => _signInManager.UserManager;
 
-    public MongoIdentity(SignInManager<MongoAccount> signInManager, IDbRepository<User> userRepository)
+    public MongoIdentity(
+        SignInManager<MongoAccount> signInManager, 
+        IDbRepository<User> userRepository, 
+        IHttpContextAccessor httpContextAccessor)
     {
         _signInManager = signInManager;
         _userRepository = userRepository;
+        _httpContextAccessor = httpContextAccessor;
     }
 
     public static void Configure(IServiceCollection services, string connectionString)
@@ -38,22 +46,27 @@ public class MongoIdentity : IIdentityProvider
 
     public async Task<IdentityResult> SignUpUserAsync(IUserSignupDto newUserSignup)
     {
-        var userId = new ObjectId();
-        var result = await CreateAccountAsync(newUserSignup, userId);
-        
-        if (!result.Succeeded)
+        var userId = ObjectId.GenerateNewId();
+        var mongoUser = new MongoAccount
         {
-            return result;
-        }
+            UserName = newUserSignup.Username,
+            Email = newUserSignup.Email,
+        };
+        
+        var result = await _userManager.CreateAsync(mongoUser, newUserSignup.Password);
+        if (!result.Succeeded) return result;
 
-        await CreateUserAsync(newUserSignup, userId);
+        Task.WaitAll(
+            _userManager.AddClaimAsync(mongoUser, new Claim(USER_ID_CLAIM, userId.ToString())),
+            CreateUserAsync(newUserSignup, userId)
+        );
+
         return result;
     }
 
-    public Task<SignInResult> LoginUserAsync(IUserLoginDto userLogin)
+    public async Task<SignInResult> LoginUserAsync(IUserLoginDto userLogin)
     {
-        return _signInManager
-            .PasswordSignInAsync(userLogin.Username, userLogin.Password, true, false);
+        return await _signInManager.PasswordSignInAsync(userLogin.Username, userLogin.Password, true, false);
     }
 
     public async Task LogOutUserAsync()
@@ -66,16 +79,9 @@ public class MongoIdentity : IIdentityProvider
         throw new NotImplementedException();
     }
 
-    private async Task<IdentityResult> CreateAccountAsync(IUserSignupDto newUserSignup, ObjectId userId)
+    public bool AuthorizeUserById(string requiredUserId)
     {
-        var mongoUser = new MongoAccount
-        {
-            UserName = newUserSignup.Username,
-            Email = newUserSignup.Email,
-            UserId = userId
-        };
-        
-        return await _userManager.CreateAsync(mongoUser, newUserSignup.Password);
+        return _httpContextAccessor.HttpContext?.User.HasClaim(USER_ID_CLAIM, requiredUserId) ?? false;
     }
 
     private async Task CreateUserAsync(IUserSignupDto newUserSignup, ObjectId userId)

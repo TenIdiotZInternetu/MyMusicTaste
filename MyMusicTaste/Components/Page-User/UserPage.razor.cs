@@ -11,14 +11,20 @@ namespace MyMusicTaste.Components.Page_User;
 public partial class UserPage : ComponentBase
 {
     public const string ROUTE_TEMPLATE = "/users/{UserId}";
-    
-    [Parameter] public string? UserId { get; set; }
 
+    [Parameter] public string UserId { get; set; } = null!;
+
+    [Inject] private IDbRepository<User> _userRepository {get;set;} = null!;
+    [Inject] private ISongRatingListing _ratingListing { get; set; } = null!;
+    [Inject] private IIdentityProvider _identity {get;set;} = null!;
+    
     private User? _user;
     private IEnumerable<SongRating>? _ratings;
     
     private enum PageState { Loading, Loaded, UserNotFound }
     private PageState _pageState = PageState.Loading;
+
+    private bool _ownerAuthorized;
 
     private string _aboutMeText => GetShownAboutMeText();
     private string? _profilePicLink => GetShownProfilePic();
@@ -43,8 +49,9 @@ public partial class UserPage : ComponentBase
     {
         try
         {
-            _user = UserRepository.GetById(UserId);
-            _ratings = await RatingListing.GetRatingsByUserAsync(_user);
+            _user = _userRepository.GetById(UserId);
+            _ownerAuthorized = _identity.AuthorizeUserById(UserId);
+            _ratings = await _ratingListing.GetRatingsByUserAsync(_user);
             _pageState = PageState.Loaded;
         }
         catch (EntryNotFoundException)
@@ -55,11 +62,13 @@ public partial class UserPage : ComponentBase
 
     private void OpenEditMode()
     {
+        if (!_ownerAuthorized) return;
         _inEditMode = true;
     }
 
     private async Task CloseEditMode()
     {
+        if (!_ownerAuthorized) return;
         bool shouldClose = true;
         
         if (_unsavedChanges)
@@ -79,6 +88,7 @@ public partial class UserPage : ComponentBase
 
     private async Task ChangeProfilePicture()
     {
+        if (!_ownerAuthorized) return;
         var result = await _pictureLinkDialog.OpenDialog();
         if (!result.WasConfirmed) return;
         if (await LinkValidation.IsImageLinkValidAsync(result.Result))
@@ -91,6 +101,7 @@ public partial class UserPage : ComponentBase
 
     private async Task SaveChanges()
     {
+        if (!_ownerAuthorized) return;
         if (!_unsavedChanges) return;
         
         _saving = true;
@@ -99,7 +110,7 @@ public partial class UserPage : ComponentBase
         _user!.ProfilePictureLink = _tempProfilePicLink;
         _user!.AboutMe = _tempAboutMeText;
 
-        await UserRepository.UpdateAsync(_user);
+        await _userRepository.UpdateAsync(_user);
         _unsavedChanges = false;
         _saving = false;
         StateHasChanged();

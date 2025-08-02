@@ -9,7 +9,6 @@ public class MongoRepository<TModel> : IDbRepository<TModel>
     where TModel : Model
 {
     public IMongoCollection<TModel> Collection { get; } = MongoCollectionFactory.Create<TModel>();
-    public IMongoDatabase Database => Collection.Database;
 
     public TModel GetById(string? id)
     {

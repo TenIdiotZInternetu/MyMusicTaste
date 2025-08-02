@@ -9,10 +9,6 @@
 @namespace MyMusicTaste.Components.Page_User
 @attribute [Route(ROUTE_TEMPLATE)]
 
-@inject IDbRepository<User> UserRepository
-@inject ISongRatingListing RatingListing
-@inject IIdentityProvider Identity
-
 <ConfirmDialog @ref="_unsavedChangesDialog"
                Title="Unsaved Changes" 
                Question="There have been unsaved changes. Do you really want to stop editing?"/>
@@ -42,7 +38,9 @@
             <h1>@_user!.Username</h1>
             <h4>About Me:</h4>
             <p>@_aboutMeText</p>
-            <AuthorizeView >
+            
+            @if (_ownerAuthorized)
+            {
                 <div class="d-flex flex-row-reverse">
                     @if (_inEditMode)
                     {
@@ -59,7 +57,7 @@
                         <button class="btn btn-primary" @onclick="@OpenEditMode">Edit</button>
                     }
                 </div>
-            </AuthorizeView>
+            }
         </div>
     </div>
     

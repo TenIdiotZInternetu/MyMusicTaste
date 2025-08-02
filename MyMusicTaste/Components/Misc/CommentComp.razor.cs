@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using MongoDB.Bson;
 using MyMusicTaste.Database;
@@ -5,7 +6,7 @@ using MyMusicTaste.Models;
 
 namespace MyMusicTaste.Components.Misc;
 
-public partial class CommentComp : ComponentBase
+public partial class CommentComp() : ComponentBase
 {
     [Parameter] public Comment? Comment { get; set; }
 
