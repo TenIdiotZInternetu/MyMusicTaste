@@ -45,3 +45,11 @@ html, body {
 .song-title {
     font-size: 1.1em;
 }
+
+.mr-auto {
+    margin-right: auto;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
