@@ -8,7 +8,9 @@ public interface IIdentityProvider
     public Task<SignInResult> LoginUserAsync(IUserLoginDto userLoginDto);
     public Task LogOutUserAsync();
     public Task<IdentityResult> AssignRoleAsync(IdentityUser user, IdentityRole role);
+    public bool IsAuthenticated();
     public bool AuthorizeUserById(string requiredUserId);
+    public string? GetUserId();
 }
 
 public interface IUserSignupDto

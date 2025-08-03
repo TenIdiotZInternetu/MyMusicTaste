@@ -40,7 +40,7 @@
         <div class="z-101" @onclick="@ChangeProfilePicture">
             <Thumbnail ImageLink="@_profilePicLink" AltText="@(_user!.Username + "'s Profile Picture")"/>
         </div>
-        <div class="general-info-text">
+        <div class="general-info-main">
             <div class="d-flex align-items-center">
                 <div class="h1 mr-auto ">@_user!.Username</div>
                 @if (_ownerAuthorized)

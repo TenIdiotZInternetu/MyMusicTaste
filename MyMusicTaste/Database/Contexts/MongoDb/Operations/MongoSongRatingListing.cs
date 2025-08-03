@@ -18,27 +18,28 @@ public class MongoSongRatingListing : ISongRatingListing
         _songsRepo = songsRepo;
     }
 
+    public Task<SongRating> GetSongRatingAsync(string songId, string userId)
+    {
+        var filter = Builders<SongRating>.Filter
+            .Where(rating => rating.SongId.ToString() == songId &&
+                             rating.UserId.ToString() == userId);
+        
+        return _collection.Find(filter).FirstOrDefaultAsync();
+    }
+
     public async Task<IEnumerable<SongRating>> GetRatingsByUserAsync(User user)
     {
-        var filter = CreateUserFilter(user);
+        var filter = Builders<SongRating>.Filter
+            .Eq(rating => rating.UserId, user.Id);
+        
         return await _collection.Find(filter).ToListAsync();
     }
 
     public async Task<IEnumerable<SongRating>> GetRatingsBySongAsync(Song song)
     {
-        var filter = CreateSongFilter(song);
-        return await _collection.Find(filter).ToListAsync();
-    }
-
-    private FilterDefinition<SongRating> CreateUserFilter(User user)
-    {
-        return Builders<SongRating>.Filter
-            .Eq(rating => rating.UserId, user.Id);
-    }
-
-    private FilterDefinition<SongRating> CreateSongFilter(Song song)
-    {
-        return Builders<SongRating>.Filter
+        var filter = Builders<SongRating>.Filter
             .Eq(rating => rating.SongId, song.Id);
+        
+        return await _collection.Find(filter).ToListAsync();
     }
 }

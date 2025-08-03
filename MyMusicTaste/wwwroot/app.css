@@ -20,7 +20,7 @@ html, body {
     gap: 0.5em;
 }
 
-.general-info-text {
+.general-info-main {
     flex-grow: 1;
     padding: 0.6em;
 }

@@ -79,9 +79,19 @@ public class MongoIdentity : IIdentityProvider
         throw new NotImplementedException();
     }
 
+    public bool IsAuthenticated()
+    {
+        return _httpContextAccessor.HttpContext?.User.Identity?.IsAuthenticated ?? false;
+    }
+
     public bool AuthorizeUserById(string requiredUserId)
     {
         return _httpContextAccessor.HttpContext?.User.HasClaim(USER_ID_CLAIM, requiredUserId) ?? false;
+    }
+
+    public string? GetUserId()
+    {
+        return _httpContextAccessor.HttpContext?.User.FindFirstValue(USER_ID_CLAIM);
     }
 
     private async Task CreateUserAsync(IUserSignupDto newUserSignup, ObjectId userId)

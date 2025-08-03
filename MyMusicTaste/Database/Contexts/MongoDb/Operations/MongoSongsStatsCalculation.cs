@@ -20,7 +20,7 @@ public class MongoSongsStatsCalculation : ISongStatsCalculation
     
     private readonly IMongoCollection<SongRating> _ratingsCollection = MongoCollectionFactory.Create<SongRating>();
     
-    public async Task<SongStats> CalculateSongStats(Song song)
+    public async Task<SongStats> CalculateSongStatsAsync(Song song)
     {
         var filter = Builders<SongRating>.Filter
             .Eq(rating => rating.SongId, song.Id);
