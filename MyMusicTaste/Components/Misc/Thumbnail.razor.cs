@@ -11,7 +11,7 @@ public partial class Thumbnail : ComponentBase
 
     private bool _isLinkValid;
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnParametersSetAsync()
     {
         _isLinkValid = await LinkValidation.IsImageLinkValidAsync(ImageLink);
     }

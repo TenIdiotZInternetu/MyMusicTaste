@@ -30,9 +30,8 @@ public partial class UserPage : ComponentBase
     private string? _profilePicLink => GetShownProfilePic();
     
     private bool _inEditMode;
-    private bool _unsavedChanges;
     private bool _saving;
-    private string _saveBtnStyle => _unsavedChanges ? "primary" : "secondary";
+    private string _saveBtnStyle => UnsavedChanges() ? "primary" : "secondary";
 
     private ConfirmDialog _unsavedChangesDialog = null!;
     private InputDialog _pictureLinkDialog = null!;
@@ -69,9 +68,11 @@ public partial class UserPage : ComponentBase
     private async Task CloseEditMode()
     {
         if (!_ownerAuthorized) return;
+        if (!_inEditMode) return;
+        
         bool shouldClose = true;
         
-        if (_unsavedChanges)
+        if (UnsavedChanges())
         {
             var result = await _unsavedChangesDialog.OpenDialog();
             shouldClose = result.WasConfirmed;
@@ -81,7 +82,6 @@ public partial class UserPage : ComponentBase
 
         _tempAboutMeText = null;
         _tempProfilePicLink = null;
-        _unsavedChanges = false;
         _inEditMode = false;
         StateHasChanged();
     }
@@ -89,20 +89,32 @@ public partial class UserPage : ComponentBase
     private async Task ChangeProfilePicture()
     {
         if (!_ownerAuthorized) return;
+        if (!_inEditMode) return;
+        
         var result = await _pictureLinkDialog.OpenDialog();
         if (!result.WasConfirmed) return;
+        if (_tempProfilePicLink == _user!.ProfilePictureLink)  return;
+        
         if (await LinkValidation.IsImageLinkValidAsync(result.Result))
         {
             _tempProfilePicLink = result.Result;
+            StateHasChanged();
         }
+    }
 
-        _unsavedChanges = true;
+    private void ChangeAboutMe(ChangeEventArgs args)
+    {
+        if (!_ownerAuthorized) return;
+        if (!_inEditMode) return;
+
+        _tempAboutMeText = args.Value?.ToString();
+        StateHasChanged();
     }
 
     private async Task SaveChanges()
     {
         if (!_ownerAuthorized) return;
-        if (!_unsavedChanges) return;
+        if (!UnsavedChanges()) return;
         
         _saving = true;
         StateHasChanged();
@@ -111,9 +123,14 @@ public partial class UserPage : ComponentBase
         _user!.AboutMe = _tempAboutMeText;
 
         await _userRepository.UpdateAsync(_user);
-        _unsavedChanges = false;
         _saving = false;
         StateHasChanged();
+    }
+
+    private bool UnsavedChanges()
+    {
+        return (_tempProfilePicLink != null && _tempProfilePicLink != _user!.ProfilePictureLink) ||
+               (_tempAboutMeText != null && _tempAboutMeText != _user!.AboutMe);
     }
 
     private string? GetShownProfilePic()
@@ -128,6 +145,6 @@ public partial class UserPage : ComponentBase
         {
             return _tempAboutMeText;
         };
-        return _user!.AboutMe ??  "I'm a mysterious person.";
+        return _user!.AboutMe ??  "I'm a mysterious person";
     }
 }

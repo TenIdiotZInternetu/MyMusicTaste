@@ -31,9 +31,15 @@
 
 @if (_pageState == PageState.Loaded)
 {
+    @if (_inEditMode)
+    {
+        <div class="backdrop"></div>
+    }
     <PageTitle>@_user!.Username</PageTitle>
     <div class="general-info">
-        <Thumbnail ImageLink="@_profilePicLink" AltText="@(_user!.Username + "'s Profile Picture")"/>
+        <div class="z-101" @onclick="@ChangeProfilePicture">
+            <Thumbnail ImageLink="@_profilePicLink" AltText="@(_user!.Username + "'s Profile Picture")"/>
+        </div>
         <div class="general-info-text">
             <div class="d-flex align-items-center">
                 <div class="h1 mr-auto ">@_user!.Username</div>
@@ -41,9 +47,9 @@
                 {
                     @if (_inEditMode)
                     {
-                        <button class="btn h-50 btn-@_saveBtnStyle" @onclick="SaveChanges">Save</button>
-                        <button class="btn h-50 btn-danger" @onclick="CloseEditMode">Stop editing</button>
-    
+                        <button class="btn z-101 m-1 h-50 btn-@_saveBtnStyle" @onclick="SaveChanges">Save</button>
+                        <button class="btn z-101 m-1 h-50 btn-danger" @onclick="CloseEditMode">Stop editing</button>
+
                         @if (_saving)
                         {
                             <p class="">Saving...</p>
@@ -51,13 +57,15 @@
                     }
                     else
                     {
-                        <button class="btn edit-btn btn-primary" @onclick="@OpenEditMode">Edit</button>
+                        <button class="btn z-101 h-50 btn-primary" @onclick="@OpenEditMode">Edit</button>
                     }
                 }
             </div>
-            
+
             <h4>About Me:</h4>
-            <p>@_aboutMeText</p>
+            <textarea readonly="@(!_inEditMode)" class="form-control z-101 position-relative"
+                      @onchange="@ChangeAboutMe" value="@_aboutMeText">
+            </textarea>
         </div>
     </div>
     
