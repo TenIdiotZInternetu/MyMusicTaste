@@ -46,7 +46,7 @@ public partial class SongPage : ComponentBase
             return;
         }
 
-        Task.WaitAll(
+        await Task.WhenAll(
             LoadStats(),
             LoadSignedUserRating()
         );

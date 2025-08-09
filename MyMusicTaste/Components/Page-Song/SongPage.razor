@@ -42,24 +42,31 @@
         </div>
     </div>
     <hr/>
-    <div>
+    @if (_statsCalculated)
+    {
         <div>
-            <h4>Total Listeners:</h4>
-            <h2>@_stats!.TotalListens</h2>
-        </div> 
-        <div>
-            <h4>Average Rating:</h4>
-            <h2>@_stats!.AverageRating</h2>
+            <div>
+                <h4>Total Listeners:</h4>
+                <h2>@_stats!.TotalListens</h2>
+            </div> 
+            <div>
+                <h4>Average Rating:</h4>
+                <h2>@_stats!.AverageRating</h2>
+            </div>
+            <div>
+                <h4>Median Rating:</h4>
+                <h2>@_stats!.AverageRating</h2>
+            </div>
+            <div>
+                @foreach (var bucket in _stats.RatingDistribution)
+                {
+                    <p>@bucket</p>
+                }
+            </div>
         </div>
-        <div>
-            <h4>Median Rating:</h4>
-            <h2>@_stats!.AverageRating</h2>
-        </div>
-        <div>
-            @foreach (var bucket in _stats.RatingDistribution)
-            {
-                <p>@bucket</p>
-            }
-        </div>
-    </div>
+    }
+    else
+    {
+        <p>Calculating statistics...</p>
+    }
 }
