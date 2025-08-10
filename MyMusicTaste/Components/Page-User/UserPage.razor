@@ -37,7 +37,7 @@
     }
     <PageTitle>@_user!.Username</PageTitle>
     <div class="general-info">
-        <div class="z-101" @onclick="@ChangeProfilePicture">
+        <div class="z-101 general-info-side" @onclick="@ChangeProfilePicture">
             <Thumbnail ImageLink="@_profilePicLink" AltText="@(_user!.Username + "'s Profile Picture")"/>
         </div>
         <div class="general-info-main">

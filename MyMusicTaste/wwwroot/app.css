@@ -16,13 +16,20 @@ html, body {
 
 .general-info {
     display: flex;
-    height: 30vh;
     gap: 0.5em;
 }
 
 .general-info-main {
-    flex-grow: 1;
+    flex: 3;
     padding: 0.6em;
+}
+
+.general-info-side{
+    flex: 1;
+    min-width: 20%;
+    max-width: 25%;
+    display: flex;
+    flex-direction: column;
 }
 
 .list-item-medium {
@@ -44,7 +51,7 @@ html, body {
     color: white;
     background-color: var(--bs-secondary);
     transition: background-color 0.3s ease,
-    color 0.3s ease;
+                color 0.3s ease;
 }
 
 .item-text {
