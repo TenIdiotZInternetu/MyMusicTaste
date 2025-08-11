@@ -22,8 +22,10 @@ public class MongoSongsStatsCalculation : ISongStatsCalculation
     
     public async Task<SongStats> CalculateSongStatsAsync(Song song)
     {
-        var filter = Builders<SongRating>.Filter
-            .Eq(rating => rating.SongId, song.Id);
+        var filterBuilder = Builders<SongRating>.Filter;
+        var filter = filterBuilder.Eq(rating => rating.SongId, song.Id) &
+                     filterBuilder.Ne(rating => rating.Rating, SongRating.NOT_RATED);
+
 
         var aggregation = await _ratingsCollection.Aggregate()
             .Match(filter)

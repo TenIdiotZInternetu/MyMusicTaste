@@ -14,7 +14,7 @@ public class SongStats
         int[] boundaries = new int[21];
         for (int i = 0; i < boundaries.Length; i++)
         {
-            boundaries[i] = i * 5;
+            boundaries[i] = i * 5 + 1;
         }
         return boundaries;
     }
