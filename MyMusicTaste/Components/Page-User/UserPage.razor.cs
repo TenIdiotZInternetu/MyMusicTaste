@@ -50,7 +50,11 @@ public partial class UserPage : ComponentBase
         {
             _user = _userRepository.GetById(UserId);
             _ownerAuthorized = _identity.AuthorizeUserById(UserId);
-            _ratings = await _ratingListing.GetRatingsByUserAsync(_user);
+            
+            var unorderedRatings = await _ratingListing.GetRatingsByUserAsync(_user);
+            _ratings = unorderedRatings.OrderByDescending(rating => 
+                rating.Rating == SongRating.NOT_RATED ? -1 : rating.Rating);
+            
             _pageState = PageState.Loaded;
         }
         catch (EntryNotFoundException)

@@ -80,13 +80,11 @@
         <div class="list-group">
             @foreach (var rating in _ratings!)
             {
-                <SongRatingItem @key="rating.Id" Rating="rating"/>
-    
                 if (lastRating != rating.Rating)
                 {
-                    <hr/>
+                    <hr class="m-2"/>   
                 }
-    
+                <SongRatingItem @key="rating.Id" Rating="rating"/>
                 lastRating = rating.Rating;
             }
         </div>

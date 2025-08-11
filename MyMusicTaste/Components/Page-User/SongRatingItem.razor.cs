@@ -8,13 +8,17 @@ namespace MyMusicTaste.Components.Page_User;
 
 public partial class SongRatingItem : ComponentBase {
     [Parameter] public SongRating Rating { get; set; } = new();
+    
+    [Inject] private IDbRepository<Song> _songRepo { get; set; } = null!;
 
     private enum ComponentState { Loading, Loaded, NotFound }
     private ComponentState _componentState = ComponentState.Loading;
-    [Inject] private IDbRepository<Song> _songRepo { get; set; } = null!;
+    
     private Song? _song;
-
-    protected override async Task OnInitializedAsync()
+    private string _shownValue => Rating.Rating == SongRating.NOT_RATED ?
+        "-" : Rating.Rating.ToString();
+    
+    protected override Task OnInitializedAsync()
     {
         try
         {
