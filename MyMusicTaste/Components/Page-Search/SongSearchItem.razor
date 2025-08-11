@@ -10,6 +10,6 @@
     
     <div class="px-2 text-start">
         <p class="item-text song-title">@Song.Title</p>
-        <p class="item-text">@Song.Author - @Song.Album</p>
+        <p class="item-text">@Song.Author - @(Song.Album ?? "Unknown")</p>
     </div>
 </button>

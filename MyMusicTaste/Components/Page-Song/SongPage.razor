@@ -30,7 +30,7 @@
             <p>Author: @_song.Author</p>
             <p>Album: @(_song.Album ?? "Unknown")</p>
             <p>Genre: @(_song.Genre ?? "Unknown")</p>
-            <p>Release Date: @(_song.ReleaseDateString ?? "Unknown")</p>
+            <p>Release Date: @(_song.ReleasDateValid ? _song.ReleaseDate : "Unknown")</p>
 
             @if (LinkValidation.IsSongLinkValid(_song.SourceLink))
             {

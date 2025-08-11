@@ -11,8 +11,6 @@ public class Song : Model
     
     public DateOnly ReleaseDate { get; set; } = INVALID_DATE;
     public bool ReleasDateValid => ReleaseDate != INVALID_DATE;
-    public string? ReleaseDateString => ReleasDateValid ? 
-        null : ReleaseDate.ToString();
     
     public string? CoverImageLink { get; set; }
     public string? SourceLink { get; set; }

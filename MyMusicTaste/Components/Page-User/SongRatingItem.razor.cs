@@ -18,7 +18,7 @@ public partial class SongRatingItem : ComponentBase {
     private string _shownValue => Rating.Rating == SongRating.NOT_RATED ?
         "-" : Rating.Rating.ToString();
     
-    protected override Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         try
         {
