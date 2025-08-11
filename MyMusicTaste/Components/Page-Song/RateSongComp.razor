@@ -1,0 +1,17 @@
+<h3>RateSongComp</h3>
+
+@if (_componentState == ComponentState.NotLoggedIn)
+{
+    <p>Log in to add this song to your collection!</p>
+}
+@if (_componentState == ComponentState.Unrated)
+{
+    <button class="btn btn-primary" @onclick="@AddRating">Add to collection</button>
+}
+@if (_componentState == ComponentState.Rated)
+{
+    <p>Your rating: @GetShownLabelValue()</p>
+        <input class="form-range" type="range" value="@_initialInputValue"
+               min="0" max="100" @onchange="@ChangeRating"/>
+    <button class="btn btn-danger" @onclick="@RemoveRating">Remove from collection</button>
+}

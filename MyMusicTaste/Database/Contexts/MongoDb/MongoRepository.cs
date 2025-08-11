@@ -68,8 +68,8 @@ public class MongoRepository<TModel> : IDbRepository<TModel>
         throw new NotImplementedException();
     }
 
-    public Task DeleteAsync(TModel model)
+    public async Task DeleteAsync(TModel model)
     {
-        throw new NotImplementedException();
+        await Collection.DeleteOneAsync(doc => doc.Id == model.Id);
     }
 }

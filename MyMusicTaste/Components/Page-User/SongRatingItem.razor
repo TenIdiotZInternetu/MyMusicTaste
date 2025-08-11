@@ -4,7 +4,7 @@
 
 @rendermode InteractiveServer
 
-@if (Rating is { IsValid: true } && _componentState == ComponentState.Loaded)
+@if (_componentState == ComponentState.Loaded)
 {
     <button type="button" @onclick="GoToSongPage" class="list-item-medium">
         <Thumbnail ImageLink="@_song!.CoverImageLink"></Thumbnail>
