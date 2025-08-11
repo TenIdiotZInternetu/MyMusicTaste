@@ -19,6 +19,7 @@ public partial class RateSongComp : ComponentBase
     private SongRating? _currentRating;
 
     private byte _initialInputValue;
+    private byte _currentInputValue;
 
     protected override async Task OnInitializedAsync()
     {
@@ -28,6 +29,7 @@ public partial class RateSongComp : ComponentBase
         {
             _initialInputValue = _currentRating.Rating == SongRating.NOT_RATED ?
                 (byte) 0 : _currentRating.Rating;
+            _currentInputValue = _initialInputValue;
         }
     }
     
@@ -73,16 +75,21 @@ public partial class RateSongComp : ComponentBase
         }
     }
 
-    private async Task ChangeRating(ChangeEventArgs args)
+    private void ChangeRating(ChangeEventArgs args)
     {
         if (_currentRating == null) return;
         if (args.Value == null) return;
-        
-        byte prevRating = _currentRating.Rating;
-        byte inputValue = Byte.Parse(args.Value.ToString()!);
 
-        _currentRating.Rating = inputValue == 0 ?
-            SongRating.NOT_RATED : inputValue;
+        _currentInputValue = Byte.Parse(args.Value.ToString()!);
+        StateHasChanged();
+    }
+    
+    private async Task SaveNewRating(ChangeEventArgs args)
+    {
+        if (_currentRating!.Rating == _currentInputValue) return;
+        var prevRating = _currentRating;
+        _currentRating!.Rating = _currentInputValue == 0 ?
+            SongRating.NOT_RATED : _currentInputValue;
         
         try
         {
@@ -90,7 +97,7 @@ public partial class RateSongComp : ComponentBase
         }
         catch
         {
-            _currentRating.Rating = prevRating;
+            _currentRating = prevRating;
         }
     }
     
@@ -104,8 +111,7 @@ public partial class RateSongComp : ComponentBase
 
     private string GetShownLabelValue()
     {
-        if (_currentRating == null) return "Unrated";
-        return _currentRating.Rating == SongRating.NOT_RATED ? 
-            "Unrated" : _currentRating.Rating.ToString();
+        return _currentInputValue == 0 ? 
+            "Unrated" : _currentInputValue.ToString();
     }
 }
