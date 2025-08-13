@@ -1,11 +1,12 @@
 @if (Comment != null)
 {
-    <div class="border border-1 border-light">
-        <div class="d-flex align-content-center">
+    <div class="comment simple-border">
+        <div class="comment-header">
             <Thumbnail ImageLink="@_user!.ProfilePictureLink"/>
-            <h5>@_user.Username</h5>
-            <p class="text-info">@Comment.DateAndTime</p>
+            <h5 class="p-0 m-0">@_user.Username</h5>
         </div>
-        <p>@Comment.Content</p>
+        <hr class="m-2"/>
+        <p class="comment-body">@Comment.Content</p>
+        <p class="text-secondary m-0">@Comment.DateAndTime</p>
     </div>
 }

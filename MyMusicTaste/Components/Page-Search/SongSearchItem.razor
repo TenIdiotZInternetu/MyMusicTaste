@@ -5,10 +5,10 @@
 
 @rendermode InteractiveServer
 
-<button type="button" @onclick="GoToSongPage" class="list-item-medium">
+<button type="button" @onclick="GoToSongPage" class="list-item-medium simple-border">
     <Thumbnail ImageLink="@Song!.CoverImageLink"></Thumbnail>
     
-    <div class="px-2 text-start">
+    <div class="text-start">
         <p class="item-text song-title">@Song.Title</p>
         <p class="item-text">@Song.Author - @(Song.Album ?? "Unknown")</p>
     </div>

@@ -1,0 +1,15 @@
+.comment {
+    /*display: flex;*/
+    /*gap: var(--flex-gap);*/
+    /*flex-direction: column;*/
+    
+    padding: 0.5rem;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: var(--flex-gap);
+
+    height: 3em;
+}

@@ -1,6 +1,7 @@
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    --border-radius: 10%;
+    --border-radius: 0.4em;
+    --flex-gap: 1em;
 }
 
 .backdrop {
@@ -34,14 +35,17 @@ html, body {
 
 .list-item-medium {
     display: flex;
+    gap: var(--flex-gap);
     align-items: center;
 
     height: 60px;
     margin: 0.1em;
-    padding: 0.1em 0.4em;
+    padding: 0.4em;
 
     background: white;
+}
 
+.simple-border {
     border-style: solid;
     border-color: #c2c2c2;
     border-radius: 0.4em;
