@@ -38,14 +38,28 @@ public class MongoRepository<TModel> : IDbRepository<TModel>
         return model;
     }
 
-    public Task<TModel> GetByIdAsync(string? id)
+    public async Task<TModel> GetByIdAsync(string? id)
     {
-        throw new NotImplementedException();
+        var objectId = new ObjectId(id);
+        
+        var filter = Builders<TModel>.Filter
+            .Eq(x => x.Id, objectId);
+
+        TModel model = await Collection.Find(filter).FirstOrDefaultAsync();
+        
+        if (model == null)
+        {
+            throw new EntryNotFoundException("Entry not found!");
+        }
+
+        model.Id = objectId;
+        return model;
     }
 
-    public void Create(TModel model)
+    public async Task<IEnumerable<TModel>> GetByIdsAsync(IEnumerable<string> ids)
     {
-        throw new NotImplementedException();
+        var filter = Builders<TModel>.Filter.In(x => x.Id, ids.Select(ObjectId.Parse));
+        return await Collection.Find(filter).ToListAsync();
     }
 
     public Task CreateAsync(TModel model)
@@ -53,19 +67,9 @@ public class MongoRepository<TModel> : IDbRepository<TModel>
         return Collection.InsertOneAsync(model);
     }
 
-    public void Update(TModel model)
-    {
-        Collection.ReplaceOne(doc => doc.Id == model.Id, model);
-    }
-
     public async Task UpdateAsync(TModel model)
     {
         await Collection.ReplaceOneAsync(doc => doc.Id == model.Id, model);
-    }
-
-    public void Delete(TModel model)
-    {
-        throw new NotImplementedException();
     }
 
     public async Task DeleteAsync(TModel model)

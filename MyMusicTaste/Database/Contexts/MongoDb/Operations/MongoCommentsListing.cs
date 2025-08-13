@@ -9,16 +9,20 @@ public class MongoCommentsListing : ICommentsListing
 {
     private IMongoCollection<Comment> _collection = MongoCollectionFactory.Create<Comment>();
     
-    public async Task<IEnumerable<Comment>> GetCommentsByUserAsync(string userId)
+    public async Task<IEnumerable<Comment>> GetCommentsByUserAsync(string userId, int resultCount)
     {
         throw new NotImplementedException();
     }
 
-    public async Task<IEnumerable<Comment>> GetCommentsByPageAsync(CommentPageType pageType, string pageId)
+    public async Task<IEnumerable<Comment>> GetCommentsByPageAsync(CommentPageType pageType, string pageId, int resultCount)
     {
-        var filter = Builders<Comment>.Filter.Eq(comment => comment.CommentPageType, pageType) &
-                     Builders<Comment>.Filter.Eq(comment => comment.PageId, new ObjectId(pageId));
-        
-        return await _collection.Find(filter).ToListAsync();
+        var filter = Builders<Comment>.Filter
+             .Where(comment => comment.CommentPageType == pageType && 
+                               comment.PageId == new ObjectId(pageId));
+
+        return await _collection.Aggregate()
+            .Match(filter)
+            .Limit(resultCount)
+            .ToListAsync();
     }
 }
