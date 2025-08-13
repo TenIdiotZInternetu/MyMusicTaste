@@ -1,6 +1,4 @@
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
-using MongoDB.Bson;
 using MyMusicTaste.Database;
 using MyMusicTaste.Models;
 

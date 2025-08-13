@@ -1,7 +1,5 @@
 using System.Security.Claims;
-using Amazon.Auth.AccessControlPolicy;
 using AspNetCore.Identity.MongoDbCore.Models;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Identity;
 using MongoDB.Bson;
 using MongoDbGenericRepository.Attributes;

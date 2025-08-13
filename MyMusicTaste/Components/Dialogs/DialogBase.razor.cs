@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Components;
-using Mono.TextTemplating;
 
 namespace MyMusicTaste.Components.Dialogs;
 
