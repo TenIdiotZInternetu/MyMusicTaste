@@ -19,6 +19,7 @@ public static class DependencyInjections
         services.AddTransient<IDbRepository<Song>, MongoRepository<Song>>();
         services.AddTransient<IDbRepository<User>, MongoRepository<User>>();
         services.AddTransient<IDbRepository<SongRating>, MongoRepository<SongRating>>();
+        services.AddTransient<IDbRepository<Comment>, MongoRepository<Comment>>();
     }
     
     private static void InjectDbOperations(this IServiceCollection services)

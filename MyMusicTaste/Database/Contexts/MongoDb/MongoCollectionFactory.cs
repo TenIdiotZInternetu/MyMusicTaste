@@ -11,7 +11,8 @@ public static class MongoCollectionFactory
     {
         { typeof(User), new CollectionInfo("Core", "Users") },
         { typeof(Song), new CollectionInfo("Core", "Songs") },
-        { typeof(SongRating), new CollectionInfo("Core", "SongRatings") }
+        { typeof(SongRating), new CollectionInfo("Core", "SongRatings") },
+        { typeof(Comment), new CollectionInfo("Core", "Comments") }
     };
     
     public static IMongoCollection<TModel> Create<TModel>() where TModel : Model
