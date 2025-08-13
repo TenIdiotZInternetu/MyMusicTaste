@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Components;
 using MyMusicTaste.Database;
 using MyMusicTaste.Models;
 
-namespace MyMusicTaste.Components.Misc;
+namespace MyMusicTaste.Components.Comments;
 
 public partial class CommentComp() : ComponentBase
 {

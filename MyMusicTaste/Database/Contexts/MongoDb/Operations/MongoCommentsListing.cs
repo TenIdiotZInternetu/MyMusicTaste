@@ -19,9 +19,12 @@ public class MongoCommentsListing : ICommentsListing
         var filter = Builders<Comment>.Filter
              .Where(comment => comment.CommentPageType == pageType && 
                                comment.PageId == new ObjectId(pageId));
+        
+        var dateSort = Builders<Comment>.Sort.Descending(c => c.DateAndTime);
 
         return await _collection.Aggregate()
             .Match(filter)
+            .Sort(dateSort)
             .Limit(resultCount)
             .ToListAsync();
     }

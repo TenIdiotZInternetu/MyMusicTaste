@@ -1,0 +1,21 @@
+@if (_state == ComponentState.NotCommented)
+{
+    <div class="d-flex justify-content-center">
+        <button class="btn btn-primary">
+            Post a comment
+        </button>
+    </div>
+}
+@if (_state == ComponentState.Commented)
+{
+    <CommentComp Comment="_signedUserComment"/>
+    <hr/>
+}
+@if (_state != ComponentState.NotLoaded)
+{
+    foreach (var comment in _comments)
+    {
+        if (comment == _signedUserComment) continue;
+        <CommentComp Comment="@comment"/>
+    } 
+}

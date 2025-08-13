@@ -2,6 +2,8 @@
 @attribute [Route(ROUTE_TEMPLATE)]
 @using MyMusicTaste.Utils
 @using MyMusicTaste.Components.Misc
+@using MyMusicTaste.Components.Comments
+@using MyMusicTaste.Models
 
 @if (_pageState == PageState.Loading)
 {
@@ -68,4 +70,6 @@
     {
         <p>Calculating statistics...</p>
     }
+    
+    <CommentSection PageType="CommentPageType.Song" PageId="@SongId" ResultsCount="50"/>
 }
