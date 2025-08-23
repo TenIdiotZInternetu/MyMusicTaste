@@ -10,11 +10,16 @@
     }
     else
     {
-        <CommentComp @ref="_newCommentComp" Comment="@_newComment" IsUnposted="true"/>
+        <div class="m-2">
+            <CommentComp OnEditModeClosed="CloseNewComment" IsPosted="false"
+                         Comment="@_newComment" @ref="@_newCommentComp"/>
+        </div>
     }
     
     foreach (var comment in _comments)
     {
-        <CommentComp Comment="@comment"/>
+        <div class="m-2">
+            <CommentComp Comment="@comment"/>
+        </div>
     } 
 }

@@ -13,3 +13,27 @@
 
     height: 3em;
 }
+
+.comment-content {
+    padding: 0.3rem 0.6rem;
+    min-height: 7rem;
+    width: 100%;
+}
+
+textarea:read-only {
+    border-style: none;
+    min-height: auto;
+    resize: none;
+}
+
+textarea::selection {
+    border-style: none;
+}
+
+#thumbnail {
+    cursor: pointer;
+}
+
+#username {
+    cursor: pointer;
+}

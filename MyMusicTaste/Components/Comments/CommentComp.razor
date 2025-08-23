@@ -13,31 +13,37 @@
 {
     <div class="comment simple-border">
         <div class="comment-header">
-            <Thumbnail @onclick="NavigateToUser" ImageLink="@_poster!.ProfilePictureLink"/>
-            <h5 @onclick="NavigateToUser" class="p-0 m-0">@_poster.Username</h5>
-            @if (!_inEditMode)
+            <Thumbnail onclick="@NavigateToUser" ImageLink="@_poster!.ProfilePictureLink"/>
+            <h5 onclick="@NavigateToUser" class="p-0 m-0">@_poster.Username</h5>
+            @if (!_inEditMode && _ownedByUser)
             {
-                <button class="ml-auto btn btn-primary h-50-"
+                <button class="ml-auto btn btn-primary"
                         @onclick="OpenEditMode">Edit</button>
             }
-            else
+            @if (_inEditMode && _ownedByUser)
             {
-                <button class="ml-auto btn btn-@_saveBtnStyle h-50"
+                <button class="ml-auto btn btn-@_saveBtnStyle"
                         @onclick="SaveChangesAsync">Save</button>
-                <button class="btn btn-secondary h-50"
+                <button class="btn btn-secondary"
                         @onclick="CloseEditMode">Close</button>
-                @if (!IsUnposted)
+                @if (IsPosted)
                 {
-                    <button class="btn btn-danger h-50"
+                    <button class="btn btn-danger"
                             @onclick="DeleteCommentAsync">Delete</button>
                 }
             }
         </div>
         <hr class="m-2"/>
-        <textarea readonly="@(!_inEditMode)" class="comment-body" 
-                  @onchange="@ChangeContent" value="@_content">
+        <textarea readonly="@(!_inEditMode)" class="comment-content" 
+                  @oninput="@ChangeContent" value="@_content">
         </textarea>
-        <p class="text-secondary m-0">@Comment.CreationTime</p>
+        <span class="text-secondary m-1">
+            @Comment.CreationTime
+        </span>
+        @if (_showLastEdit)
+        {
+            <span class="text-secondary m-0">- Last Edited @Comment.LastEditTime</span>
+        }
     </div>
 }
 @if (_state == CompState.Deleted)

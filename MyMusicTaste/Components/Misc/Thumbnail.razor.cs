@@ -8,6 +8,7 @@ public partial class Thumbnail : ComponentBase
     [Parameter] public string? ImageLink { get; set; }
     [Parameter] public string? AltText { get; set; }
     
+    // TODO: Create SuperComponent that does this automatically
     [Parameter(CaptureUnmatchedValues = true)]
     public Dictionary<string, object>? UnmatchedAttributes { get; set; }
 
