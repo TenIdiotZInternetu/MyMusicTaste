@@ -24,22 +24,15 @@ public partial class CommentSection : ComponentBase
     
     private IEnumerable<Comment> _comments = null!;
     
-    private CommentComp _newCommentComp = null!;
     private Comment? _newComment;
+    private CommentComp _newCommentComp;
     private bool _newCommentShown;
-
     protected override async Task OnInitializedAsync()
     {
         _signedUserId = _identity.GetUserId();
         _comments = await _commentsListing.GetCommentsByPageAsync(PageType, PageId, ResultsCount);
+        _state = ComponentState.Loaded;
         
-        // Hides the new comment, if it has been closed and not posted,
-        // otherwise it stays shown, no more comments can be added until page reload
-        // TODO: Create some smarter system that would allow adding more comments, and treat them as regular comments
-        _newCommentComp.OnEditModeClosed += (changesSaved) =>
-        {
-            _newCommentShown = changesSaved;
-        };
     }
 
     private void ShowNewComment()
@@ -54,5 +47,15 @@ public partial class CommentSection : ComponentBase
         };
         
         _newCommentShown = true;
+        StateHasChanged();
+    }
+    
+    // Hides the new comment, if it has been closed and not posted,
+    // otherwise it stays shown, no more comments can be added until page reload
+    // TODO: Create some smarter system that would allow adding more comments, and treat them as regular comments
+    private void CloseNewComment()
+    {
+        _newCommentShown = !_newCommentComp.IsPosted;
+        StateHasChanged();
     }
 }

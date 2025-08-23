@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Components;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
 using MyMusicTaste.Components.Dialogs;
 using MyMusicTaste.Components.Page_User;
@@ -12,18 +13,17 @@ public partial class CommentComp : ComponentBase
 {
     [Parameter] public Comment Comment { get; set; } = null!;
     // TODO: Split Unposted Comments into its own component to avoid coupling
-    [Parameter] public bool IsUnposted { get; set; }
+    [Parameter] public bool IsPosted { get; set; } = true;
 
-    public event Action? OnEditModeOpened;
-    public event Action<bool>? OnEditModeClosed;
-    public event Action? OnChangesSaved;
-    public event Action? OnCommentDeleted;
+    [Parameter] public EventCallback OnEditModeOpened { get; set; }
+    [Parameter] public EventCallback<bool> OnEditModeClosed { get; set; }
+    [Parameter] public EventCallback OnChangesSaved { get; set; }
+    [Parameter] public EventCallback OnCommentDeleted { get; set; }
 
     [Inject] private IDbRepository<User> _userRepo { get; set; } = null!;
     [Inject] private IDbRepository<Comment> _commentRepo { get; set; } = null!;
     [Inject] private IIdentityProvider _identity { get; set; } = null!;
-    
-    private NavigationManager _navigationManager { get; set; } = null!;
+    [Inject] private NavigationManager _navigationManager { get; set; } = null!;
     
     private enum CompState { NotLoaded, Loaded, Deleted }
     private CompState _state = CompState.NotLoaded;
@@ -45,16 +45,16 @@ public partial class CommentComp : ComponentBase
     {
         _poster = await _userRepo.GetByIdAsync(Comment.UserId.ToString());
         _ownedByUser = _identity.AuthorizeUserById(_poster.Id.ToString());
-        _inEditMode = IsUnposted;
+        _inEditMode = !IsPosted;
         _state = CompState.Loaded;
     }
 
-    private void OpenEditMode()
+    private async Task OpenEditMode()
     {
         if (!_ownedByUser) return;
         _inEditMode = true;
         StateHasChanged();
-        OnEditModeOpened?.Invoke();
+        await OnEditModeOpened.InvokeAsync();
     }
 
     private async Task CloseEditMode()
@@ -75,7 +75,7 @@ public partial class CommentComp : ComponentBase
         _tempContent = null;
         _inEditMode = false;
         StateHasChanged();
-        OnEditModeClosed?.Invoke(!UnsavedChanges());
+        await OnEditModeClosed.InvokeAsync(!UnsavedChanges());
     }
 
     private void ChangeContent(ChangeEventArgs args)
@@ -91,20 +91,23 @@ public partial class CommentComp : ComponentBase
     {
         if (!_ownedByUser) return;
         if (!UnsavedChanges()) return;
+        if (_tempContent.IsNullOrEmpty()) return;
 
-        if (IsUnposted)
+        Comment.Content = _tempContent!;
+
+        if (!IsPosted)
         {
             Comment.CreationTime = DateTime.Now;
             await _commentRepo.CreateAsync(Comment);
+            IsPosted = true;
         }
         else
         {
             Comment.LastEditTime = DateTime.Now;
             await _commentRepo.UpdateAsync(Comment);
-            IsUnposted = false;
         }
         
-        OnChangesSaved?.Invoke();
+        await OnChangesSaved.InvokeAsync();;
     }
 
     private async Task DeleteCommentAsync()
@@ -118,13 +121,13 @@ public partial class CommentComp : ComponentBase
         _state = CompState.Deleted;
         StateHasChanged();
         await _commentRepo.DeleteAsync(Comment);
-        
-        OnCommentDeleted?.Invoke();
+        await OnCommentDeleted.InvokeAsync();;
     }
     
     private bool UnsavedChanges()
     {
-        return _tempContent != null && _tempContent != Comment.Content;
+        return (_tempContent != null && _tempContent != Comment.Content) ||
+               !IsPosted;
     }
 
     private string GetShownContent()
