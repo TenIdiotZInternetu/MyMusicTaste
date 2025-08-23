@@ -15,6 +15,9 @@ public partial class CommentComp() : ComponentBase
     [Inject] private IDbRepository<Comment> _commentRepo { get; set; } = null!;
     [Inject] private IIdentityProvider _identity { get; set; } = null!;
     
+    private enum CompState { NotLoaded, Loaded, Deleted }
+    private CompState _state = CompState.NotLoaded;
+    
     private User? _poster;
     private bool _ownedByUser;
     
@@ -26,12 +29,14 @@ public partial class CommentComp() : ComponentBase
     private string _saveBtnStyle => UnsavedChanges() ? "primary" : "secondary";
     
     private ConfirmDialog _unsavedChangesDialog = null!;
+    private ConfirmDialog _deleteCommentDialog = null!;
     
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        _poster = _userRepo.GetById(Comment.UserId);
+        _poster = await _userRepo.GetByIdAsync(Comment.UserId.ToString());
         _ownedByUser = _identity.AuthorizeUserById(_poster.Id.ToString());
         _inEditMode = IsUnposted;
+        _state = CompState.Loaded;
     }
 
     private void OpenEditMode()
@@ -83,7 +88,21 @@ public partial class CommentComp() : ComponentBase
         {
             Comment.LastEditTime = DateTime.Now;
             await _commentRepo.UpdateAsync(Comment);
+            IsUnposted = false;
         }
+    }
+
+    private async Task DeleteCommentAsync()
+    {
+        if (!_ownedByUser) return;
+        if (!_inEditMode) return;
+
+        var result = await _deleteCommentDialog.OpenDialog();
+        if (!result.WasConfirmed) return;
+        
+        _state = CompState.Deleted;
+        StateHasChanged();
+        await _commentRepo.DeleteAsync(Comment);
     }
     
     private bool UnsavedChanges()
