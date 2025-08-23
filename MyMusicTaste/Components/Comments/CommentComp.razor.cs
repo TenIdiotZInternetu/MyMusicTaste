@@ -13,7 +13,9 @@ public partial class CommentComp : ComponentBase
 {
     [Parameter] public Comment Comment { get; set; } = null!;
     // TODO: Split Unposted Comments into its own component to avoid coupling
-    [Parameter] public bool IsPosted { get; set; } = true;
+    [Parameter] public bool IsNewComment { get; set; } = true;
+    
+    public bool IsPosted { get; private set; }
 
     [Parameter] public EventCallback OnEditModeOpened { get; set; }
     [Parameter] public EventCallback<bool> OnEditModeClosed { get; set; }
@@ -45,8 +47,10 @@ public partial class CommentComp : ComponentBase
     {
         _poster = await _userRepo.GetByIdAsync(Comment.UserId.ToString());
         _ownedByUser = _identity.AuthorizeUserById(_poster.Id.ToString());
+        IsPosted = IsNewComment;
         _inEditMode = !IsPosted;
         _state = CompState.Loaded;
+        
     }
 
     private async Task OpenEditMode()
