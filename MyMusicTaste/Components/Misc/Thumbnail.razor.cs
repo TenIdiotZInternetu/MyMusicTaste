@@ -7,6 +7,9 @@ public partial class Thumbnail : ComponentBase
 {
     [Parameter] public string? ImageLink { get; set; }
     [Parameter] public string? AltText { get; set; }
+    
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? UnmatchedAttributes { get; set; }
 
     private bool _isLinkValid;
 
