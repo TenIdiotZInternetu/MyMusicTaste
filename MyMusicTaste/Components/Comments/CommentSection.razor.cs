@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Components;
+using MongoDB.Bson;
 using MyMusicTaste.Database;
 using MyMusicTaste.Database.Operations;
 using MyMusicTaste.Models;
@@ -15,25 +16,43 @@ public partial class CommentSection : ComponentBase
     [Inject] private ICommentsListing _commentsListing { get; set; } = null!;
     [Inject] private IDbRepository<User> _userRepository { get; set; } = null!;
 
-    private enum ComponentState { NotLoaded, NotSignedIn, NotCommented, Commented}
-    private ComponentState _state = ComponentState.NotLoaded;
+    private enum ComponentState { Loading, Loaded}
+    private ComponentState _state = ComponentState.Loading;
     
     private string? _signedUserId;
-    private Comment? _signedUserComment;
-
+    private bool _userSigned => _signedUserId != null;
+    
     private IEnumerable<Comment> _comments = null!;
+    
+    private CommentComp _newCommentComp = null!;
+    private Comment? _newComment;
+    private bool _newCommentShown;
 
     protected override async Task OnInitializedAsync()
     {
         _signedUserId = _identity.GetUserId();
-        if (_signedUserId == null)
-        {
-            _state = ComponentState.NotSignedIn;
-        }
-
         _comments = await _commentsListing.GetCommentsByPageAsync(PageType, PageId, ResultsCount);
-        _signedUserComment = _comments.FirstOrDefault(c => c.UserId.ToString() == _signedUserId);
-        _state = _signedUserComment == null ? 
-            ComponentState.NotCommented : ComponentState.Commented;
+        
+        // Hides the new comment, if it has been closed and not posted,
+        // otherwise it stays shown, no more comments can be added until page reload
+        // TODO: Create some smarter system that would allow adding more comments, and treat them as regular comments
+        _newCommentComp.OnEditModeClosed += (changesSaved) =>
+        {
+            _newCommentShown = changesSaved;
+        };
+    }
+
+    private void ShowNewComment()
+    {
+        if (!_userSigned) return;
+        
+        _newComment = new Comment
+        {
+            UserId = new ObjectId(_signedUserId),
+            CommentPageType = PageType,
+            PageId = new ObjectId(PageId)
+        };
+        
+        _newCommentShown = true;
     }
 }

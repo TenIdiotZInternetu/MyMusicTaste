@@ -11,9 +11,10 @@ public class Comment : Model
     public required ObjectId UserId { get; set; }
     public required CommentPageType CommentPageType { get; set; }
     public required ObjectId PageId { get; set; }
-    public required string Content { get; set; }
-    public required DateTime CreationTime { get; set; }
+    public string Content { get; set; } = string.Empty;
+    public DateTime CreationTime { get; set; } = INVALID_DATE;
     public DateTime LastEditTime { get; set; } = INVALID_DATE;
     
+    public bool CreationTimeValid => CreationTime != INVALID_DATE;
     public bool LastEditTimeValid => LastEditTime != INVALID_DATE;
 }

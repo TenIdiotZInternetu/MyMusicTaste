@@ -1,19 +1,29 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
 using MyMusicTaste.Components.Dialogs;
+using MyMusicTaste.Components.Page_User;
 using MyMusicTaste.Database;
 using MyMusicTaste.Models;
 
 namespace MyMusicTaste.Components.Comments;
 
-public partial class CommentComp() : ComponentBase
+//TODO: Add a way to display user's Song Rating (or some other metric) on particular page types
+public partial class CommentComp : ComponentBase
 {
     [Parameter] public Comment Comment { get; set; } = null!;
+    // TODO: Split Unposted Comments into its own component to avoid coupling
     [Parameter] public bool IsUnposted { get; set; }
+
+    public event Action? OnEditModeOpened;
+    public event Action<bool>? OnEditModeClosed;
+    public event Action? OnChangesSaved;
+    public event Action? OnCommentDeleted;
 
     [Inject] private IDbRepository<User> _userRepo { get; set; } = null!;
     [Inject] private IDbRepository<Comment> _commentRepo { get; set; } = null!;
     [Inject] private IIdentityProvider _identity { get; set; } = null!;
+    
+    private NavigationManager _navigationManager { get; set; } = null!;
     
     private enum CompState { NotLoaded, Loaded, Deleted }
     private CompState _state = CompState.NotLoaded;
@@ -44,6 +54,7 @@ public partial class CommentComp() : ComponentBase
         if (!_ownedByUser) return;
         _inEditMode = true;
         StateHasChanged();
+        OnEditModeOpened?.Invoke();
     }
 
     private async Task CloseEditMode()
@@ -64,6 +75,7 @@ public partial class CommentComp() : ComponentBase
         _tempContent = null;
         _inEditMode = false;
         StateHasChanged();
+        OnEditModeClosed?.Invoke(!UnsavedChanges());
     }
 
     private void ChangeContent(ChangeEventArgs args)
@@ -82,6 +94,7 @@ public partial class CommentComp() : ComponentBase
 
         if (IsUnposted)
         {
+            Comment.CreationTime = DateTime.Now;
             await _commentRepo.CreateAsync(Comment);
         }
         else
@@ -90,6 +103,8 @@ public partial class CommentComp() : ComponentBase
             await _commentRepo.UpdateAsync(Comment);
             IsUnposted = false;
         }
+        
+        OnChangesSaved?.Invoke();
     }
 
     private async Task DeleteCommentAsync()
@@ -103,6 +118,8 @@ public partial class CommentComp() : ComponentBase
         _state = CompState.Deleted;
         StateHasChanged();
         await _commentRepo.DeleteAsync(Comment);
+        
+        OnCommentDeleted?.Invoke();
     }
     
     private bool UnsavedChanges()
@@ -114,5 +131,11 @@ public partial class CommentComp() : ComponentBase
     {
         return (_inEditMode && _tempContent != null) ?
             _tempContent : Comment.Content;
+    }
+
+    private void NavigateToUser()
+    {
+        if (_poster == null) return;
+        _navigationManager.NavigateTo(UserPage.GetRoute(_poster.Id));
     }
 }
