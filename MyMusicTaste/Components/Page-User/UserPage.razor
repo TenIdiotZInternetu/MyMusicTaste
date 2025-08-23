@@ -1,6 +1,8 @@
 @using Microsoft.IdentityModel.Tokens
 @using MyMusicTaste.Components.Misc
 @using MyMusicTaste.Components.Dialogs
+@using MyMusicTaste.Components.Comments
+@using MyMusicTaste.Models
 
 @namespace MyMusicTaste.Components.Page_User
 @attribute [Route(ROUTE_TEMPLATE)]
@@ -85,4 +87,6 @@
             }
         </div>
     }
+
+    <CommentSection PageType="CommentPageType.User" PageId="@UserId" ResultsCount="50"/>
 }

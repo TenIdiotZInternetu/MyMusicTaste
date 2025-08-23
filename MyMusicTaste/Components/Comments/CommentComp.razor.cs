@@ -139,6 +139,6 @@ public partial class CommentComp : ComponentBase
     private void NavigateToUser()
     {
         if (_poster == null) return;
-        _navigationManager.NavigateTo(UserPage.GetRoute(_poster.Id));
+        _navigationManager.NavigateTo(UserPage.GetRoute(_poster.Id), true);
     }
 }
