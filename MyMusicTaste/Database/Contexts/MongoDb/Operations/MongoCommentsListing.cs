@@ -20,7 +20,7 @@ public class MongoCommentsListing : ICommentsListing
              .Where(comment => comment.CommentPageType == pageType && 
                                comment.PageId == new ObjectId(pageId));
         
-        var dateSort = Builders<Comment>.Sort.Descending(c => c.DateAndTime);
+        var dateSort = Builders<Comment>.Sort.Descending(c => c.CreationTime);
 
         return await _collection.Aggregate()
             .Match(filter)
