@@ -61,7 +61,7 @@
             </div>
 
             <h4>About Me:</h4>
-            <textarea readonly="@(!_inEditMode)" class="form-control z-101 position-relative"
+            <textarea readonly="@(!_inEditMode)" class="form-control z-101 position-relative" maxlength="1000"
                       @oninput="@ChangeAboutMe" value="@_aboutMeText">
             </textarea>
         </div>
