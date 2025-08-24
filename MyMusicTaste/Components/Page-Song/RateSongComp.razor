@@ -8,9 +8,11 @@
 }
 @if (_componentState == ComponentState.Rated)
 {
-    <p>Your rating: @GetShownLabelValue()</p>
-    <input class="form-range" type="range" 
-           value="@_initialInputValue" min="0" max="100" 
-           @oninput="@ChangeRating" @onchange="@SaveNewRating"/>
-    <button class="btn btn-danger" @onclick="@RemoveRating">Remove from collection</button>
+    <div>
+        <p class="m-0">Your rating: @GetShownLabelValue()</p>
+        <input class="form-range my-1" type="range" 
+               value="@_initialInputValue" min="0" max="100" 
+               @oninput="@ChangeRating" @onchange="@SaveNewRating"/>
+        <button class="btn btn-danger w-100" @onclick="@RemoveRating">Remove from collection</button>
+    </div>
 }

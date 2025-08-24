@@ -3,7 +3,7 @@
     /*gap: var(--flex-gap);*/
     /*flex-direction: column;*/
     
-    padding: 0.5rem;
+    padding: 0.5em;
 }
 
 .comment-header {
@@ -12,22 +12,6 @@
     gap: var(--flex-gap);
 
     height: 3em;
-}
-
-.comment-content {
-    padding: 0.3rem 0.6rem;
-    min-height: 7rem;
-    width: 100%;
-}
-
-textarea:read-only {
-    border-style: none;
-    min-height: auto;
-    resize: none;
-}
-
-textarea::selection {
-    border-style: none;
 }
 
 #thumbnail {
