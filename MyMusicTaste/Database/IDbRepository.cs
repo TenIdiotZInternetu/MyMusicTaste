@@ -11,4 +11,6 @@ public interface IDbRepository<TModel>
     public Task CreateAsync(TModel model);
     public Task UpdateAsync(TModel model);
     public Task DeleteAsync(TModel model);
+    
+    // TODO: Find by model field values
 }

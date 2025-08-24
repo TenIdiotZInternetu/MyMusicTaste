@@ -15,7 +15,7 @@ else
             {
                 <hr class="m-2"/>   
             }
-            <SongRatingItem @key="rating.Id" Rating="rating"/>
+            <SongRatingItem OnRatingSaved="@ReorderRatings" @key="rating.Id" Rating="rating"/>
             lastRating = rating.Rating;
         }
     </div>

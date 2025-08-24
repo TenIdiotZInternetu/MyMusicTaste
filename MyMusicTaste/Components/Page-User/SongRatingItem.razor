@@ -13,8 +13,12 @@
             <p class="item-text song-title">@_song!.Title</p>
             <p class="item-text">@_song!.Author - @_song!.Album</p>
         </div>
-        <div class="rating-border">
-            <p class="item-text">@_shownValue</p>
+        <div class="rating-border" @onclick:stopPropagation="true">
+            <input class="form-control-plaintext text-center" type="number" min="0" max="100"
+                   value="@_shownValue"
+                   @oninput="ChangeRating"
+                   @onblur="@SaveRatingAsync"
+                   @onkeydown="HandleKeyAsync"/>
         </div>
     </button>
 }
