@@ -27,8 +27,8 @@ public partial class RateSongComp : ComponentBase
 
         if (_currentRating != null)
         {
-            _initialInputValue = _currentRating.Rating == SongRating.NOT_RATED ?
-                (byte) 0 : _currentRating.Rating;
+            _initialInputValue = _currentRating.IsRated ?
+                _currentRating.Rating : (byte) 0;
             _currentInputValue = _initialInputValue;
         }
     }

@@ -15,8 +15,8 @@ public partial class SongRatingItem : ComponentBase {
     private ComponentState _componentState = ComponentState.Loading;
     
     private Song? _song;
-    private string _shownValue => Rating.Rating == SongRating.NOT_RATED ?
-        "-" : Rating.Rating.ToString();
+    private string _shownValue => Rating.IsRated ?
+        Rating.Rating.ToString() : "-";
     
     protected override void OnInitialized()
     {
