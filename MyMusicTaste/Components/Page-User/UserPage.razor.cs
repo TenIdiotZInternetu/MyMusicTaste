@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Components;
+using Microsoft.IdentityModel.Tokens;
 using MongoDB.Bson;
 using MyMusicTaste.Components.Dialogs;
 using MyMusicTaste.Database;
@@ -115,11 +116,17 @@ public partial class UserPage : ComponentBase
         
         _saving = true;
         StateHasChanged();
-        
-        _user!.ProfilePictureLink = _tempProfilePicLink;
-        _user!.AboutMe = _tempAboutMeText;
 
-        await _userRepository.UpdateAsync(_user);
+        if (!_tempProfilePicLink.IsNullOrEmpty())
+        {
+            _user!.ProfilePictureLink = _tempProfilePicLink;
+        }
+        if (!_tempAboutMeText.IsNullOrEmpty())
+        {
+            _user!.AboutMe = _tempAboutMeText;
+        }
+
+        await _userRepository.UpdateAsync(_user!);
         _saving = false;
         StateHasChanged();
     }

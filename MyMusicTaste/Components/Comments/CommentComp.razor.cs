@@ -95,7 +95,6 @@ public partial class CommentComp : ComponentBase
     {
         if (!_ownedByUser) return;
         if (!UnsavedChanges()) return;
-        if (_tempContent.IsNullOrEmpty()) return;
 
         Comment.Content = _tempContent!;
 
@@ -130,7 +129,7 @@ public partial class CommentComp : ComponentBase
     
     private bool UnsavedChanges()
     {
-        return (_tempContent != null && _tempContent != Comment.Content) ||
+        return (!_tempContent.IsNullOrEmpty() && _tempContent != Comment.Content) ||
                !IsPosted;
     }
 
