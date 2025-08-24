@@ -38,7 +38,7 @@ html, body {
     gap: var(--flex-gap);
     align-items: center;
 
-    height: 60px;
+    height: 6.8vh;
     margin: 0.1em;
     padding: 0.4em;
 

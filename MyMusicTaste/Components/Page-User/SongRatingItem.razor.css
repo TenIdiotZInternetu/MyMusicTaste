@@ -1,0 +1,13 @@
+.rating-border {
+    height: 80%;
+    margin-left: auto;
+    margin-right: 1em;
+
+    border-style: solid;
+    border-width: thin;
+    border-radius: 50%;
+
+    aspect-ratio: 1/1;
+    justify-content: center;
+    align-content: center;
+}
