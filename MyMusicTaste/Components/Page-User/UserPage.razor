@@ -50,7 +50,7 @@
 
                         @if (_saving)
                         {
-                            <p class="">Saving...</p>
+                            <p>Saving...</p>
                         }
                     }
                     else
@@ -62,31 +62,11 @@
 
             <h4>About Me:</h4>
             <textarea readonly="@(!_inEditMode)" class="form-control z-101 position-relative"
-                      @onchange="@ChangeAboutMe" value="@_aboutMeText">
+                      @oninput="@ChangeAboutMe" value="@_aboutMeText">
             </textarea>
         </div>
     </div>
     
-    @if (_ratings.IsNullOrEmpty())
-    {
-        <div>No ratings yet :(</div>
-    }
-    else
-    {
-        int lastRating = _ratings!.First().Rating;
-        
-        <div class="list-group">
-            @foreach (var rating in _ratings!)
-            {
-                if (lastRating != rating.Rating)
-                {
-                    <hr class="m-2"/>   
-                }
-                <SongRatingItem @key="rating.Id" Rating="rating"/>
-                lastRating = rating.Rating;
-            }
-        </div>
-    }
-
+    
     <CommentSection PageType="CommentPageType.User" PageId="@UserId" ResultsCount="50"/>
 }

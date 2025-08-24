@@ -1,0 +1,22 @@
+@using Microsoft.IdentityModel.Tokens
+
+@if (_ratings.IsNullOrEmpty())
+{
+    <div>No ratings yet :(</div>
+}
+else
+{
+    int lastRating = _ratings!.First().Rating;
+        
+    <div class="list-group">
+        @foreach (var rating in _ratings!)
+        {
+            if (lastRating != rating.Rating)
+            {
+                <hr class="m-2"/>   
+            }
+            <SongRatingItem @key="rating.Id" Rating="rating"/>
+            lastRating = rating.Rating;
+        }
+    </div>
+}

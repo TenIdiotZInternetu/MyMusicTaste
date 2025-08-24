@@ -15,11 +15,9 @@ public partial class UserPage : ComponentBase
     [Parameter] public string UserId { get; set; } = null!;
 
     [Inject] private IDbRepository<User> _userRepository {get;set;} = null!;
-    [Inject] private ISongRatingListing _ratingListing { get; set; } = null!;
     [Inject] private IIdentityProvider _identity {get;set;} = null!;
     
     private User? _user;
-    private IEnumerable<SongRating>? _ratings;
     
     private enum PageState { Loading, Loaded, UserNotFound }
     private PageState _pageState = PageState.Loading;
@@ -48,13 +46,8 @@ public partial class UserPage : ComponentBase
     {
         try
         {
-            _user = _userRepository.GetById(UserId);
+            _user = await _userRepository.GetByIdAsync(UserId);
             _ownerAuthorized = _identity.AuthorizeUserById(UserId);
-            
-            var unorderedRatings = await _ratingListing.GetRatingsByUserAsync(_user);
-            _ratings = unorderedRatings.OrderByDescending(rating => 
-                rating.Rating == SongRating.NOT_RATED ? -1 : rating.Rating);
-            
             _pageState = PageState.Loaded;
         }
         catch (EntryNotFoundException)
