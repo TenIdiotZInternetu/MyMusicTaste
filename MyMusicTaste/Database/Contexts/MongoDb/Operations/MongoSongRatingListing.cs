@@ -1,3 +1,4 @@
+using MongoDB.Bson;
 using MongoDB.Driver;
 using MyMusicTaste.Database.Operations;
 using MyMusicTaste.Models;
@@ -26,18 +27,18 @@ public class MongoSongRatingListing : ISongRatingListing
         return _collection.Find(filter).FirstOrDefaultAsync();
     }
 
-    public async Task<IEnumerable<SongRating>> GetRatingsByUserAsync(User user)
+    public async Task<IEnumerable<SongRating>> GetRatingsByUserAsync(string userId)
     {
         var filter = Builders<SongRating>.Filter
-            .Eq(rating => rating.UserId, user.Id);
+            .Eq(rating => rating.UserId, new ObjectId(userId));
         
         return await _collection.Find(filter).ToListAsync();
     }
 
-    public async Task<IEnumerable<SongRating>> GetRatingsBySongAsync(Song song)
+    public async Task<IEnumerable<SongRating>> GetRatingsBySongAsync(string songId)
     {
         var filter = Builders<SongRating>.Filter
-            .Eq(rating => rating.SongId, song.Id);
+            .Eq(rating => rating.SongId, new ObjectId(songId));
         
         return await _collection.Find(filter).ToListAsync();
     }
