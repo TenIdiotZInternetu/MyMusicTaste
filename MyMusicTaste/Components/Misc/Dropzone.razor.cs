@@ -14,7 +14,7 @@ public partial class Dropzone : ComponentBase
     [Parameter] public EventCallback<Dropzone> OnDrop { get; set; }
 
     private bool _active;
-    private string style => _active ? "active" : "inactive";
+    private string _activeStyle => _active ? "active" : "inactive";
 
     public void SetActive(bool active)
     {
@@ -24,7 +24,7 @@ public partial class Dropzone : ComponentBase
 
     private void Enter(DragEventArgs e)
     {
-        OnDragEnter.InvokeAsync();
+        OnDragEnter.InvokeAsync(this);
         if (AutoActivate)
         {
             SetActive(true);
@@ -33,7 +33,7 @@ public partial class Dropzone : ComponentBase
 
     private void Leave(DragEventArgs e)
     {
-        OnDragLeave.InvokeAsync();
+        OnDragLeave.InvokeAsync(this);
         if (AutoDeactivate)
         {
             SetActive(false);
@@ -43,7 +43,7 @@ public partial class Dropzone : ComponentBase
     private void Drop(DragEventArgs e)
     {
         if (!_active) return;
-        OnDrop.InvokeAsync();
+        OnDrop.InvokeAsync(this);
         SetActive(false);
     }
 }

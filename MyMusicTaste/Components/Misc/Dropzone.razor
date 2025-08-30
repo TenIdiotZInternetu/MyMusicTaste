@@ -1,4 +1,9 @@
-<div @class="dropzone dropzone-@style"
-     @ondragenter="@Enter"
-     @ondragleave="@Leave"
-     @ondrop="@Drop"></div>
+<div class="position-relative">
+     <div class="dropzone @_activeStyle simple-border"
+          @ondragenter="@Enter"
+          @ondragleave="@Leave"
+          @ondragover="@(e => e.DataTransfer.DropEffect = "move")"
+          @ondragenter:preventDefault="true"
+          @ondragover:preventDefault="true"
+          @ondrop="@Drop"></div>
+</div>

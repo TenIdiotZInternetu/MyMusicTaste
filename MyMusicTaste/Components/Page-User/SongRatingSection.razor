@@ -7,32 +7,35 @@
 }
 else
 {
-    int lastRating = _ratingItems!.First().Rating;
+    int firstRating = _ratingItems!.First().Rating;
         
-    <div class="list-group">
+    <div>
         @foreach (var item in _ratingItems!)
         {
-            int prevRating = lastRating;
-            if (item.Rating - lastRating > 1)
+            int prevRating = firstRating;
+            if (firstRating != item.Rating)
             {
-                <hr class="m-2"/>
-                <Dropzone OnDrop="@(_ => SaveDraggedItem(prevRating + 1))"/>
-            }
-            if (lastRating != item.Rating)
-            {
+                <Dropzone OnDrop="@(_ => SaveDraggedItem(prevRating))"
+                          AutoDeactivate="false" OnDragEnter="@ChangeDropzone"/>
                 <hr class="m-2"/>   
             }
+            if (item.Rating - prevRating > 1)
+            {
+                <Dropzone OnDrop="@(_ => SaveDraggedItem(prevRating + 1))"
+                          AutoDeactivate="false" OnDragEnter="@ChangeDropzone"/>
+                <hr class="m-2"/>
+            }
             
-            <Dropzone OnDrop="@(_ => SaveDraggedItem(prevRating))"/>
+            <Dropzone OnDrop="@(_ => SaveDraggedItem(item.Rating))"
+                      AutoDeactivate="false" OnDragEnter="@ChangeDropzone"/>
 
-            <div draggable="true"
-                 @ondragstart="@(_ => SetDraggedItem(item))"
-                 @ondragend="@(_ => SetDraggedItem(null))"
+            <div draggable="true" class="position-relative z-1"
+                 @ondragstart="@(_ => StartDragging(item))"
+                 @ondragend="@(_ => StopDragging())"
                  @ondragover:preventDefault="true">
                 <SongRatingItem OnRatingSaved="@ReorderRatings" @key="item.Id" Rating="item"/>
             </div>
-            lastRating = item.Rating;
+            firstRating = item.Rating;
         }
-        <Dropzone OnDrop="@(_ => SaveDraggedItem(lastRating))"/>
     </div>
 }

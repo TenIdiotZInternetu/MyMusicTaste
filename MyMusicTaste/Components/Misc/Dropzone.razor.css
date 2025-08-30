@@ -1,0 +1,23 @@
+.dropzone {
+    width: 100%;
+    background: var(--clr-secondary);
+}
+
+.active {
+    position: static;
+    opacity: 1;
+    z-index: 2;
+    height: 6.8vh;
+    pointer-events: auto;
+    
+    transition: height 0.25s ease-out, opacity 0.1s;
+}
+
+.inactive {
+    position: absolute;
+    top: -2vh;
+    height: 4vh;
+    opacity: 0;
+    z-index: 0;
+    pointer-events: auto;
+}

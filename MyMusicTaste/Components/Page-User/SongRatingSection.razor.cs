@@ -17,6 +17,7 @@ public partial class SongRatingSection : ComponentBase
     private IEnumerable<SongRating>? _ratingItems;
 
     private SongRating? _draggedItem;
+    private Dropzone? _activeDropzone;
 
     protected override async Task OnInitializedAsync()
     {
@@ -33,9 +34,16 @@ public partial class SongRatingSection : ComponentBase
         StateHasChanged();
     }
 
-    private void SetDraggedItem(SongRating? item)
+    private void StartDragging(SongRating item)
     {
         _draggedItem = item;
+    }
+
+    private void StopDragging()
+    {
+        _draggedItem = null;
+        _activeDropzone?.SetActive(false);
+        _activeDropzone = null;
     }
 
     private async Task SaveDraggedItem(int newRating)
@@ -47,5 +55,11 @@ public partial class SongRatingSection : ComponentBase
         _draggedItem = null;
         ReorderRatings();
         StateHasChanged();
+    }
+
+    private void ChangeDropzone(Dropzone newDropzone)
+    {
+        _activeDropzone?.SetActive(false);
+        _activeDropzone = newDropzone;
     }
 }
