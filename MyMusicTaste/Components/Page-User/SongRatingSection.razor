@@ -1,22 +1,38 @@
 @using Microsoft.IdentityModel.Tokens
+@using MyMusicTaste.Components.Misc
 
-@if (_ratings.IsNullOrEmpty())
+@if (_ratingItems.IsNullOrEmpty())
 {
     <div>No ratings yet :(</div>
 }
 else
 {
-    int lastRating = _ratings!.First().Rating;
+    int lastRating = _ratingItems!.First().Rating;
         
     <div class="list-group">
-        @foreach (var rating in _ratings!)
+        @foreach (var item in _ratingItems!)
         {
-            if (lastRating != rating.Rating)
+            int prevRating = lastRating;
+            if (item.Rating - lastRating > 1)
+            {
+                <hr class="m-2"/>
+                <Dropzone OnDrop="@(_ => SaveDraggedItem(prevRating + 1))"/>
+            }
+            if (lastRating != item.Rating)
             {
                 <hr class="m-2"/>   
             }
-            <SongRatingItem OnRatingSaved="@ReorderRatings" @key="rating.Id" Rating="rating"/>
-            lastRating = rating.Rating;
+            
+            <Dropzone OnDrop="@(_ => SaveDraggedItem(prevRating))"/>
+
+            <div draggable="true"
+                 @ondragstart="@(_ => SetDraggedItem(item))"
+                 @ondragend="@(_ => SetDraggedItem(null))"
+                 @ondragover:preventDefault="true">
+                <SongRatingItem OnRatingSaved="@ReorderRatings" @key="item.Id" Rating="item"/>
+            </div>
+            lastRating = item.Rating;
         }
+        <Dropzone OnDrop="@(_ => SaveDraggedItem(lastRating))"/>
     </div>
 }
