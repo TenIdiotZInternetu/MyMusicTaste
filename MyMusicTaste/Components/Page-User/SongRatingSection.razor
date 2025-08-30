@@ -15,21 +15,19 @@ else
             int prevRating = firstRating;
             if (firstRating != item.Rating)
             {
-                <Dropzone OnDrop="@(_ => SaveDraggedItem(prevRating))"
-                          AutoDeactivate="false" OnDragEnter="@ChangeDropzone"/>
                 <hr class="m-2"/>   
             }
-            if (item.Rating - prevRating > 1)
+            if (prevRating - item.Rating > 1)
             {
-                <Dropzone OnDrop="@(_ => SaveDraggedItem(prevRating + 1))"
-                          AutoDeactivate="false" OnDragEnter="@ChangeDropzone"/>
+                <Dropzone AutoDeactivate="false"
+                          OnDragEnter="@(zone => ChangeDropzone(zone, prevRating - 1))"/>
                 <hr class="m-2"/>
             }
             
-            <Dropzone OnDrop="@(_ => SaveDraggedItem(item.Rating))"
-                      AutoDeactivate="false" OnDragEnter="@ChangeDropzone"/>
+            <Dropzone AutoDeactivate="false"
+                      OnDragEnter="@(zone => ChangeDropzone(zone, item.Rating))"/>
 
-            <div draggable="true" class="position-relative z-1"
+            <div draggable="true" class="position-relative _itemZValue"
                  @ondragstart="@(_ => StartDragging(item))"
                  @ondragend="@(_ => StopDragging())"
                  @ondragover:preventDefault="true">

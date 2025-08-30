@@ -18,6 +18,10 @@ public partial class SongRatingSection : ComponentBase
 
     private SongRating? _draggedItem;
     private Dropzone? _activeDropzone;
+    private int _newRatingOnDrop;
+    
+    private bool _isDragging => _draggedItem != null;
+    private string _itemZValue => _isDragging ? "z-n1" : "z-1";
 
     protected override async Task OnInitializedAsync()
     {
@@ -39,17 +43,24 @@ public partial class SongRatingSection : ComponentBase
         _draggedItem = item;
     }
 
-    private void StopDragging()
+    private async Task StopDragging()
     {
+        if (_draggedItem == null) return;
+        if (_newRatingOnDrop != _draggedItem.Rating)
+        {
+            await UpdateDraggedItem();
+        }
+        
         _draggedItem = null;
         _activeDropzone?.SetActive(false);
         _activeDropzone = null;
+        _newRatingOnDrop = 0;
     }
 
-    private async Task SaveDraggedItem(int newRating)
+    private async Task UpdateDraggedItem()
     {
         if (_draggedItem == null) return;
-        _draggedItem.Rating = (byte)newRating;
+        _draggedItem.Rating = (byte)_newRatingOnDrop;
         await _ratingRepo.UpdateAsync(_draggedItem);
         
         _draggedItem = null;
@@ -57,9 +68,10 @@ public partial class SongRatingSection : ComponentBase
         StateHasChanged();
     }
 
-    private void ChangeDropzone(Dropzone newDropzone)
+    private void ChangeDropzone(Dropzone newDropzone, int ratingOnDrop)
     {
         _activeDropzone?.SetActive(false);
         _activeDropzone = newDropzone;
+        _newRatingOnDrop = ratingOnDrop;
     }
 }
