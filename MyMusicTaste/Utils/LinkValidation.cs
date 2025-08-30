@@ -4,11 +4,11 @@ namespace MyMusicTaste.Utils;
 
 public static class LinkValidation
 {
-    public static async Task<bool> IsImageLinkValidAsync(string? link)
+    public static async Task<bool> IsImageLinkValidAsync(string? link, bool isEmptyValid = false)
     {
         if (link.IsNullOrEmpty())
         {
-            return false;
+            return isEmptyValid;
         }
 
         try
@@ -26,11 +26,11 @@ public static class LinkValidation
         }
     }
 
-    public static bool IsSongLinkValid(string? link)
+    public static bool IsSongLinkValid(string? link, bool isEmptyValid = false)
     {
         if (link.IsNullOrEmpty())
         {
-            return false;
+            return isEmptyValid;
         }
         
         string[] validDomains =

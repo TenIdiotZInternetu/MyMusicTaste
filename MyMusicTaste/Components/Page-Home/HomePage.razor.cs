@@ -4,7 +4,6 @@ namespace MyMusicTaste.Components.Page_Home;
 
 public partial class HomePage : ComponentBase
 {
-    public const string RouteTemplate = "/";
-    
-    public static string GetRoute() => RouteTemplate;
+    public const string ROUTE_TEMPLATE = "/";
+    public static string GetRoute() => ROUTE_TEMPLATE;
 }

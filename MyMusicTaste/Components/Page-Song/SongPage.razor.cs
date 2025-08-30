@@ -24,9 +24,9 @@ public partial class SongPage : ComponentBase
     
     private bool _statsCalculated;
 
-    public static string GetRoute(ObjectId songId)
+    public static string GetRoute(string songId)
     {
-        return ROUTE_TEMPLATE.Replace("{SongId}", songId.ToString());
+        return ROUTE_TEMPLATE.Replace("{SongId}", songId);
     }
     
     protected override async Task OnInitializedAsync()

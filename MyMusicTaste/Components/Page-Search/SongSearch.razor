@@ -1,3 +1,4 @@
+@using MyMusicTaste.Components.Page_SongSubmission
 @using MyMusicTaste.Models
 
 @namespace MyMusicTaste.Components.Page_Search
@@ -22,5 +23,5 @@ else
 
 <p>
     Couldn't find the song you were looking for? <br/>
-    Add it to our database!
+    <a href="@SongSubmissionPage.GetRoute()">Add it to our database!</a>
 </p>

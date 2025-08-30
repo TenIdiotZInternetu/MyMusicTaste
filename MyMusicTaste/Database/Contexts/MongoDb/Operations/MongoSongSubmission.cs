@@ -1,3 +1,4 @@
+using MongoDB.Bson;
 using MongoDB.Driver;
 using MyMusicTaste.Database.Operations;
 using MyMusicTaste.Models;
@@ -7,20 +8,17 @@ namespace MyMusicTaste.Database.Contexts.MongoDb.Operations;
 public class SongSubmission : ISongSubmission
 {
     private static readonly MongoRepository<Song> REPOSITORY = new();
-    
-    public void SubmitSong(Song songModel)
-    {
-        throw new NotImplementedException();
-    }
 
-    public async Task SubmitSongAsync(Song song)
+    public async Task<string> SubmitSongAsync(Song song)
     {
         if (AlreadyExists(song))
         {
             throw new EntryAlreadyExistsException("The submitted song already exists in the database.");
         }
         
+        song.Id = ObjectId.GenerateNewId();
         await REPOSITORY.CreateAsync(song);
+        return song.Id.ToString();
     }
     
     private bool AlreadyExists(Song song)

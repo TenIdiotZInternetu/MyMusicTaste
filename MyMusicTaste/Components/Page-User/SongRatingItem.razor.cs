@@ -44,7 +44,7 @@ public partial class SongRatingItem : ComponentBase {
 
     private void GoToSongPage()
     {
-        Navigation.NavigateTo(SongPage.GetRoute(_song!.Id));
+        Navigation.NavigateTo(SongPage.GetRoute(_song!.Id.ToString()));
     }
 
     private void ChangeRating(ChangeEventArgs args)

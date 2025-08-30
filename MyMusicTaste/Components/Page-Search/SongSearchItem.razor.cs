@@ -9,6 +9,6 @@ public partial class SongSearchItem : ComponentBase
 
     private void GoToSongPage()
     {
-        Navigation.NavigateTo(SongPage.GetRoute(Song!.Id));
+        Navigation.NavigateTo(SongPage.GetRoute(Song!.Id.ToString()));
     }
 }

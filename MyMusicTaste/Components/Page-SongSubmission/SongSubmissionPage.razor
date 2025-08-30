@@ -1,0 +1,54 @@
+@attribute [Route(ROUTE_TEMPLATE)]
+
+<div class="d-flex flex-column align-items-center">
+    <EditForm class="w-50" Model="_songDto" OnValidSubmit="SubmitAsync" FormName="NewSong">
+        <DataAnnotationsValidator/>
+        <label class="form-control">
+            Title:
+            <InputText required class="form-control" @bind-Value="_songDto.Title"/>
+        </label>
+        <label class="form-control">
+            Author:
+            <InputText class="form-control" @bind-Value="_songDto.Author"/>
+        </label>
+        <label class="form-control">
+            Album:
+            <InputText class="form-control" @bind-Value="_songDto.Album"/>
+        </label>
+        <label class="form-control">
+            Genre:
+            <InputText class="form-control" @bind-Value="_songDto.Genre"/>
+        </label>
+        <label class="form-control">
+            Release Date:
+            <InputDate class="form-control" @bind-Value="_songDto.ReleaseDate"/>
+        </label>
+        <label class="form-control">
+            Cover Image Link:
+            <InputText class="form-control" @bind-Value="_songDto.CoverImageLink"/>
+        </label>
+        <label class="form-control">
+            Source Link:
+            <InputText class="form-control" @bind-Value="_songDto.SourceLink"/>
+        </label>
+        <button class="form-control btn btn-primary w-25 my-3 align-self-center" 
+                type="submit">Submit</button>
+    <ValidationSummary/>
+    </EditForm>
+    @if (_alreadyExists)
+    {
+        <p class="text-danger">Song with this Title and Author already exists in the database.</p>
+    }
+    
+    @if (_invalidCover)
+    {
+        <p class="text-danger">Couldn't find an image on the provided Cover Link</p>
+    }
+    
+    @if (_invalidSource)
+    {
+        <p class="text-danger">The Source Link must come from one of the verified providers: <br/>
+                               Youtube, YT Music, Spotify, SoundCloud, Apple Music</p>
+    }
+</div>
+
