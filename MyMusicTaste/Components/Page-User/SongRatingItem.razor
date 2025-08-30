@@ -14,11 +14,18 @@
             <p class="item-text">@_song!.Author - @_song!.Album</p>
         </div>
         <div class="rating-border" @onclick:stopPropagation="true">
-            <input class="form-control-plaintext text-center" type="number" min="0" max="100"
-                   value="@_shownValue"
-                   @oninput="ChangeRating"
-                   @onblur="@SaveRatingAsync"
-                   @onkeydown="HandleKeyAsync"/>
+            @if (Editable)
+            {
+                <input class="form-control-plaintext text-center" type="number" min="0" max="100"
+                       value="@_shownValue"
+                       @oninput="ChangeRating"
+                       @onblur="@SaveRatingAsync"
+                       @onkeydown="HandleKeyAsync"/>
+            }
+            else
+            {
+                <span>@_shownValue</span>
+            }
         </div>
     </button>
 }
