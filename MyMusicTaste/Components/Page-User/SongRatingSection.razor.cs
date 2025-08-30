@@ -21,9 +21,6 @@ public partial class SongRatingSection : ComponentBase
     private SongRating? _draggedItem;
     private Dropzone? _activeDropzone;
     private int _newRatingOnDrop;
-    
-    private bool _isDragging => _draggedItem != null;
-    private string _itemZValue => _isDragging ? "z-n1" : "z-1";
 
     protected override async Task OnInitializedAsync()
     {
