@@ -13,9 +13,11 @@ public partial class SongRatingSection : ComponentBase
     
     [Inject] private ISongRatingListing _ratingListing { get; set; } = null!;
     [Inject] private IDbRepository<SongRating> _ratingRepo { get; set; } = null!;
+    [Inject] private IIdentityProvider _identity { get; set; } = null!;
     
     private IEnumerable<SongRating>? _ratingItems;
 
+    private string _userAuthorized;
     private SongRating? _draggedItem;
     private Dropzone? _activeDropzone;
     private int _newRatingOnDrop;
@@ -25,6 +27,7 @@ public partial class SongRatingSection : ComponentBase
 
     protected override async Task OnInitializedAsync()
     {
+        _userAuthorized = _identity.AuthorizeUserById(UserId).ToString().ToLower(); // My IQ just dropped by 20
         _ratingItems = await _ratingListing.GetRatingsByUserAsync(UserId);
         ReorderRatings();
     }

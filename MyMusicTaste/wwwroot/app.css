@@ -63,10 +63,10 @@ html, body {
 }
 
 .item-text {
-    width: 100%;
     padding: 0;
     margin: 0;
     font-size: 0.8em;
+    text-align: left;
 }
 
 .song-title {
