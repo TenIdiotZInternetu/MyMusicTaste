@@ -27,7 +27,7 @@ else
             <Dropzone AutoDeactivate="false"
                       OnDragEnter="@(zone => ChangeDropzone(zone, item.Rating))"/>
 
-            <div draggable="true" class="position-relative _itemZValue"
+            <div draggable="true" class="position-relative @_itemZValue"
                  @ondragstart="@(_ => StartDragging(item))"
                  @ondragend="@(_ => StopDragging())"
                  @ondragover:preventDefault="true">
