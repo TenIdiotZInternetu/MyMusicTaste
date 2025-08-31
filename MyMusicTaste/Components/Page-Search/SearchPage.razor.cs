@@ -29,4 +29,9 @@ public partial class SearchPage : ComponentBase
         _currentTab = tab;
         StateHasChanged();
     }
+
+    private string CssIsActive(Tab tab)
+    {
+        return tab == _currentTab ? "active" : "";
+    }
 }

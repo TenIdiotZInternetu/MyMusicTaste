@@ -5,21 +5,20 @@
 
 <InputText class="form-control mb-3" @oninput="UpdateQuery" @bind-Value="_searchQuery"/>
 
-<div class="d-flex">
-    <button type="button" class="btn btn-secondary" @onclick="ChangeTabToAll">All</button>
-    <button type="button" class="btn btn-secondary" @onclick="ChangeTabToSongs">Songs</button>
-    <button type="button" class="btn btn-secondary" @onclick="ChangeTabToUsers">Users</button>
+<div class="nav nav-tabs my-3">
+    <a class="nav-link @CssIsActive(Tab.All)" @onclick="ChangeTabToAll">All</a>
+    <a class="nav-link @CssIsActive(Tab.Songs)" @onclick="ChangeTabToSongs">Songs</a>
+    <a class="nav-link @CssIsActive(Tab.Users)" @onclick="ChangeTabToUsers">Users</a>
 </div>
-<hr/>
 
 @if (_currentTab == Tab.All)
 {
-    <h4>Songs</h4>
-    <hr/>
+    <h4 class="m-0">Songs</h4>
+    <hr class="my-3"/>
     <SongSearch Query="@_searchQuery" ResultsCount="4"/>
     
-    <h4>Users</h4>
-    <hr/>
+    <h4 class="m-0">Users</h4>
+    <hr class="my-3"/>
     <UserSearch Query="@_searchQuery" ResultsCount="4"/>
 }
 
