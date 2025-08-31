@@ -18,6 +18,13 @@ public record struct CssSize(double Value, CssUnit Unit)
 
         return Value + unit;
     }
+
+    public static CssSize operator+(CssSize size, double summator)
+    {
+        return size with { Value = size.Value + summator };
+    }
+
+    public static CssSize operator +(double summator, CssSize size) => size + summator;
     
     public static CssSize operator+(CssSize size1, CssSize size2)
     {
@@ -28,7 +35,14 @@ public record struct CssSize(double Value, CssUnit Unit)
         return size1 with { Value = size1.Value + size2.Value };
     }
 
-    public static CssSize operator *(CssSize size1, CssSize size2)
+    public static CssSize operator *(CssSize size, double factor)
+    {
+        return size with { Value = size.Value * factor };
+    }
+
+    public static CssSize operator *(double factor, CssSize size) => size * factor;
+
+    public static CssSize operator*(CssSize size1, CssSize size2)
     {
         if (size1.Unit != size2.Unit)
         {
