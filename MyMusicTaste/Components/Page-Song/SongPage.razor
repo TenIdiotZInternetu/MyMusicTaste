@@ -43,7 +43,7 @@
             
             @if (_statsCalculated)
             {
-                <div class="d-flex gap-3 my-2">
+                <div class="d-flex flex-wrap gap-3 my-2">
                     <div class="stat-box">
                         <h3>Total Listeners:</h3>
                         <h1>@_stats!.TotalListens</h1>
@@ -56,12 +56,12 @@
                         <h3>Median Rating:</h3>
                         <h1>@_stats!.AverageRating</h1>
                     </div>
-                </div>
-                <div>
-                    @foreach (var bucket in _stats.RatingDistribution)
-                    {
-                        <p>@bucket</p>
-                    }
+                    <div class="stat-box flex-basis-100">
+                        <h3>Rating Distribution: </h3>
+                        <Histogram MaxHeight="@(new CssSize(6, CssUnit.Rem))"
+                                   Values="@_stats.RatingDistribution"
+                                   Labels="@CreateHistogramLabels()"/>
+                    </div>
                 </div>
             }
             else

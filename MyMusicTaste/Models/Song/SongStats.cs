@@ -8,14 +8,4 @@ public class SongStats
     public int[] RatingDistribution { get; set; } = new int[20];
     
     public bool NoData => TotalListens <= 0;
-
-    public static int[] CreateDistributionBoundaries()
-    {
-        int[] boundaries = new int[21];
-        for (int i = 0; i < boundaries.Length; i++)
-        {
-            boundaries[i] = i * 5 + 1;
-        }
-        return boundaries;
-    }
 }

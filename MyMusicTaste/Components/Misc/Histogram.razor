@@ -1,14 +1,15 @@
+@typeparam TValue
 @typeparam TLabel
 
-<div class="d-flex gap-3">
+<div class="column-container">
     @foreach (var colHeight in _heights)
     {
-        <div class="flex-grow-1" style="height:@colHeight;"></div>
+        <div class="column" style="height:@colHeight;"></div>
     }
 </div>
-<div class="my-1 d-flex">
+<div class="my-1 d-flex justify-content-between">
     @foreach (var label in Labels)
     {
-        <span class="flex-grow-1">@label</span>
+        <span>@label</span>
     }
 </div>

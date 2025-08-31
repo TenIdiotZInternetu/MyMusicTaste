@@ -49,4 +49,14 @@ public partial class SongPage : ComponentBase
         _statsCalculated = true;
         StateHasChanged();
     }
+
+    private int[] CreateHistogramLabels()
+    {
+        int[] labels = new int[11];
+        for (int i = 0; i < labels.Length; i++)
+        {
+            labels[i] = i * 10;
+        }
+        return labels;
+    }
 }

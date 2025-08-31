@@ -106,14 +106,14 @@ public class MongoSongsStatsCalculation : ISongStatsCalculation
             pipeline: new EmptyPipelineDefinition<SongRating>()
                 .Bucket(
                     groupBy: entry => entry.Rating,
-                    boundaries: SongStats.CreateDistributionBoundaries(),
+                    boundaries: CreateBucketBoundaries(),
                     output: bucket => new _DistributionBucket(bucket.Key, bucket.Count()))
         );
     }
     
     private int[] CreateDistribution(IReadOnlyList<_DistributionBucket> buckets)
     {
-        var boundaries = SongStats.CreateDistributionBoundaries();
+        int[] boundaries = CreateBucketBoundaries();
         int[] distribution = new int[boundaries.Length - 1]; 
         
         for (int i = 0; i < distribution.Length; i++)
@@ -124,5 +124,15 @@ public class MongoSongsStatsCalculation : ISongStatsCalculation
         }
         
         return distribution;
+    }
+
+    private static int[] CreateBucketBoundaries()
+    {
+        int[] boundaries = new int[21];
+        for (int i = 0; i < boundaries.Length; i++)
+        {
+            boundaries[i] = i * 5 + 1;
+        }
+        return boundaries;
     }
 }
