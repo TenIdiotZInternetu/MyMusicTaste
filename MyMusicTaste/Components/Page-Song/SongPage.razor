@@ -40,36 +40,37 @@
             {
                 <p>No source was provided :(</p>
             }
+            
+            @if (_statsCalculated)
+            {
+                <div class="d-flex gap-3 my-2">
+                    <div class="stat-box">
+                        <h3>Total Listeners:</h3>
+                        <h1>@_stats!.TotalListens</h1>
+                    </div> 
+                    <div class="stat-box">
+                        <h3>Average Rating:</h3>
+                        <h1>@_stats!.AverageRating</h1>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Median Rating:</h3>
+                        <h1>@_stats!.AverageRating</h1>
+                    </div>
+                </div>
+                <div>
+                    @foreach (var bucket in _stats.RatingDistribution)
+                    {
+                        <p>@bucket</p>
+                    }
+                </div>
+            }
+            else
+            {
+                <p>Calculating statistics...</p>
+            }
         </div>
     </div>
     <hr/>
-    @if (_statsCalculated)
-    {
-        <div>
-            <div>
-                <h4>Total Listeners:</h4>
-                <h2>@_stats!.TotalListens</h2>
-            </div> 
-            <div>
-                <h4>Average Rating:</h4>
-                <h2>@_stats!.AverageRating</h2>
-            </div>
-            <div>
-                <h4>Median Rating:</h4>
-                <h2>@_stats!.AverageRating</h2>
-            </div>
-            <div>
-                @foreach (var bucket in _stats.RatingDistribution)
-                {
-                    <p>@bucket</p>
-                }
-            </div>
-        </div>
-    }
-    else
-    {
-        <p>Calculating statistics...</p>
-    }
     
     <CommentSection PageType="CommentPageType.Song" PageId="@SongId" ResultsCount="50"/>
 }
