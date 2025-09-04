@@ -1,12 +1,16 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Components;
+using MyMusicTaste.Components.Page_Home;
 using MyMusicTaste.Database;
 
 namespace MyMusicTaste.Components.Page_Auth;
 
 public partial class UserSignupForm : ComponentBase
 {
-    private class _NewUserSignupDto : IUserSignupDto
+    [Inject] private NavigationManager _navigation { get; set; } = null!;
+    [Inject] private IIdentityProvider _identity { get; set; } = null!;
+    
+    private class _NewUserSignupDto : IUserSignupDto, IUserLoginDto
     {
         [Required(ErrorMessage = "Enter your username.")]
         [StringLength(24)]
@@ -27,14 +31,19 @@ public partial class UserSignupForm : ComponentBase
     
     private async Task SubmitAsync()
     {
-        var result = await Identity.SignUpUserAsync(_newUserSignup);
+        var result = await _identity.SignUpUserAsync(_newUserSignup);
 
         if (!result.Succeeded)
         {
             _errors = result.Errors.Select(err => err.Description);
+            StateHasChanged();
             return;
         }
-        
+
         _submitted = true;
+        StateHasChanged();
+        
+        await _identity.LoginUserAsync(_newUserSignup);
+        _navigation.NavigateTo(HomePage.GetRoute(), true);
     }
 }
