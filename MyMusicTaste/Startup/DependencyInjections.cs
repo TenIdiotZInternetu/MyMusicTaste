@@ -30,5 +30,6 @@ public static class DependencyInjections
         services.AddSingleton<ISongRatingListing, MongoSongRatingListing>();
         services.AddSingleton<ICommentsListing, MongoCommentsListing>();
         services.AddTransient<ISongStatsCalculation, MongoSongsStatsCalculation>();
+        services.AddTransient<IUserStatsCalculation, MongoUserStatsCalculation>();
     }
 }
