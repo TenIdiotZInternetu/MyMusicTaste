@@ -19,7 +19,7 @@ html, body {
 .general-info {
     margin-bottom: 2em;
     display: flex;
-    gap: 0.5em;
+    gap: 2em;
 }
 
 .general-info-main {

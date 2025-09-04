@@ -67,6 +67,31 @@
         </div>
     </div>
     
-    <SongRatingSection UserId="@UserId"/>
+    <div class="nav nav-tabs my-3">
+        <a class="nav-link @TabIsActive(Tab.Songs)" @onclick="ChangeTabToSongs">Songs</a>
+        <a class="nav-link @TabIsActive(Tab.Albums)" @onclick="ChangeTabToAlbums">Albums</a>
+        <a class="nav-link @TabIsActive(Tab.Authors)" @onclick="ChangeTabToAuthors">Authors</a>
+        <a class="nav-link @TabIsActive(Tab.Genres)" @onclick="ChangeTabToGenres">Genres</a>
+    </div>
+
+    if (_currentTab == Tab.Songs)
+    {
+        <SongRatingSection UserId="@UserId"/>
+    }
+    if (_currentTab != Tab.Songs && _userStats != null)
+    {
+        foreach (var (entityName, meanRating) in GetShownStats()!)
+        {
+            <div class="list-item-medium">
+                <p class="item-text song-title">@entityName</p>
+                <p class="mr-auto item-text song-title">@meanRating</p>
+            </div>
+        }
+    }
+    if (_currentTab != Tab.Songs && _userStats == null)
+    {
+        <p>User stats could not be loaded</p>
+    }
+    
     <CommentSection PageType="CommentPageType.User" PageId="@UserId" ResultsCount="50"/>
 }

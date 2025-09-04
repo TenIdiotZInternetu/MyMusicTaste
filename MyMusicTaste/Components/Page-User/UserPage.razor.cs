@@ -9,34 +9,39 @@ using MyMusicTaste.Utils;
 
 namespace MyMusicTaste.Components.Page_User;
 
+// TODO: Decompose this page
 public partial class UserPage : ComponentBase
 {
     public const string ROUTE_TEMPLATE = "/users/{UserId}";
 
     [Parameter] public string UserId { get; set; } = null!;
 
-    [Inject] private IDbRepository<User> _userRepository {get;set;} = null!;
-    [Inject] private IIdentityProvider _identity {get;set;} = null!;
-    
-    private User? _user;
+    [Inject] private IDbRepository<User> _userRepository { get; set; } = null!;
+    [Inject] private IIdentityProvider _identity { get; set; } = null!;
+    [Inject] private IUserStatsCalculation _statsCalculation { get; set; } = null!;
     
     private enum PageState { Loading, Loaded, UserNotFound }
     private PageState _pageState = PageState.Loading;
-
+    
+    private enum Tab { Songs, Albums, Authors, Genres }
+    private Tab _currentTab = Tab.Songs;
+    
+    private User? _user;
+    private UserStats? _userStats;
+    
     private bool _ownerAuthorized;
+    private bool _inEditMode;
+    private bool _saving;
+    
+    private string? _tempProfilePicLink;
+    private string? _tempAboutMeText;
 
     private string _aboutMeText => GetShownAboutMeText();
     private string? _profilePicLink => GetShownProfilePic();
-    
-    private bool _inEditMode;
-    private bool _saving;
     private string _saveBtnStyle => UnsavedChanges() ? "primary" : "secondary";
 
     private ConfirmDialog _unsavedChangesDialog = null!;
     private InputDialog _pictureLinkDialog = null!;
-    
-    private string? _tempProfilePicLink;
-    private string? _tempAboutMeText;
     
     public static string GetRoute(ObjectId userId)
     {
@@ -48,6 +53,8 @@ public partial class UserPage : ComponentBase
         try
         {
             _user = await _userRepository.GetByIdAsync(UserId);
+            _userStats = await _statsCalculation.CalculateUserStatsAsync(UserId);
+            
             _ownerAuthorized = _identity.AuthorizeUserById(UserId);
             _pageState = PageState.Loaded;
         }
@@ -151,4 +158,26 @@ public partial class UserPage : ComponentBase
         };
         return _user!.AboutMe ??  "I'm a mysterious person";
     }
+
+    private Dictionary<string, double>? GetShownStats()
+    {
+        if (_userStats == null) return null;
+        return _currentTab switch
+        {
+            Tab.Albums => _userStats.FavoriteAlbums,
+            Tab.Authors => _userStats.FavoriteAuthors,
+            Tab.Genres => _userStats.FavoriteGenres,
+            _ => null
+        };
+    }
+    
+    private string TabIsActive(Tab tab)
+    {
+        return tab == _currentTab ? "active" : "";
+    }
+    
+    private void ChangeTabToSongs() => _currentTab = Tab.Songs;
+    private void ChangeTabToAlbums() => _currentTab = Tab.Albums;
+    private void ChangeTabToAuthors() => _currentTab = Tab.Authors;
+    private void ChangeTabToGenres() => _currentTab = Tab.Genres;
 }

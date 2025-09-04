@@ -30,7 +30,7 @@ public partial class SearchPage : ComponentBase
         StateHasChanged();
     }
 
-    private string CssIsActive(Tab tab)
+    private string TabIsActive(Tab tab)
     {
         return tab == _currentTab ? "active" : "";
     }

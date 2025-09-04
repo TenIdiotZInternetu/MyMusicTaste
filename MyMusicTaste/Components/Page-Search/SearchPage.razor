@@ -6,9 +6,9 @@
 <InputText class="form-control mb-3" @oninput="UpdateQuery" @bind-Value="_searchQuery"/>
 
 <div class="nav nav-tabs my-3">
-    <a class="nav-link @CssIsActive(Tab.All)" @onclick="ChangeTabToAll">All</a>
-    <a class="nav-link @CssIsActive(Tab.Songs)" @onclick="ChangeTabToSongs">Songs</a>
-    <a class="nav-link @CssIsActive(Tab.Users)" @onclick="ChangeTabToUsers">Users</a>
+    <a class="nav-link @TabIsActive(Tab.All)" @onclick="ChangeTabToAll">All</a>
+    <a class="nav-link @TabIsActive(Tab.Songs)" @onclick="ChangeTabToSongs">Songs</a>
+    <a class="nav-link @TabIsActive(Tab.Users)" @onclick="ChangeTabToUsers">Users</a>
 </div>
 
 @if (_currentTab == Tab.All)
