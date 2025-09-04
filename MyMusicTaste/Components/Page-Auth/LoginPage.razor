@@ -2,18 +2,25 @@
 @namespace MyMusicTaste.Components.Page_Auth
 @attribute [Route(ROUTE_TEMPLATE)]
 
-<div class="d-flex">
-    <div>
-        <p>Log in to your account</p>
+@* TODO: Split/Merge Login and Signup, idk just make it consistent*@
+<div class="d-flex justify-content-around gap-1">
+    <div class="w-25">
+        <p>Log in</p>
         <form method="post" action="@AuthController.LOGIN_ROUTE">
-            <input name="Username"/>
-            <input name="Password"/>
+            <div class="form-floating row my-1">
+                <input class="form-control" name="Username" id="inputName"/>
+                <label for="inputName">Username</label>
+            </div>
+            <div class="form-floating row my-1">
+                <input class="form-control" name="Password" id="inputPass"/>
+                <label for="inputPass">Password</label>
+            </div>
             <input type="hidden" name="ReturnUrl" value="@HomePage.GetRoute()"/>
-            <button type="submit">Submit</button>
+            <button class="my-3 btn btn-primary" type="submit">Submit</button>
         </form>
     </div>
     <div class="vr"></div>
-    <div>
+    <div class="w-25">
         <p>Or sign up if you're new</p>
         <UserSignupForm/>
     </div>

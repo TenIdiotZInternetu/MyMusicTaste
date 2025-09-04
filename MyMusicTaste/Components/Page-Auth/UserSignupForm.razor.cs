@@ -20,14 +20,14 @@ public partial class UserSignupForm : ComponentBase
     }
     
     [SupplyParameterFromForm(FormName = "UserSignup")]
-    private _NewUserSignupDto NewUserSignup { get; set; } = new();
+    private _NewUserSignupDto _newUserSignup { get; set; } = new();
     
     private bool _submitted { get; set; }
     private IEnumerable<string> _errors = new List<string>();
     
     private async Task SubmitAsync()
     {
-        var result = await Identity.SignUpUserAsync(NewUserSignup);
+        var result = await Identity.SignUpUserAsync(_newUserSignup);
 
         if (!result.Succeeded)
         {

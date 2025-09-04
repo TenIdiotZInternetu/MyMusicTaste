@@ -2,23 +2,21 @@
 
 @inject IIdentityProvider Identity
 
-<EditForm Model="NewUserSignup" OnValidSubmit="SubmitAsync" FormName="UserSignup">
+<EditForm Model="_newUserSignup" OnValidSubmit="SubmitAsync" FormName="UserSignup">
     <DataAnnotationsValidator/>
-    <label>
-        Username:
-        <InputText @bind-Value="NewUserSignup.Username"/>
-    </label>
-    <br/>
-    <label>
-        Email:
-        <InputText @bind-Value="NewUserSignup.Email"/>
-    </label>
-    <br/>
-    <label>
-        Password:
-        <InputText @bind-Value="NewUserSignup.Password"/>
-    </label>
-    <button type="submit">Submit</button>
+    <div class="form-floating row my-1">
+        <InputText class="form-control" @bind-Value="@_newUserSignup.Email" id="inputMail"/>
+        <label for="inputMail">Email</label>
+    </div>
+    <div class="form-floating row my-1">
+        <InputText class="form-control" @bind-Value="@_newUserSignup.Username" id="inputName"/>
+        <label for="inputName">Username</label>
+    </div>
+    <div class="form-floating row my-1">
+        <InputText type="password" class="form-control" @bind-Value="@_newUserSignup.Password" id="inputPass"/>
+        <label for="inputPass">Password</label>
+    </div>
+    <button class="my-3 btn btn-primary" type="submit">Submit</button>
 </EditForm>
 
 @foreach (var error in _errors) 
@@ -29,5 +27,5 @@
 @if (_submitted)
 {
     <p>Submitted!</p>
-    <p>@NewUserSignup.Username</p>
+    <p>@_newUserSignup.Username</p>
 }
