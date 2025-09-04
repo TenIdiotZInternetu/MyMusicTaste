@@ -10,9 +10,8 @@ namespace MyMusicTaste.Database.Contexts.MongoDb.Operations;
 public class MongoUserStatsCalculation : IUserStatsCalculation
 {
     [BsonIgnoreExtraElements]
-    private class _SongRatingJoin : Song
-    {
-        public byte Rating { get; set; }
+    private class _SongRatingJoin : SongRating {
+        public required Song Song { get; set; }
     }
     
     [BsonIgnoreExtraElements] private record struct _MeanResult(string Name, double Mean);
@@ -36,12 +35,13 @@ public class MongoUserStatsCalculation : IUserStatsCalculation
                 foreignCollection: _songsCollection,
                 localField: rating => rating.SongId,
                 foreignField: song => song.Id,
-                @as: join => join.Rating
+                @as: join => join.Song
             )
+            .Unwind<_SongRatingJoin, _SongRatingJoin>(join => join.Song)
             .Facet(
-                MeanFacet(ALBUMS_FACET, join => join.Album),
-                MeanFacet(AUTHORS_FACET, join => join.Author),
-                MeanFacet(GENRES_FACET, join => join.Genre)
+                MeanFacet(ALBUMS_FACET, join => join.Song.Album),
+                MeanFacet(AUTHORS_FACET, join => join.Song.Author),
+                MeanFacet(GENRES_FACET, join => join.Song.Genre)
             )
             .FirstOrDefaultAsync();
 
