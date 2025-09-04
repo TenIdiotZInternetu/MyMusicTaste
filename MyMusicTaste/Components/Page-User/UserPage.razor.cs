@@ -159,14 +159,14 @@ public partial class UserPage : ComponentBase
         return _user!.AboutMe ??  "I'm a mysterious person";
     }
 
-    private Dictionary<string, double>? GetShownStats()
+    private List<(string, double)>? GetShownStats()
     {
         if (_userStats == null) return null;
         return _currentTab switch
         {
-            Tab.Albums => _userStats.FavoriteAlbums,
-            Tab.Authors => _userStats.FavoriteAuthors,
-            Tab.Genres => _userStats.FavoriteGenres,
+            Tab.Albums => _userStats.AlbumsByMean,
+            Tab.Authors => _userStats.AuthorsByMean,
+            Tab.Genres => _userStats.GenresByMean,
             _ => null
         };
     }

@@ -76,15 +76,15 @@
 
     if (_currentTab == Tab.Songs)
     {
-        <SongRatingSection UserId="@UserId"/>
+        <SongRatingSection UserId="@UserId"/>   // TODO: Cache ratings
     }
     if (_currentTab != Tab.Songs && _userStats != null)
     {
         foreach (var (entityName, meanRating) in GetShownStats()!)
         {
-            <div class="list-item-medium">
+            <div class="list-item-medium simple-border p-4">
                 <p class="item-text song-title">@entityName</p>
-                <p class="mr-auto item-text song-title">@meanRating</p>
+                <p class="ml-auto item-text">Mean Average: @meanRating</p>
             </div>
         }
     }

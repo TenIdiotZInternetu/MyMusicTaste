@@ -47,9 +47,9 @@ public class MongoUserStatsCalculation : IUserStatsCalculation
 
         return new UserStats
         {
-            FavoriteAlbums = FacetResult(aggregation, ALBUMS_FACET),
-            FavoriteAuthors = FacetResult(aggregation, AUTHORS_FACET),
-            FavoriteGenres = FacetResult(aggregation, GENRES_FACET)
+            AlbumsByMean = FacetResult(aggregation, ALBUMS_FACET),
+            AuthorsByMean = FacetResult(aggregation, AUTHORS_FACET),
+            GenresByMean = FacetResult(aggregation, GENRES_FACET)
         };
     }
     
@@ -73,11 +73,12 @@ public class MongoUserStatsCalculation : IUserStatsCalculation
         );
     }
 
-    private Dictionary<string, double> FacetResult(AggregateFacetResults aggregation, string facetName)
+    private List<(string, double)> FacetResult(AggregateFacetResults aggregation, string facetName)
     {
         var facet = aggregation.Facets.First(f => f.Name == facetName);
-        return facet.Output<_MeanResult>().ToDictionary(
-            res => res.Name, res => res.Mean
-        );
+        return facet.Output<_MeanResult>()
+            .OrderByDescending(res => res.Mean)
+            .Select(res => (res.Name, res.Mean))
+            .ToList();
     }
 }
