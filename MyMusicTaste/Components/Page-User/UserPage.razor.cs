@@ -98,7 +98,6 @@ public partial class UserPage : ComponentBase
         
         var result = await _pictureLinkDialog.OpenDialog();
         if (!result.WasConfirmed) return;
-        if (_tempProfilePicLink == _user!.ProfilePictureLink)  return;
         
         if (await LinkValidation.IsImageLinkValidAsync(result.Result))
         {
