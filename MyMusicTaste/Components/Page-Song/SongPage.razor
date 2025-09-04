@@ -50,11 +50,11 @@
                     </div> 
                     <div class="stat-box">
                         <h3>Average Rating:</h3>
-                        <h1>@_stats!.AverageRating</h1>
+                        <h1>@Math.Round(_stats!.AverageRating, 2)</h1>
                     </div>
                     <div class="stat-box">
                         <h3>Median Rating:</h3>
-                        <h1>@_stats!.MedianRating</h1>
+                        <h1>@Math.Round(_stats!.MedianRating, 2)</h1>
                     </div>
                     <div class="stat-box flex-basis-100">
                         <h3>Rating Distribution: </h3>
