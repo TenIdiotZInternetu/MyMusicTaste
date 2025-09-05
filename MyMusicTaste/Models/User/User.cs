@@ -1,5 +1,8 @@
 namespace MyMusicTaste.Models;
 
+/// <summary>
+/// A model representing basic user information.
+/// </summary>
 public class User : Model
 {
     public required string Username { get; set; }

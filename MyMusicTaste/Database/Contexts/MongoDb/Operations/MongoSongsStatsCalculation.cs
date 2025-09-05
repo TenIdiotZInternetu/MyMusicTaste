@@ -7,6 +7,9 @@ using MyMusicTaste.Models;
 
 namespace MyMusicTaste.Database.Contexts.MongoDb.Operations;
 
+/// <summary>
+/// Calculates statistics for a song, including average rating, median rating, total listens, and rating distribution in MongoDB.
+/// </summary>
 public class MongoSongsStatsCalculation : ISongStatsCalculation
 {
     [BsonIgnoreExtraElements] private record _MeanResult(double Mean);
@@ -20,13 +23,17 @@ public class MongoSongsStatsCalculation : ISongStatsCalculation
     
     private readonly IMongoCollection<SongRating> _ratingsCollection = MongoCollectionFactory.Create<SongRating>();
     
+    /// <summary>
+    /// Calculates statistics for a song, including average rating, median rating, total listens, and rating distribution.
+    /// </summary>
+    /// <param name="song">The song to calculate statistics for.</param>
+    /// <returns>A task for the song's statistics.</returns>
     public async Task<SongStats> CalculateSongStatsAsync(Song song)
     {
         var filterBuilder = Builders<SongRating>.Filter;
         var filter = filterBuilder.Eq(rating => rating.SongId, song.Id) &
                      filterBuilder.Ne(rating => rating.Rating, SongRating.NOT_RATED);
-
-
+        
         var aggregation = await _ratingsCollection.Aggregate()
             .Match(filter)
             .Facet(
@@ -36,8 +43,7 @@ public class MongoSongsStatsCalculation : ISongStatsCalculation
                 DistributionFacet()
             )
             .FirstOrDefaultAsync();
-
-
+        
         int totalListens = (int)(aggregation.Facets[0].Output<AggregateCountResult>().FirstOrDefault()?.Count ?? 0);
         if (totalListens <= 0)
         {

@@ -1,5 +1,8 @@
 namespace MyMusicTaste.Models;
 
+/// <summary>
+/// A model representing basic song information.
+/// </summary>
 public class Song : Model
 {
     private static readonly DateOnly INVALID_DATE = DateOnly.MaxValue;

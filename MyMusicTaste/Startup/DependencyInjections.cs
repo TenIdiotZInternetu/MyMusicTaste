@@ -6,8 +6,15 @@ using MyMusicTaste.Models;
 
 namespace MyMusicTaste.Startup;
 
+/// <summary>
+/// Provides extension methods for dependency injection setup.
+/// </summary>
 public static class DependencyInjections
 {
+    /// <summary>
+    /// Registers application services and dependencies.
+    /// </summary>
+    /// <param name="services">The service collection.</param>
     public static void InjectDependencies(this IServiceCollection services)
     {
         services.InjectDbRepositories();

@@ -7,6 +7,9 @@ using MyMusicTaste.Models;
 
 namespace MyMusicTaste.Database.Contexts.MongoDb.Operations;
 
+/// <summary>
+/// Calculates statistics for a user based on their song ratings in MongoDB.
+/// </summary>
 public class MongoUserStatsCalculation : IUserStatsCalculation
 {
     [BsonIgnoreExtraElements]
@@ -23,6 +26,11 @@ public class MongoUserStatsCalculation : IUserStatsCalculation
     private readonly IMongoCollection<SongRating> _ratingsCollection = MongoCollectionFactory.Create<SongRating>();
     private readonly IMongoCollection<Song> _songsCollection = MongoCollectionFactory.Create<Song>();
     
+    /// <summary>
+    /// Calculates statistics for a user based on their ratings, including average ratings by album, author, and genre.
+    /// </summary>
+    /// <param name="userId">The ID of the user to calculate statistics for.</param>
+    /// <returns>A task for the user's statistics.</returns>
     public async Task<UserStats> CalculateUserStatsAsync(string userId)
     {
         var filterBuilder = Builders<SongRating>.Filter;
@@ -53,6 +61,12 @@ public class MongoUserStatsCalculation : IUserStatsCalculation
         };
     }
     
+    /// <summary>
+    /// Creates a facet pipeline that computes the mean rating for a specific grouping (e.g., album, author, genre).
+    /// </summary>
+    /// <param name="facetName">The name of the facet.</param>
+    /// <param name="groupKey">The key to group by.</param>
+    /// <returns>The aggregation facet.</returns>
     private AggregateFacet<_SongRatingJoin, _MeanResult> MeanFacet(
         string facetName,
         Expression<Func<_SongRatingJoin, string?>> groupKey)
@@ -73,6 +87,12 @@ public class MongoUserStatsCalculation : IUserStatsCalculation
         );
     }
 
+    /// <summary>
+    /// Extracts and orders the results from a facet aggregation.
+    /// </summary>
+    /// <param name="aggregation">The aggregation result containing facets.</param>
+    /// <param name="facetName">The name of the facet to extract.</param>
+    /// <returns>A list of tuples with the name and mean rating.</returns>
     private List<(string, double)> FacetResult(AggregateFacetResults aggregation, string facetName)
     {
         var facet = aggregation.Facets.First(f => f.Name == facetName);

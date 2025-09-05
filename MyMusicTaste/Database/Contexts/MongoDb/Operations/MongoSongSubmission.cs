@@ -5,10 +5,19 @@ using MyMusicTaste.Models;
 
 namespace MyMusicTaste.Database.Contexts.MongoDb.Operations;
 
+/// <summary>
+/// Handles submission of new songs to the MongoDB database, ensuring no duplicates exist.
+/// </summary>
 public class SongSubmission : ISongSubmission
 {
     private static readonly MongoRepository<Song> REPOSITORY = new();
 
+    /// <summary>
+    /// Submits a new song to the database.
+    /// </summary>
+    /// <param name="song">The song to submit.</param>
+    /// <returns>A task for the ID of the newly created song as a string.</returns>
+    /// <exception cref="EntryAlreadyExistsException">Thrown if the song already exists in the repository.</exception>
     public async Task<string> SubmitSongAsync(Song song)
     {
         if (AlreadyExists(song))
@@ -32,5 +41,4 @@ public class SongSubmission : ISongSubmission
         var doc = collection.Find(filter).FirstOrDefault();
         return doc != null;
     }
-
 }
