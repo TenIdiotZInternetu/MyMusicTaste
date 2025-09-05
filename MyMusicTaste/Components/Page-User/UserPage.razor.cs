@@ -10,10 +10,17 @@ using MyMusicTaste.Utils;
 namespace MyMusicTaste.Components.Page_User;
 
 // TODO: Decompose this page
+/// <summary>
+/// Displays a user's profile including general info, statistics, and comments.
+/// Supports editing the profile for the authorized user.
+/// </summary>
 public partial class UserPage : ComponentBase
 {
     public const string ROUTE_TEMPLATE = "/users/{UserId}";
 
+    /// <summary>
+    /// The ID of the user whose profile is being displayed.
+    /// </summary>
     [Parameter] public string UserId { get; set; } = null!;
 
     [Inject] private IDbRepository<User> _userRepository { get; set; } = null!;

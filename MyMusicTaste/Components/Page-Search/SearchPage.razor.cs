@@ -2,6 +2,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace MyMusicTaste.Components.Page_Search;
 
+/// <summary>
+/// A page providing a search interface for songs and users with tabbed navigation.
+/// </summary>
 public partial class SearchPage : ComponentBase
 {
     public const string ROUTE_TEMPLATE = "/search";

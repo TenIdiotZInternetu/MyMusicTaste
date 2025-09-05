@@ -6,8 +6,16 @@ using MyMusicTaste.Models;
 
 namespace MyMusicTaste.Components.Page_Song;
 
+// TODO: Add option to change rating by keyboard
+/// <summary>
+/// A component that allows a signed-in user to rate a song, view their existing rating,
+/// update it, or remove it from their collection.
+/// </summary>
 public partial class RateSongComp : ComponentBase
 {
+    /// <summary>
+    /// The ID of the song to  rate.
+    /// </summary>
     [Parameter] public string SongId { get; set; } = null!;
     
     [Inject] private IDbRepository<SongRating> _ratingRepository { get; set; } = null!;

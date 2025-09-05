@@ -6,8 +6,15 @@ using MyMusicTaste.Models;
 
 namespace MyMusicTaste.Components.Page_User;
 
+/// <summary>
+/// Displays a list of a user's song ratings in descending order.
+/// Allows drag-and-drop to reorder ratings if the user is authorized.
+/// </summary>
 public partial class SongRatingSection : ComponentBase
 {
+    /// <summary>
+    /// The ID of the user whose ratings will be displayed.
+    /// </summary>
     [Parameter] public string UserId { get; set; } = null!;
     
     [Inject] private ISongRatingListing _ratingListing { get; set; } = null!;

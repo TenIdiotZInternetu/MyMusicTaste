@@ -5,6 +5,10 @@ using MyMusicTaste.Database;
 
 namespace MyMusicTaste.Components.Page_Auth;
 
+/// <summary>
+/// A form component that allows new users to sign up for the application.
+/// Handles input validation, submission, and automatic login after successful registration.
+/// </summary>
 public partial class UserSignupForm : ComponentBase
 {
     [Inject] private NavigationManager _navigation { get; set; } = null!;

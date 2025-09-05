@@ -9,6 +9,10 @@ using MyMusicTaste.Utils;
 
 namespace MyMusicTaste.Components.Page_SongSubmission;
 
+/// <summary>
+/// Page for submitting a new song to the database.
+/// Validates user input and handles navigation after submission.
+/// </summary>
 public partial class SongSubmissionPage : ComponentBase
 {
     public const string ROUTE_TEMPLATE = "/submit-song";

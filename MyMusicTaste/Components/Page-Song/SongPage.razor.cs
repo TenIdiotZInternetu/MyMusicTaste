@@ -5,10 +5,16 @@ using MyMusicTaste.Models;
 
 namespace MyMusicTaste.Components.Page_Song;
 
+/// <summary>
+/// DPage for displaying detailed information about a song, including its metadata, statistics, and comments.
+/// </summary>
 public partial class SongPage : ComponentBase
 {
     public const string ROUTE_TEMPLATE = "/songs/{SongId}";
 
+    /// <summary>
+    /// The ID of the song to display.
+    /// </summary>
     [Parameter] public string SongId { get; set; } = null!;
     
     [Inject] private ISongStatsCalculation _statsCalculation { get; set; } = null!;

@@ -8,10 +8,24 @@ using MyMusicTaste.Models;
 
 namespace MyMusicTaste.Components.Page_User;
 
+/// <summary>
+/// Displays a single song rating item for a user.
+/// Can optionally allow inline editing of the rating.
+/// </summary>
 public partial class SongRatingItem : ComponentBase {
+    /// <summary>
+    /// The rating object of the item.
+    /// </summary>
     [Parameter] public SongRating Rating { get; set; } = new();
+    
+    /// <summary>
+    /// Determines whether the rating can be edited inline.
+    /// </summary>
     [Parameter] public bool Editable { get; set; }
     
+    /// <summary>
+    /// Invoked after a rating has been saved.
+    /// </summary>
     [Parameter] public EventCallback OnRatingSaved { get; set; }
     
     [Inject] private IDbRepository<Song> _songRepo { get; set; } = null!;

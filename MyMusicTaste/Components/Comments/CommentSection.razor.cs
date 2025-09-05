@@ -6,10 +6,24 @@ using MyMusicTaste.Models;
 
 namespace MyMusicTaste.Components.Comments;
 
+/// <summary>
+/// A component that displays a list of comments for a given page and allows signed-in users to post a new comment.
+/// </summary>
 public partial class CommentSection : ComponentBase
 {
+    /// <summary>
+    /// The type of page the comments was posted to.
+    /// </summary>
     [Parameter] public CommentPageType PageType { get; set; }
+    
+    /// <summary>
+    /// The ID of the page for which to display comments.
+    /// </summary>
     [Parameter] public string PageId { get; set; } = null!;
+    
+    /// <summary>
+    /// The maximum number of comments to fetch and display.
+    /// </summary>
     [Parameter] public int ResultsCount { get; set; }
 
     [Inject] private IIdentityProvider _identity { get; set; } = null!;

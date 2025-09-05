@@ -8,17 +8,46 @@ using MyMusicTaste.Models;
 namespace MyMusicTaste.Components.Comments;
 
 //TODO: Add a way to display user's Song Rating (or some other metric) on particular page types
+/// <summary>
+/// A component that displays and manages a single comment, including editing and deletion.
+/// </summary>
 public partial class CommentComp : ComponentBase
 {
+    /// <summary>
+    /// The comment object to display and manage.
+    /// </summary>
     [Parameter] public Comment Comment { get; set; } = null!;
+    
     // TODO: Split Unposted Comments into its own component to avoid coupling
+    /// <summary>
+    /// Indicates whether this comment is newly created and not yet persisted.
+    /// </summary>
     [Parameter] public bool IsNewComment { get; set; } = true;
     
+    /// <summary>
+    /// True if the comment has already been posted to the database.
+    /// </summary>
     public bool IsPosted { get; private set; }
 
+    /// <summary>
+    /// Event triggered when the edit mode is opened.
+    /// </summary>
     [Parameter] public EventCallback OnEditModeOpened { get; set; }
+    
+    /// <summary>
+    /// Event triggered when the edit mode is closed.
+    /// The callback receives true if changes were saved, false otherwise.
+    /// </summary>
     [Parameter] public EventCallback<bool> OnEditModeClosed { get; set; }
+    
+    /// <summary>
+    /// Event triggered after changes to the comment have been saved.
+    /// </summary>
     [Parameter] public EventCallback OnChangesSaved { get; set; }
+    
+    /// <summary>
+    /// Event triggered after the comment has been deleted.
+    /// </summary>
     [Parameter] public EventCallback OnCommentDeleted { get; set; }
 
     [Inject] private IDbRepository<User> _userRepo { get; set; } = null!;
