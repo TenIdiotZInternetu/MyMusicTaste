@@ -10,7 +10,7 @@ public partial class Thumbnail : ComponentBase
     
     // TODO: Create SuperComponent that does this automatically
     [Parameter(CaptureUnmatchedValues = true)]
-    public Dictionary<string, object>? UnmatchedAttributes { get; set; }
+    public Dictionary<string, object> UnmatchedAttributes { get; set; } = null!;
 
     private bool _isLinkValid;
 

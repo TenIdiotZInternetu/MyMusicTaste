@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 using MyMusicTaste.Components.Misc;
 using MyMusicTaste.Database;
 using MyMusicTaste.Database.Operations;

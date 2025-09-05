@@ -18,7 +18,7 @@ public class MongoCommentsListing : ICommentsListing
     /// <param name="userId">The ID of the user whose comments to retrieve.</param>
     /// <param name="resultCount">The maximum number of comments to return.</param>
     /// <returns>A task for the list of comments.</returns>
-    public async Task<IEnumerable<Comment>> GetCommentsByUserAsync(string userId, int resultCount)
+    public Task<IEnumerable<Comment>> GetCommentsByUserAsync(string userId, int resultCount)
     {
         throw new NotImplementedException();
     }

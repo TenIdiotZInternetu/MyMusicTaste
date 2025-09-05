@@ -33,7 +33,7 @@ public interface IDbRepository<TModel>
     /// <param name="id">The unique identifier of the model.</param>
     /// <returns>A task for the retrieved model.</returns>
     /// <exception cref="EntryNotFoundException">Thrown when the entry does not exist.</exception>
-    public Task<TModel> GetByIdAsync(string? id);
+    public Task<TModel> GetByIdAsync(string? id);   // TODO: why is this nullable?
     
     /// <summary>
     /// Asynchronously retrieves multiple models by their IDs form the database.

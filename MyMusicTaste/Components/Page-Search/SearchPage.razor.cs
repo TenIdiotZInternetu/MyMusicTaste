@@ -4,13 +4,13 @@ namespace MyMusicTaste.Components.Page_Search;
 
 public partial class SearchPage : ComponentBase
 {
-    public const string RouteTemplate = "/search";
+    public const string ROUTE_TEMPLATE = "/search";
 
     private enum Tab {All, Songs, Users}
 
     private Tab _currentTab = Tab.All;
     
-    public static string GetRoute() => RouteTemplate;
+    public static string GetRoute() => ROUTE_TEMPLATE;
 
     private string _searchQuery { get; set; } = string.Empty;
 

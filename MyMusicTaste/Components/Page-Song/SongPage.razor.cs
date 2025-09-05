@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Components;
-using MongoDB.Bson;
 using MyMusicTaste.Database;
 using MyMusicTaste.Database.Operations;
 using MyMusicTaste.Models;
@@ -13,7 +12,6 @@ public partial class SongPage : ComponentBase
     [Parameter] public string SongId { get; set; } = null!;
     
     [Inject] private ISongStatsCalculation _statsCalculation { get; set; } = null!;
-    [Inject] private ISongRatingListing _ratingListing { get; set; } = null!;
     [Inject] private IDbRepository<Song> _songRepository { get; set; } = null!;
     
     private enum PageState { Loading, Loaded, SongNotFound }

@@ -18,7 +18,7 @@ public partial class Histogram<TValue, TLabel> : ComponentBase
     protected override void OnInitialized()
     {
         _values = Values.Select(double.CreateChecked).ToArray();
-        _maxValue = _values.Max()!;
+        _maxValue = _values.Max();
         _heights = _values.Select(val => val / _maxValue * MaxHeight)
                           .ToArray();
     }

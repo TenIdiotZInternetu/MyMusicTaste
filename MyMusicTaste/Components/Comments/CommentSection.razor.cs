@@ -14,7 +14,6 @@ public partial class CommentSection : ComponentBase
 
     [Inject] private IIdentityProvider _identity { get; set; } = null!;
     [Inject] private ICommentsListing _commentsListing { get; set; } = null!;
-    [Inject] private IDbRepository<User> _userRepository { get; set; } = null!;
 
     private enum ComponentState { Loading, Loaded}
     private ComponentState _state = ComponentState.Loading;
@@ -25,14 +24,14 @@ public partial class CommentSection : ComponentBase
     private IEnumerable<Comment> _comments = null!;
     
     private Comment? _newComment;
-    private CommentComp _newCommentComp;
+    private CommentComp? _newCommentComp;
     private bool _newCommentShown;
+    
     protected override async Task OnInitializedAsync()
     {
         _signedUserId = _identity.GetUserId();
         _comments = await _commentsListing.GetCommentsByPageAsync(PageType, PageId, ResultsCount);
         _state = ComponentState.Loaded;
-        
     }
 
     private void ShowNewComment()
@@ -55,6 +54,7 @@ public partial class CommentSection : ComponentBase
     // TODO: Create some smarter system that would allow adding more comments, and treat them as regular comments
     private void CloseNewComment()
     {
+        if (_newCommentComp == null) return;
         _newCommentShown = _newCommentComp.IsPosted;
         StateHasChanged();
     }

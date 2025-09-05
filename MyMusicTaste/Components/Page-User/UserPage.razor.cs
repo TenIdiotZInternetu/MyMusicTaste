@@ -154,7 +154,7 @@ public partial class UserPage : ComponentBase
         if (_inEditMode && _tempAboutMeText != null)
         {
             return _tempAboutMeText;
-        };
+        }
         return _user!.AboutMe ??  "I'm a mysterious person";
     }
 

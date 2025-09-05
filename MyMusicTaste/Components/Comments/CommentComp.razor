@@ -13,8 +13,8 @@
 {
     <div class="comment simple-border">
         <div class="comment-header">
-            <Thumbnail onclick="@NavigateToUser" ImageLink="@_poster!.ProfilePictureLink"/>
-            <h5 onclick="@NavigateToUser" class="p-0 m-0">@_poster.Username</h5>
+            <Thumbnail @onclick="NavigateToUser" ImageLink="@_poster!.ProfilePictureLink"/>
+            <h5 @onclick="NavigateToUser" class="p-0 m-0">@_poster.Username</h5>
             @if (!_inEditMode && _ownedByUser)
             {
                 <button class="ml-auto btn btn-primary"

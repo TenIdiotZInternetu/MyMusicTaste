@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
 using MyMusicTaste.Components.Dialogs;
 using MyMusicTaste.Components.Page_User;
 using MyMusicTaste.Database;
@@ -50,7 +49,6 @@ public partial class CommentComp : ComponentBase
         IsPosted = IsNewComment;
         _inEditMode = !IsPosted;
         _state = CompState.Loaded;
-        
     }
 
     private async Task OpenEditMode()
@@ -110,7 +108,7 @@ public partial class CommentComp : ComponentBase
             await _commentRepo.UpdateAsync(Comment);
         }
         
-        await OnChangesSaved.InvokeAsync();;
+        await OnChangesSaved.InvokeAsync();
     }
 
     private async Task DeleteCommentAsync()
@@ -124,7 +122,7 @@ public partial class CommentComp : ComponentBase
         _state = CompState.Deleted;
         StateHasChanged();
         await _commentRepo.DeleteAsync(Comment);
-        await OnCommentDeleted.InvokeAsync();;
+        await OnCommentDeleted.InvokeAsync();
     }
     
     private bool UnsavedChanges()

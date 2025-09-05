@@ -16,7 +16,6 @@ public partial class SongRatingItem : ComponentBase {
     
     [Inject] private IDbRepository<Song> _songRepo { get; set; } = null!;
     [Inject] private IDbRepository<SongRating> _ratingsRepo { get; set; } = null!;
-    [Inject] private IIdentityProvider _identity { get; set; } = null!;
 
     private enum ComponentState { Loading, Loaded, NotFound }
     private ComponentState _componentState = ComponentState.Loading;
