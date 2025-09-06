@@ -4,6 +4,15 @@ MyMusicTaste is a server-side Web Application built with ASP.NET and Blazor fron
 
 The architecture was inspired by MVC, where the Blazor's razor pages are the views, their codebehinds are the controllers, and models are very simple objects that contain nothing but data. Controllers use injected database operations to retrieve models, and show the data in the view.
 
+## Run locally
+
+To run the application locally you need to provide the **connection string** to your MongoDb database. The application expects it to be in form of a secret `"MONGODB_URI"` variable. To do this, run these commands from the project directory. 
+
+```
+dotnet user-secrets init
+dotnet user-secrets set "MONGODB_URI" "{your connection string}"
+```
+
 ## File structure
 
 The relevant source code is divided into these root directiories:
