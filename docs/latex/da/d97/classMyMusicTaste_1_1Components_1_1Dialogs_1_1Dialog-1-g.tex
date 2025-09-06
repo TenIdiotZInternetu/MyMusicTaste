@@ -1,0 +1,81 @@
+\doxysection{Dialog\texorpdfstring{$<$}{<} TResult \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g}{}\label{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g}\index{Dialog$<$ TResult $>$@{Dialog$<$ TResult $>$}}
+
+
+Base abstract class for all dialogs. Manages opening, closing, and confirmation/cancellation.  
+
+
+Inheritance diagram for Dialog\texorpdfstring{$<$}{<} TResult \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{da/d97/classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ Dialog\+Result$<$ TResult $>$ $>$ \mbox{\hyperlink{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_a4e070a10e145fe42b28fa50ab1b878c4}{Open\+Dialog}} ()
+\begin{DoxyCompactList}\small\item\em Opens the dialog and returns a \doxylink{structMyMusicTaste_1_1Components_1_1Dialogs_1_1DialogResult-1-g}{Dialog\+Result$<$\+TResult$>$} when confirmed or canceled. \end{DoxyCompactList}\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_ad06958d3db72fba47e93f8c7f77797d3}\label{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_ad06958d3db72fba47e93f8c7f77797d3} 
+void {\bfseries Confirm} ()
+\begin{DoxyCompactList}\small\item\em Marks the dialog as confirmed. \end{DoxyCompactList}\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_a98fd5d588027adeb8d4545c78347cd26}\label{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_a98fd5d588027adeb8d4545c78347cd26} 
+void {\bfseries Cancel} ()
+\begin{DoxyCompactList}\small\item\em Marks the dialog as canceled. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_ab38cda3bd87ebb1301c37d015b060bf0}\label{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_ab38cda3bd87ebb1301c37d015b060bf0} 
+override void {\bfseries On\+After\+Render} (bool first\+Render)
+\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_abb1e1ba1c1565cfa64e35c20fc27ce8b}\label{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_abb1e1ba1c1565cfa64e35c20fc27ce8b} 
+TResult {\bfseries Get\+Result} ()
+\begin{DoxyCompactList}\small\item\em Returns the result of the dialog when confirmed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_adcbf112fe8cc4a3608858789bf85e290}\label{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_adcbf112fe8cc4a3608858789bf85e290} 
+string? {\bfseries Title}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Title of the dialog. \end{DoxyCompactList}\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_ad3ab423f9790d3a95ee949739a4eee85}\label{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_ad3ab423f9790d3a95ee949739a4eee85} 
+string {\bfseries Confirm\+Text} = "{}Confirm"{}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Text for the confirm button. \end{DoxyCompactList}\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_a131dae60511971a53ecb692661310c0c}\label{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_a131dae60511971a53ecb692661310c0c} 
+string {\bfseries Cancel\+Text} = "{}Cancel"{}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Text for the cancel button. \end{DoxyCompactList}\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_a3c1cb325486f91f4075edd1531acdf69}\label{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_a3c1cb325486f91f4075edd1531acdf69} 
+\mbox{\hyperlink{classMyMusicTaste_1_1Components_1_1Dialogs_1_1DialogBase}{Dialog\+Base}} {\bfseries Base\+Dialog} = null!\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Reference to the underlying HTML wrapper dialog component. \end{DoxyCompactList}\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_a57002a2a856bc1093ea588fbd9e099a3}\label{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_a57002a2a856bc1093ea588fbd9e099a3} 
+Task\+Completion\+Source$<$ bool $>$ {\bfseries Completion\+Token} = new()\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Token used to track dialog completion. \end{DoxyCompactList}\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_a40c7d172439580c9f34472b4f392e0f4}\label{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_a40c7d172439580c9f34472b4f392e0f4} 
+Task$<$ bool $>$ {\bfseries Completion\+Task}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Task representing the completion of the dialog. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TResult} & The type of the result returned when the dialog is confirmed.\\
+\hline
+\end{DoxyTemplParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_a4e070a10e145fe42b28fa50ab1b878c4}\index{Dialog$<$ TResult $>$@{Dialog$<$ TResult $>$}!OpenDialog@{OpenDialog}}
+\index{OpenDialog@{OpenDialog}!Dialog$<$ TResult $>$@{Dialog$<$ TResult $>$}}
+\doxysubsubsection{\texorpdfstring{OpenDialog()}{OpenDialog()}}
+{\footnotesize\ttfamily \label{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_a4e070a10e145fe42b28fa50ab1b878c4} 
+async Task$<$ Dialog\+Result$<$ TResult $>$ $>$ Open\+Dialog (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+A task for the result of the dialog
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+Music\+Taste/\+Components/\+Dialogs/Dialog.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,71 @@
+\doxysection{My\+Music\+Taste.\+Utils Namespace Reference}
+\hypertarget{namespaceMyMusicTaste_1_1Utils}{}\label{namespaceMyMusicTaste_1_1Utils}\index{MyMusicTaste.Utils@{MyMusicTaste.Utils}}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespaceMyMusicTaste_1_1Utils_a24e6ae0d91211e6cdb1e50b5431d1b41}\label{namespaceMyMusicTaste_1_1Utils_a24e6ae0d91211e6cdb1e50b5431d1b41} 
+enum \mbox{\hyperlink{namespaceMyMusicTaste_1_1Utils_a24e6ae0d91211e6cdb1e50b5431d1b41}{Css\+Unit}} \{ \newline
+{\bfseries Zero}
+, {\bfseries Px}
+, {\bfseries Em}
+, {\bfseries Rem}
+, \newline
+{\bfseries Vh}
+, {\bfseries Vw}
+, {\bfseries Perc}
+ \}
+\begin{DoxyCompactList}\small\item\em Represents supported CSS size units. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+readonly record struct \mbox{\hyperlink{namespaceMyMusicTaste_1_1Utils_ab3d9a6a473c9f7c12c6124b6a79a2c8a}{Css\+Size}} (double Value, \mbox{\hyperlink{namespaceMyMusicTaste_1_1Utils_a24e6ae0d91211e6cdb1e50b5431d1b41}{Css\+Unit}} Unit)
+\begin{DoxyCompactList}\small\item\em Represents a CSS size consisting of a numeric value and a unit. ///. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespaceMyMusicTaste_1_1Utils_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceMyMusicTaste_1_1Utils_ab3d9a6a473c9f7c12c6124b6a79a2c8a}\index{MyMusicTaste.Utils@{MyMusicTaste.Utils}!CssSize@{CssSize}}
+\index{CssSize@{CssSize}!MyMusicTaste.Utils@{MyMusicTaste.Utils}}
+\doxysubsubsection{\texorpdfstring{CssSize()}{CssSize()}}
+{\footnotesize\ttfamily \label{namespaceMyMusicTaste_1_1Utils_ab3d9a6a473c9f7c12c6124b6a79a2c8a} 
+readonly record struct Css\+Size (\begin{DoxyParamCaption}\item[{double}]{Value}{, }\item[{\mbox{\hyperlink{namespaceMyMusicTaste_1_1Utils_a24e6ae0d91211e6cdb1e50b5431d1b41}{Css\+Unit}}}]{Unit}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em Value} & The numeric value of the size.\\
+\hline
+{\em Unit} & The CSS unit of the size.\\
+\hline
+\end{DoxyParams}
+Converts the size to a CSS value (e.\+g. "{}10px"{}, "{}50\%"{}).
+
+\begin{DoxyReturn}{Returns}
+A string representation of the CSS value.
+\end{DoxyReturn}
+
+
+Adds a number to the size value.
+
+Adds a number to the size value.
+
+Adds two sizes with the same unit.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Exception} & Thrown when units do not match.\\
+\hline
+\end{DoxyExceptions}
+
+
+Multiplies the size value by a number.
+
+Multiplies the size value by a number.
+
+Multiplies two sizes with the same unit.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Exception} & Thrown when units do not match.\\
+\hline
+\end{DoxyExceptions}

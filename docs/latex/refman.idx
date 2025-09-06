@@ -1,0 +1,185 @@
+\indexentry{MyMusicTaste@{MyMusicTaste}|hyperpage}{9}
+\indexentry{MyMusicTaste.Components@{MyMusicTaste.Components}|hyperpage}{9}
+\indexentry{MyMusicTaste.Components.Comments@{MyMusicTaste.Components.Comments}|hyperpage}{9}
+\indexentry{MyMusicTaste.Components.Dialogs@{MyMusicTaste.Components.Dialogs}|hyperpage}{9}
+\indexentry{MyMusicTaste.Components.Misc@{MyMusicTaste.Components.Misc}|hyperpage}{10}
+\indexentry{MyMusicTaste.Components.Page\_Auth@{MyMusicTaste.Components.Page\_Auth}|hyperpage}{10}
+\indexentry{MyMusicTaste.Components.Page\_Home@{MyMusicTaste.Components.Page\_Home}|hyperpage}{10}
+\indexentry{MyMusicTaste.Components.Page\_Search@{MyMusicTaste.Components.Page\_Search}|hyperpage}{10}
+\indexentry{MyMusicTaste.Components.Page\_Song@{MyMusicTaste.Components.Page\_Song}|hyperpage}{10}
+\indexentry{MyMusicTaste.Components.Page\_SongSubmission@{MyMusicTaste.Components.Page\_SongSubmission}|hyperpage}{11}
+\indexentry{MyMusicTaste.Components.Page\_User@{MyMusicTaste.Components.Page\_User}|hyperpage}{11}
+\indexentry{MyMusicTaste.Database@{MyMusicTaste.Database}|hyperpage}{11}
+\indexentry{MyMusicTaste.Database.Contexts@{MyMusicTaste.Database.Contexts}|hyperpage}{11}
+\indexentry{MyMusicTaste.Database.Contexts.MongoDb@{MyMusicTaste.Database.Contexts.MongoDb}|hyperpage}{11}
+\indexentry{MyMusicTaste.Database.Contexts.MongoDb.Operations@{MyMusicTaste.Database.Contexts.MongoDb.Operations}|hyperpage}{12}
+\indexentry{MyMusicTaste.Database.Operations@{MyMusicTaste.Database.Operations}|hyperpage}{12}
+\indexentry{MyMusicTaste.Models@{MyMusicTaste.Models}|hyperpage}{13}
+\indexentry{MyMusicTaste.Startup@{MyMusicTaste.Startup}|hyperpage}{13}
+\indexentry{MyMusicTaste.Utils@{MyMusicTaste.Utils}|hyperpage}{13}
+\indexentry{MyMusicTaste.Utils@{MyMusicTaste.Utils}!CssSize@{CssSize}|hyperpage}{13}
+\indexentry{CssSize@{CssSize}!MyMusicTaste.Utils@{MyMusicTaste.Utils}|hyperpage}{13}
+\indexentry{AuthController@{AuthController}|hyperpage}{15}
+\indexentry{AuthController@{AuthController}!LoginAsync@{LoginAsync}|hyperpage}{15}
+\indexentry{LoginAsync@{LoginAsync}!AuthController@{AuthController}|hyperpage}{15}
+\indexentry{AuthController@{AuthController}!LogoutAsync@{LogoutAsync}|hyperpage}{16}
+\indexentry{LogoutAsync@{LogoutAsync}!AuthController@{AuthController}|hyperpage}{16}
+\indexentry{Comment@{Comment}|hyperpage}{16}
+\indexentry{CommentComp@{CommentComp}|hyperpage}{17}
+\indexentry{CommentSection@{CommentSection}|hyperpage}{17}
+\indexentry{ConfirmDialog@{ConfirmDialog}|hyperpage}{18}
+\indexentry{DatabaseOperationException@{DatabaseOperationException}|hyperpage}{19}
+\indexentry{Dialog$<$ TResult $>$@{Dialog$<$ TResult $>$}|hyperpage}{20}
+\indexentry{Dialog$<$ TResult $>$@{Dialog$<$ TResult $>$}!OpenDialog@{OpenDialog}|hyperpage}{21}
+\indexentry{OpenDialog@{OpenDialog}!Dialog$<$ TResult $>$@{Dialog$<$ TResult $>$}|hyperpage}{21}
+\indexentry{DialogBase@{DialogBase}|hyperpage}{21}
+\indexentry{DialogResult$<$ TResult $>$@{DialogResult$<$ TResult $>$}|hyperpage}{22}
+\indexentry{Dropzone@{Dropzone}|hyperpage}{22}
+\indexentry{Dropzone@{Dropzone}!SetActive@{SetActive}|hyperpage}{23}
+\indexentry{SetActive@{SetActive}!Dropzone@{Dropzone}|hyperpage}{23}
+\indexentry{Histogram$<$ TValue, TLabel $>$@{Histogram$<$ TValue, TLabel $>$}|hyperpage}{23}
+\indexentry{ICommentsListing@{ICommentsListing}|hyperpage}{24}
+\indexentry{ICommentsListing@{ICommentsListing}!GetCommentsByPageAsync@{GetCommentsByPageAsync}|hyperpage}{24}
+\indexentry{GetCommentsByPageAsync@{GetCommentsByPageAsync}!ICommentsListing@{ICommentsListing}|hyperpage}{24}
+\indexentry{ICommentsListing@{ICommentsListing}!GetCommentsByUserAsync@{GetCommentsByUserAsync}|hyperpage}{24}
+\indexentry{GetCommentsByUserAsync@{GetCommentsByUserAsync}!ICommentsListing@{ICommentsListing}|hyperpage}{24}
+\indexentry{IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}|hyperpage}{25}
+\indexentry{IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}!CreateAsync@{CreateAsync}|hyperpage}{26}
+\indexentry{CreateAsync@{CreateAsync}!IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}|hyperpage}{26}
+\indexentry{IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}!DeleteAsync@{DeleteAsync}|hyperpage}{26}
+\indexentry{DeleteAsync@{DeleteAsync}!IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}|hyperpage}{26}
+\indexentry{IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}!GetById@{GetById}|hyperpage}{26}
+\indexentry{GetById@{GetById}!IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}|hyperpage}{26}
+\indexentry{IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}!GetById@{GetById}|hyperpage}{26}
+\indexentry{GetById@{GetById}!IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}|hyperpage}{26}
+\indexentry{IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}!GetByIdAsync@{GetByIdAsync}|hyperpage}{27}
+\indexentry{GetByIdAsync@{GetByIdAsync}!IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}|hyperpage}{27}
+\indexentry{IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}!GetByIdsAsync@{GetByIdsAsync}|hyperpage}{27}
+\indexentry{GetByIdsAsync@{GetByIdsAsync}!IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}|hyperpage}{27}
+\indexentry{IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}!UpdateAsync@{UpdateAsync}|hyperpage}{27}
+\indexentry{UpdateAsync@{UpdateAsync}!IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}|hyperpage}{27}
+\indexentry{IIdentityProvider@{IIdentityProvider}|hyperpage}{28}
+\indexentry{IIdentityProvider@{IIdentityProvider}!AssignRoleAsync@{AssignRoleAsync}|hyperpage}{28}
+\indexentry{AssignRoleAsync@{AssignRoleAsync}!IIdentityProvider@{IIdentityProvider}|hyperpage}{28}
+\indexentry{IIdentityProvider@{IIdentityProvider}!AuthorizeUserById@{AuthorizeUserById}|hyperpage}{29}
+\indexentry{AuthorizeUserById@{AuthorizeUserById}!IIdentityProvider@{IIdentityProvider}|hyperpage}{29}
+\indexentry{IIdentityProvider@{IIdentityProvider}!GetUserId@{GetUserId}|hyperpage}{29}
+\indexentry{GetUserId@{GetUserId}!IIdentityProvider@{IIdentityProvider}|hyperpage}{29}
+\indexentry{IIdentityProvider@{IIdentityProvider}!IsAuthenticated@{IsAuthenticated}|hyperpage}{29}
+\indexentry{IsAuthenticated@{IsAuthenticated}!IIdentityProvider@{IIdentityProvider}|hyperpage}{29}
+\indexentry{IIdentityProvider@{IIdentityProvider}!LoginUserAsync@{LoginUserAsync}|hyperpage}{29}
+\indexentry{LoginUserAsync@{LoginUserAsync}!IIdentityProvider@{IIdentityProvider}|hyperpage}{29}
+\indexentry{IIdentityProvider@{IIdentityProvider}!LogOutUserAsync@{LogOutUserAsync}|hyperpage}{30}
+\indexentry{LogOutUserAsync@{LogOutUserAsync}!IIdentityProvider@{IIdentityProvider}|hyperpage}{30}
+\indexentry{IIdentityProvider@{IIdentityProvider}!SignUpUserAsync@{SignUpUserAsync}|hyperpage}{30}
+\indexentry{SignUpUserAsync@{SignUpUserAsync}!IIdentityProvider@{IIdentityProvider}|hyperpage}{30}
+\indexentry{InputDialog@{InputDialog}|hyperpage}{30}
+\indexentry{ISearchOperation$<$ TModel $>$@{ISearchOperation$<$ TModel $>$}|hyperpage}{32}
+\indexentry{ISearchOperation$<$ TModel $>$@{ISearchOperation$<$ TModel $>$}!SearchAsync@{SearchAsync}|hyperpage}{32}
+\indexentry{SearchAsync@{SearchAsync}!ISearchOperation$<$ TModel $>$@{ISearchOperation$<$ TModel $>$}|hyperpage}{32}
+\indexentry{ISongRatingListing@{ISongRatingListing}|hyperpage}{33}
+\indexentry{ISongRatingListing@{ISongRatingListing}!GetRatingsBySongAsync@{GetRatingsBySongAsync}|hyperpage}{33}
+\indexentry{GetRatingsBySongAsync@{GetRatingsBySongAsync}!ISongRatingListing@{ISongRatingListing}|hyperpage}{33}
+\indexentry{ISongRatingListing@{ISongRatingListing}!GetRatingsByUserAsync@{GetRatingsByUserAsync}|hyperpage}{33}
+\indexentry{GetRatingsByUserAsync@{GetRatingsByUserAsync}!ISongRatingListing@{ISongRatingListing}|hyperpage}{33}
+\indexentry{ISongRatingListing@{ISongRatingListing}!GetSongRatingAsync@{GetSongRatingAsync}|hyperpage}{34}
+\indexentry{GetSongRatingAsync@{GetSongRatingAsync}!ISongRatingListing@{ISongRatingListing}|hyperpage}{34}
+\indexentry{ISongStatsCalculation@{ISongStatsCalculation}|hyperpage}{34}
+\indexentry{ISongStatsCalculation@{ISongStatsCalculation}!CalculateSongStatsAsync@{CalculateSongStatsAsync}|hyperpage}{34}
+\indexentry{CalculateSongStatsAsync@{CalculateSongStatsAsync}!ISongStatsCalculation@{ISongStatsCalculation}|hyperpage}{34}
+\indexentry{ISongSubmission@{ISongSubmission}|hyperpage}{35}
+\indexentry{ISongSubmission@{ISongSubmission}!SubmitSongAsync@{SubmitSongAsync}|hyperpage}{35}
+\indexentry{SubmitSongAsync@{SubmitSongAsync}!ISongSubmission@{ISongSubmission}|hyperpage}{35}
+\indexentry{IUserLoginDto@{IUserLoginDto}|hyperpage}{36}
+\indexentry{IUserSignupDto@{IUserSignupDto}|hyperpage}{36}
+\indexentry{IUserStatsCalculation@{IUserStatsCalculation}|hyperpage}{37}
+\indexentry{IUserStatsCalculation@{IUserStatsCalculation}!CalculateUserStatsAsync@{CalculateUserStatsAsync}|hyperpage}{37}
+\indexentry{CalculateUserStatsAsync@{CalculateUserStatsAsync}!IUserStatsCalculation@{IUserStatsCalculation}|hyperpage}{37}
+\indexentry{AuthController.LoginDto@{AuthController.LoginDto}|hyperpage}{37}
+\indexentry{AuthController.LoginDto@{AuthController.LoginDto}!Password@{Password}|hyperpage}{38}
+\indexentry{Password@{Password}!AuthController.LoginDto@{AuthController.LoginDto}|hyperpage}{38}
+\indexentry{AuthController.LoginDto@{AuthController.LoginDto}!Username@{Username}|hyperpage}{38}
+\indexentry{Username@{Username}!AuthController.LoginDto@{AuthController.LoginDto}|hyperpage}{38}
+\indexentry{LoginPage@{LoginPage}|hyperpage}{38}
+\indexentry{Model@{Model}|hyperpage}{39}
+\indexentry{MongoCommentsListing@{MongoCommentsListing}|hyperpage}{39}
+\indexentry{MongoCommentsListing@{MongoCommentsListing}!GetCommentsByPageAsync@{GetCommentsByPageAsync}|hyperpage}{39}
+\indexentry{GetCommentsByPageAsync@{GetCommentsByPageAsync}!MongoCommentsListing@{MongoCommentsListing}|hyperpage}{39}
+\indexentry{MongoCommentsListing@{MongoCommentsListing}!GetCommentsByUserAsync@{GetCommentsByUserAsync}|hyperpage}{40}
+\indexentry{GetCommentsByUserAsync@{GetCommentsByUserAsync}!MongoCommentsListing@{MongoCommentsListing}|hyperpage}{40}
+\indexentry{MongoDbContext@{MongoDbContext}|hyperpage}{40}
+\indexentry{MongoDbContext@{MongoDbContext}!Connect@{Connect}|hyperpage}{40}
+\indexentry{Connect@{Connect}!MongoDbContext@{MongoDbContext}|hyperpage}{40}
+\indexentry{MongoIdentity@{MongoIdentity}|hyperpage}{41}
+\indexentry{MongoIdentity@{MongoIdentity}!MongoIdentity@{MongoIdentity}|hyperpage}{42}
+\indexentry{MongoIdentity@{MongoIdentity}!MongoIdentity@{MongoIdentity}|hyperpage}{42}
+\indexentry{MongoIdentity@{MongoIdentity}!AssignRoleAsync@{AssignRoleAsync}|hyperpage}{42}
+\indexentry{AssignRoleAsync@{AssignRoleAsync}!MongoIdentity@{MongoIdentity}|hyperpage}{42}
+\indexentry{MongoIdentity@{MongoIdentity}!AuthorizeUserById@{AuthorizeUserById}|hyperpage}{42}
+\indexentry{AuthorizeUserById@{AuthorizeUserById}!MongoIdentity@{MongoIdentity}|hyperpage}{42}
+\indexentry{MongoIdentity@{MongoIdentity}!Configure@{Configure}|hyperpage}{43}
+\indexentry{Configure@{Configure}!MongoIdentity@{MongoIdentity}|hyperpage}{43}
+\indexentry{MongoIdentity@{MongoIdentity}!GetUserId@{GetUserId}|hyperpage}{43}
+\indexentry{GetUserId@{GetUserId}!MongoIdentity@{MongoIdentity}|hyperpage}{43}
+\indexentry{MongoIdentity@{MongoIdentity}!IsAuthenticated@{IsAuthenticated}|hyperpage}{43}
+\indexentry{IsAuthenticated@{IsAuthenticated}!MongoIdentity@{MongoIdentity}|hyperpage}{43}
+\indexentry{MongoIdentity@{MongoIdentity}!LoginUserAsync@{LoginUserAsync}|hyperpage}{43}
+\indexentry{LoginUserAsync@{LoginUserAsync}!MongoIdentity@{MongoIdentity}|hyperpage}{43}
+\indexentry{MongoIdentity@{MongoIdentity}!LogOutUserAsync@{LogOutUserAsync}|hyperpage}{44}
+\indexentry{LogOutUserAsync@{LogOutUserAsync}!MongoIdentity@{MongoIdentity}|hyperpage}{44}
+\indexentry{MongoIdentity@{MongoIdentity}!SignUpUserAsync@{SignUpUserAsync}|hyperpage}{44}
+\indexentry{SignUpUserAsync@{SignUpUserAsync}!MongoIdentity@{MongoIdentity}|hyperpage}{44}
+\indexentry{MongoRepository$<$ TModel $>$@{MongoRepository$<$ TModel $>$}|hyperpage}{44}
+\indexentry{MongoRepository$<$ TModel $>$@{MongoRepository$<$ TModel $>$}!CreateAsync@{CreateAsync}|hyperpage}{45}
+\indexentry{CreateAsync@{CreateAsync}!MongoRepository$<$ TModel $>$@{MongoRepository$<$ TModel $>$}|hyperpage}{45}
+\indexentry{MongoRepository$<$ TModel $>$@{MongoRepository$<$ TModel $>$}!DeleteAsync@{DeleteAsync}|hyperpage}{45}
+\indexentry{DeleteAsync@{DeleteAsync}!MongoRepository$<$ TModel $>$@{MongoRepository$<$ TModel $>$}|hyperpage}{45}
+\indexentry{MongoRepository$<$ TModel $>$@{MongoRepository$<$ TModel $>$}!GetById@{GetById}|hyperpage}{46}
+\indexentry{GetById@{GetById}!MongoRepository$<$ TModel $>$@{MongoRepository$<$ TModel $>$}|hyperpage}{46}
+\indexentry{MongoRepository$<$ TModel $>$@{MongoRepository$<$ TModel $>$}!GetById@{GetById}|hyperpage}{46}
+\indexentry{GetById@{GetById}!MongoRepository$<$ TModel $>$@{MongoRepository$<$ TModel $>$}|hyperpage}{46}
+\indexentry{MongoRepository$<$ TModel $>$@{MongoRepository$<$ TModel $>$}!GetByIdAsync@{GetByIdAsync}|hyperpage}{46}
+\indexentry{GetByIdAsync@{GetByIdAsync}!MongoRepository$<$ TModel $>$@{MongoRepository$<$ TModel $>$}|hyperpage}{46}
+\indexentry{MongoRepository$<$ TModel $>$@{MongoRepository$<$ TModel $>$}!GetByIdsAsync@{GetByIdsAsync}|hyperpage}{47}
+\indexentry{GetByIdsAsync@{GetByIdsAsync}!MongoRepository$<$ TModel $>$@{MongoRepository$<$ TModel $>$}|hyperpage}{47}
+\indexentry{MongoRepository$<$ TModel $>$@{MongoRepository$<$ TModel $>$}!UpdateAsync@{UpdateAsync}|hyperpage}{47}
+\indexentry{UpdateAsync@{UpdateAsync}!MongoRepository$<$ TModel $>$@{MongoRepository$<$ TModel $>$}|hyperpage}{47}
+\indexentry{MongoSongRatingListing@{MongoSongRatingListing}|hyperpage}{48}
+\indexentry{MongoSongRatingListing@{MongoSongRatingListing}!GetRatingsBySongAsync@{GetRatingsBySongAsync}|hyperpage}{48}
+\indexentry{GetRatingsBySongAsync@{GetRatingsBySongAsync}!MongoSongRatingListing@{MongoSongRatingListing}|hyperpage}{48}
+\indexentry{MongoSongRatingListing@{MongoSongRatingListing}!GetRatingsByUserAsync@{GetRatingsByUserAsync}|hyperpage}{48}
+\indexentry{GetRatingsByUserAsync@{GetRatingsByUserAsync}!MongoSongRatingListing@{MongoSongRatingListing}|hyperpage}{48}
+\indexentry{MongoSongRatingListing@{MongoSongRatingListing}!GetSongRatingAsync@{GetSongRatingAsync}|hyperpage}{49}
+\indexentry{GetSongRatingAsync@{GetSongRatingAsync}!MongoSongRatingListing@{MongoSongRatingListing}|hyperpage}{49}
+\indexentry{MongoSongSearch@{MongoSongSearch}|hyperpage}{49}
+\indexentry{MongoSongSearch@{MongoSongSearch}!SearchAsync@{SearchAsync}|hyperpage}{49}
+\indexentry{SearchAsync@{SearchAsync}!MongoSongSearch@{MongoSongSearch}|hyperpage}{49}
+\indexentry{MongoSongsStatsCalculation@{MongoSongsStatsCalculation}|hyperpage}{50}
+\indexentry{MongoSongsStatsCalculation@{MongoSongsStatsCalculation}!CalculateSongStatsAsync@{CalculateSongStatsAsync}|hyperpage}{50}
+\indexentry{CalculateSongStatsAsync@{CalculateSongStatsAsync}!MongoSongsStatsCalculation@{MongoSongsStatsCalculation}|hyperpage}{50}
+\indexentry{MongoUserSearch@{MongoUserSearch}|hyperpage}{51}
+\indexentry{MongoUserSearch@{MongoUserSearch}!SearchAsync@{SearchAsync}|hyperpage}{51}
+\indexentry{SearchAsync@{SearchAsync}!MongoUserSearch@{MongoUserSearch}|hyperpage}{51}
+\indexentry{MongoUserStatsCalculation@{MongoUserStatsCalculation}|hyperpage}{51}
+\indexentry{MongoUserStatsCalculation@{MongoUserStatsCalculation}!CalculateUserStatsAsync@{CalculateUserStatsAsync}|hyperpage}{52}
+\indexentry{CalculateUserStatsAsync@{CalculateUserStatsAsync}!MongoUserStatsCalculation@{MongoUserStatsCalculation}|hyperpage}{52}
+\indexentry{RateSongComp@{RateSongComp}|hyperpage}{52}
+\indexentry{SearchComponent$<$ TModel $>$@{SearchComponent$<$ TModel $>$}|hyperpage}{53}
+\indexentry{SearchPage@{SearchPage}|hyperpage}{53}
+\indexentry{Song@{Song}|hyperpage}{54}
+\indexentry{SongPage@{SongPage}|hyperpage}{54}
+\indexentry{SongRating@{SongRating}|hyperpage}{55}
+\indexentry{SongRatingItem@{SongRatingItem}|hyperpage}{56}
+\indexentry{SongRatingSection@{SongRatingSection}|hyperpage}{56}
+\indexentry{SongSearchItem@{SongSearchItem}|hyperpage}{56}
+\indexentry{SongStats@{SongStats}|hyperpage}{57}
+\indexentry{SongSubmission@{SongSubmission}|hyperpage}{57}
+\indexentry{SongSubmission@{SongSubmission}!SubmitSongAsync@{SubmitSongAsync}|hyperpage}{57}
+\indexentry{SubmitSongAsync@{SubmitSongAsync}!SongSubmission@{SongSubmission}|hyperpage}{57}
+\indexentry{SongSubmissionPage@{SongSubmissionPage}|hyperpage}{58}
+\indexentry{Thumbnail@{Thumbnail}|hyperpage}{58}
+\indexentry{User@{User}|hyperpage}{59}
+\indexentry{UserPage@{UserPage}|hyperpage}{60}
+\indexentry{UserSearchItem@{UserSearchItem}|hyperpage}{60}
+\indexentry{UserSignupForm@{UserSignupForm}|hyperpage}{61}
+\indexentry{UserStats@{UserStats}|hyperpage}{61}

@@ -1,0 +1,72 @@
+\doxysection{Mongo\+Comments\+Listing Class Reference}
+\hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoCommentsListing}{}\label{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoCommentsListing}\index{MongoCommentsListing@{MongoCommentsListing}}
+
+
+Provides methods for retrieving comments from the \doxylink{namespaceMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb}{Mongo\+Db} database.  
+
+
+Inheritance diagram for Mongo\+Comments\+Listing\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{db/dc3/classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoCommentsListing}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ IEnumerable$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1Comment}{Comment}} $>$ $>$ \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoCommentsListing_a2e0fc30a8f6c71fcc40414b6fa46c5bd}{Get\+Comments\+By\+User\+Async}} (string user\+Id, int result\+Count)
+\begin{DoxyCompactList}\small\item\em Retrieves comments made by a specific user. \end{DoxyCompactList}\item 
+async Task$<$ IEnumerable$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1Comment}{Comment}} $>$ $>$ \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoCommentsListing_aabd610a9297c7774dfff36cfbaac9e3b}{Get\+Comments\+By\+Page\+Async}} (\mbox{\hyperlink{namespaceMyMusicTaste_1_1Models_a391e26e58c307d5e4b20fb54347b66fd}{Comment\+Page\+Type}} page\+Type, string page\+Id, int result\+Count)
+\begin{DoxyCompactList}\small\item\em Retrieves comments associated with a specific page, ordered by creation time descending. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoCommentsListing_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoCommentsListing_aabd610a9297c7774dfff36cfbaac9e3b}\index{MongoCommentsListing@{MongoCommentsListing}!GetCommentsByPageAsync@{GetCommentsByPageAsync}}
+\index{GetCommentsByPageAsync@{GetCommentsByPageAsync}!MongoCommentsListing@{MongoCommentsListing}}
+\doxysubsubsection{\texorpdfstring{GetCommentsByPageAsync()}{GetCommentsByPageAsync()}}
+{\footnotesize\ttfamily \label{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoCommentsListing_aabd610a9297c7774dfff36cfbaac9e3b} 
+async Task$<$ IEnumerable$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1Comment}{Comment}} $>$ $>$ Get\+Comments\+By\+Page\+Async (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceMyMusicTaste_1_1Models_a391e26e58c307d5e4b20fb54347b66fd}{Comment\+Page\+Type}}}]{page\+Type}{, }\item[{string}]{page\+Id}{, }\item[{int}]{result\+Count}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em page\+Type} & The type of the page the comments belong to.\\
+\hline
+{\em page\+Id} & The ID of the page.\\
+\hline
+{\em result\+Count} & The maximum number of comments to return.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task for the collection of comments.
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ICommentsListing_af38750e083ffd089684c3184227b7063}{IComments\+Listing}}.
+
+\Hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoCommentsListing_a2e0fc30a8f6c71fcc40414b6fa46c5bd}\index{MongoCommentsListing@{MongoCommentsListing}!GetCommentsByUserAsync@{GetCommentsByUserAsync}}
+\index{GetCommentsByUserAsync@{GetCommentsByUserAsync}!MongoCommentsListing@{MongoCommentsListing}}
+\doxysubsubsection{\texorpdfstring{GetCommentsByUserAsync()}{GetCommentsByUserAsync()}}
+{\footnotesize\ttfamily \label{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoCommentsListing_a2e0fc30a8f6c71fcc40414b6fa46c5bd} 
+Task$<$ IEnumerable$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1Comment}{Comment}} $>$ $>$ Get\+Comments\+By\+User\+Async (\begin{DoxyParamCaption}\item[{string}]{user\+Id}{, }\item[{int}]{result\+Count}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Id} & The ID of the user whose comments to retrieve.\\
+\hline
+{\em result\+Count} & The maximum number of comments to return.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task for the list of comments.
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ICommentsListing_a2e0fc30a8f6c71fcc40414b6fa46c5bd}{IComments\+Listing}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+Music\+Taste/\+Database/\+Contexts/\+Mongo\+Db/\+Operations/Mongo\+Comments\+Listing.\+cs\end{DoxyCompactItemize}

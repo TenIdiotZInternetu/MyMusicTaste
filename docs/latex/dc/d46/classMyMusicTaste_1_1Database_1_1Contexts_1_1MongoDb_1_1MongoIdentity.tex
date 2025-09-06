@@ -1,0 +1,190 @@
+\doxysection{Mongo\+Identity Class Reference}
+\hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity}{}\label{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity}\index{MongoIdentity@{MongoIdentity}}
+
+
+A Mongo\+DB-\/based implementation of \doxylink{interfaceMyMusicTaste_1_1Database_1_1IIdentityProvider}{IIdentity\+Provider} using ASP.\+NET Identity. Handles user signup, login, logout, and authentication/authorization checks.  
+
+
+Inheritance diagram for Mongo\+Identity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{dc/d46/classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_a3dac45e2aa1821e0df50deea6084fb86}{Mongo\+Identity}} (Sign\+In\+Manager$<$ Mongo\+Account $>$ sign\+In\+Manager, IDb\+Repository$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1User}{User}} $>$ user\+Repository, IHttp\+Context\+Accessor http\+Context\+Accessor)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of \doxylink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity}{Mongo\+Identity} with required ASP.\+NET Identity services. \end{DoxyCompactList}\item 
+async Task$<$ Identity\+Result $>$ \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_a63df43dc1d29e4c2a68eead9e7e630ba}{Sign\+Up\+User\+Async}} (\mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1IUserSignupDto}{IUser\+Signup\+Dto}} new\+User\+Signup)
+\begin{DoxyCompactList}\small\item\em Signs up a new user and stores their account in Mongo\+DB. \end{DoxyCompactList}\item 
+async Task$<$ Sign\+In\+Result $>$ \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_aaf25d0ffc255be5ad7d06d96a9efd890}{Login\+User\+Async}} (\mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1IUserLoginDto}{IUser\+Login\+Dto}} user\+Login)
+\begin{DoxyCompactList}\small\item\em Logs in a user using ASP.\+NET Identity sign-\/in manager. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_a2b06806ba8b161c352a195e64040fd1e}{Log\+Out\+User\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Logs out the currently signed-\/in user. \end{DoxyCompactList}\item 
+Task$<$ Identity\+Result $>$ \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_aa0495df9f7882eb6ea8f08073e1141ea}{Assign\+Role\+Async}} (Identity\+User user, Identity\+Role role)
+\begin{DoxyCompactList}\small\item\em Assigns a role to a user. (Not implemented in this Mongo\+DB version.) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_a9db83b6ec2f0b1ce2c9d983c5927b6b3}{Is\+Authenticated}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the current HTTP context has an authenticated user. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_a17ecaa549da5b5b84cf86fbbab250934}{Authorize\+User\+By\+Id}} (string required\+User\+Id)
+\begin{DoxyCompactList}\small\item\em Checks if the current user has a specific user ID claim. \end{DoxyCompactList}\item 
+string? \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_ab62d0a2d17a88c4987cc39f047a33c45}{Get\+User\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current user\textquotesingle{}s ID from the HTTP context. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_a9d0810699b74eb5930c32bb98ebf0953}{Configure}} (IService\+Collection services, string connection\+String)
+\begin{DoxyCompactList}\small\item\em Configures ASP.\+NET Identity services and registers \doxylink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity}{Mongo\+Identity} as the identity provider. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_a3dac45e2aa1821e0df50deea6084fb86}\index{MongoIdentity@{MongoIdentity}!MongoIdentity@{MongoIdentity}}
+\index{MongoIdentity@{MongoIdentity}!MongoIdentity@{MongoIdentity}}
+\doxysubsubsection{\texorpdfstring{MongoIdentity()}{MongoIdentity()}}
+{\footnotesize\ttfamily \label{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_a3dac45e2aa1821e0df50deea6084fb86} 
+\mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity}{Mongo\+Identity}} (\begin{DoxyParamCaption}\item[{Sign\+In\+Manager$<$ Mongo\+Account $>$}]{sign\+In\+Manager}{, }\item[{IDb\+Repository$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1User}{User}} $>$}]{user\+Repository}{, }\item[{IHttp\+Context\+Accessor}]{http\+Context\+Accessor}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em sign\+In\+Manager} & The Sign\+In\+Manager for user login/logout.\\
+\hline
+{\em user\+Repository} & Repository for storing application user data.\\
+\hline
+{\em http\+Context\+Accessor} & Accessor for the current HTTP context.\\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_aa0495df9f7882eb6ea8f08073e1141ea}\index{MongoIdentity@{MongoIdentity}!AssignRoleAsync@{AssignRoleAsync}}
+\index{AssignRoleAsync@{AssignRoleAsync}!MongoIdentity@{MongoIdentity}}
+\doxysubsubsection{\texorpdfstring{AssignRoleAsync()}{AssignRoleAsync()}}
+{\footnotesize\ttfamily \label{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_aa0495df9f7882eb6ea8f08073e1141ea} 
+Task$<$ Identity\+Result $>$ Assign\+Role\+Async (\begin{DoxyParamCaption}\item[{Identity\+User}]{user}{, }\item[{Identity\+Role}]{role}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & The identity user to assign the role to.\\
+\hline
+{\em role} & The identity role to assign.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task for the Identity\+Result.
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1IIdentityProvider_aa0495df9f7882eb6ea8f08073e1141ea}{IIdentity\+Provider}}.
+
+\Hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_a17ecaa549da5b5b84cf86fbbab250934}\index{MongoIdentity@{MongoIdentity}!AuthorizeUserById@{AuthorizeUserById}}
+\index{AuthorizeUserById@{AuthorizeUserById}!MongoIdentity@{MongoIdentity}}
+\doxysubsubsection{\texorpdfstring{AuthorizeUserById()}{AuthorizeUserById()}}
+{\footnotesize\ttfamily \label{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_a17ecaa549da5b5b84cf86fbbab250934} 
+bool Authorize\+User\+By\+Id (\begin{DoxyParamCaption}\item[{string}]{required\+User\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em required\+User\+Id} & The required user ID.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the user has the claim; otherwise false.
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1IIdentityProvider_a17ecaa549da5b5b84cf86fbbab250934}{IIdentity\+Provider}}.
+
+\Hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_a9d0810699b74eb5930c32bb98ebf0953}\index{MongoIdentity@{MongoIdentity}!Configure@{Configure}}
+\index{Configure@{Configure}!MongoIdentity@{MongoIdentity}}
+\doxysubsubsection{\texorpdfstring{Configure()}{Configure()}}
+{\footnotesize\ttfamily \label{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_a9d0810699b74eb5930c32bb98ebf0953} 
+void Configure (\begin{DoxyParamCaption}\item[{IService\+Collection}]{services}{, }\item[{string}]{connection\+String}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em services} & The service collection to configure.\\
+\hline
+{\em connection\+String} & The Mongo\+DB connection string for the identity store.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_ab62d0a2d17a88c4987cc39f047a33c45}\index{MongoIdentity@{MongoIdentity}!GetUserId@{GetUserId}}
+\index{GetUserId@{GetUserId}!MongoIdentity@{MongoIdentity}}
+\doxysubsubsection{\texorpdfstring{GetUserId()}{GetUserId()}}
+{\footnotesize\ttfamily \label{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_ab62d0a2d17a88c4987cc39f047a33c45} 
+string? Get\+User\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+The user ID as a string, or null if not authenticated.
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1IIdentityProvider_ab62d0a2d17a88c4987cc39f047a33c45}{IIdentity\+Provider}}.
+
+\Hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_a9db83b6ec2f0b1ce2c9d983c5927b6b3}\index{MongoIdentity@{MongoIdentity}!IsAuthenticated@{IsAuthenticated}}
+\index{IsAuthenticated@{IsAuthenticated}!MongoIdentity@{MongoIdentity}}
+\doxysubsubsection{\texorpdfstring{IsAuthenticated()}{IsAuthenticated()}}
+{\footnotesize\ttfamily \label{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_a9db83b6ec2f0b1ce2c9d983c5927b6b3} 
+bool Is\+Authenticated (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+True if a user is authenticated; otherwise false.
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1IIdentityProvider_a9db83b6ec2f0b1ce2c9d983c5927b6b3}{IIdentity\+Provider}}.
+
+\Hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_aaf25d0ffc255be5ad7d06d96a9efd890}\index{MongoIdentity@{MongoIdentity}!LoginUserAsync@{LoginUserAsync}}
+\index{LoginUserAsync@{LoginUserAsync}!MongoIdentity@{MongoIdentity}}
+\doxysubsubsection{\texorpdfstring{LoginUserAsync()}{LoginUserAsync()}}
+{\footnotesize\ttfamily \label{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_aaf25d0ffc255be5ad7d06d96a9efd890} 
+async Task$<$ Sign\+In\+Result $>$ Login\+User\+Async (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1IUserLoginDto}{IUser\+Login\+Dto}}}]{user\+Login}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Login} & The user login data transfer object.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task for the Sign\+In\+Result indicating success or failure.
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1IIdentityProvider_abd6749e47958cfd7c8c6a149a147d4ca}{IIdentity\+Provider}}.
+
+\Hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_a2b06806ba8b161c352a195e64040fd1e}\index{MongoIdentity@{MongoIdentity}!LogOutUserAsync@{LogOutUserAsync}}
+\index{LogOutUserAsync@{LogOutUserAsync}!MongoIdentity@{MongoIdentity}}
+\doxysubsubsection{\texorpdfstring{LogOutUserAsync()}{LogOutUserAsync()}}
+{\footnotesize\ttfamily \label{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_a2b06806ba8b161c352a195e64040fd1e} 
+async Task Log\+Out\+User\+Async (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implements \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1IIdentityProvider_aaffe81486c5e4ad58898432a8f2a89fd}{IIdentity\+Provider}}.
+
+\Hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_a63df43dc1d29e4c2a68eead9e7e630ba}\index{MongoIdentity@{MongoIdentity}!SignUpUserAsync@{SignUpUserAsync}}
+\index{SignUpUserAsync@{SignUpUserAsync}!MongoIdentity@{MongoIdentity}}
+\doxysubsubsection{\texorpdfstring{SignUpUserAsync()}{SignUpUserAsync()}}
+{\footnotesize\ttfamily \label{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity_a63df43dc1d29e4c2a68eead9e7e630ba} 
+async Task$<$ Identity\+Result $>$ Sign\+Up\+User\+Async (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1IUserSignupDto}{IUser\+Signup\+Dto}}}]{new\+User\+Signup}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+User\+Signup} & The user signup data transfer object.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task for the Identity\+Result indicating success or failure.
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1IIdentityProvider_a3183100da296be7123e0317987303b0e}{IIdentity\+Provider}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+Music\+Taste/\+Database/\+Contexts/\+Mongo\+Db/Mongo\+Identity.\+cs\end{DoxyCompactItemize}

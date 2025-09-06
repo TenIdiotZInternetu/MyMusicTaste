@@ -1,0 +1,60 @@
+\doxysection{ISearch\+Operation\texorpdfstring{$<$}{<} TModel \texorpdfstring{$>$}{>} Interface Template Reference}
+\hypertarget{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISearchOperation-1-g}{}\label{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISearchOperation-1-g}\index{ISearchOperation$<$ TModel $>$@{ISearchOperation$<$ TModel $>$}}
+
+
+Provides a generic interface for searching entities of type {\itshape TModel} .  
+
+
+Inheritance diagram for ISearch\+Operation\texorpdfstring{$<$}{<} TModel \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{db/d6c/interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISearchOperation-1-g}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ IEnumerable$<$ TModel $>$?$>$ \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISearchOperation-1-g_a2000b63275df9f76e00fd9770d6187c3}{Search\+Async}} (string query, int results\+Count)
+\begin{DoxyCompactList}\small\item\em Searches entities based on a query string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TModel} & The type of model to search for.\\
+\hline
+\end{DoxyTemplParams}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em TModel} : {\em Model}]\end{description}
+\end{Desc}
+
+
+\label{doc-func-members}
+\Hypertarget{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISearchOperation-1-g_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISearchOperation-1-g_a2000b63275df9f76e00fd9770d6187c3}\index{ISearchOperation$<$ TModel $>$@{ISearchOperation$<$ TModel $>$}!SearchAsync@{SearchAsync}}
+\index{SearchAsync@{SearchAsync}!ISearchOperation$<$ TModel $>$@{ISearchOperation$<$ TModel $>$}}
+\doxysubsubsection{\texorpdfstring{SearchAsync()}{SearchAsync()}}
+{\footnotesize\ttfamily \label{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISearchOperation-1-g_a2000b63275df9f76e00fd9770d6187c3} 
+Task$<$ IEnumerable$<$ TModel $>$?$>$ Search\+Async (\begin{DoxyParamCaption}\item[{string}]{query}{, }\item[{int}]{results\+Count}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & The search query string.\\
+\hline
+{\em results\+Count} & The maximum number of results to return.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task for the collection of matching entities, or null if the query is empty.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoSongSearch_a30135ec4792882423707ec73fb6c3101}{Mongo\+Song\+Search}}, and \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoUserSearch_a41742d21e111ee3025406387b5d56b63}{Mongo\+User\+Search}}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+Music\+Taste/\+Database/\+Operations/ISearch\+Operation.\+cs\end{DoxyCompactItemize}

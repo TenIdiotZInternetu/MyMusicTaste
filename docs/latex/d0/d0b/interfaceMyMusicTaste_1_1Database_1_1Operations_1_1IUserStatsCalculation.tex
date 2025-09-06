@@ -1,0 +1,46 @@
+\doxysection{IUser\+Stats\+Calculation Interface Reference}
+\hypertarget{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1IUserStatsCalculation}{}\label{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1IUserStatsCalculation}\index{IUserStatsCalculation@{IUserStatsCalculation}}
+
+
+Provides methods for calculating statistics for a user based on their song ratings.  
+
+
+Inheritance diagram for IUser\+Stats\+Calculation\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d0/d0b/interfaceMyMusicTaste_1_1Database_1_1Operations_1_1IUserStatsCalculation}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1UserStats}{User\+Stats}} $>$ \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1IUserStatsCalculation_a20757c4df045e056f4c32804f3a24ee3}{Calculate\+User\+Stats\+Async}} (string user\+Id)
+\begin{DoxyCompactList}\small\item\em Calculates statistics for a user, such as average ratings grouped by album, author, and genre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1IUserStatsCalculation_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1IUserStatsCalculation_a20757c4df045e056f4c32804f3a24ee3}\index{IUserStatsCalculation@{IUserStatsCalculation}!CalculateUserStatsAsync@{CalculateUserStatsAsync}}
+\index{CalculateUserStatsAsync@{CalculateUserStatsAsync}!IUserStatsCalculation@{IUserStatsCalculation}}
+\doxysubsubsection{\texorpdfstring{CalculateUserStatsAsync()}{CalculateUserStatsAsync()}}
+{\footnotesize\ttfamily \label{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1IUserStatsCalculation_a20757c4df045e056f4c32804f3a24ee3} 
+Task$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1UserStats}{User\+Stats}} $>$ Calculate\+User\+Stats\+Async (\begin{DoxyParamCaption}\item[{string}]{user\+Id}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Id} & The ID of the user to calculate statistics for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task for the user\textquotesingle{}s statistics.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoUserStatsCalculation_aa0fe078ea529ea4611f49dfae7a5b217}{Mongo\+User\+Stats\+Calculation}}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+Music\+Taste/\+Database/\+Operations/IUser\+Stats\+Calculation.\+cs\end{DoxyCompactItemize}

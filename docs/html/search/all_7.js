@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['icommentslisting_0',['ICommentsListing',['../d0/d95/interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ICommentsListing.html',1,'MyMusicTaste::Database::Operations']]],
+  ['idbrepository_2d1_2dg_1',['IDbRepository-1-g',['../dc/d4b/interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g.html',1,'MyMusicTaste::Database']]],
+  ['iidentityprovider_2',['IIdentityProvider',['../da/db3/interfaceMyMusicTaste_1_1Database_1_1IIdentityProvider.html',1,'MyMusicTaste::Database']]],
+  ['imagelink_3',['ImageLink',['../d7/df9/classMyMusicTaste_1_1Components_1_1Misc_1_1Thumbnail.html#acbb7f8d3c62c91279cd33f79ee27325b',1,'MyMusicTaste::Components::Misc::Thumbnail']]],
+  ['inputdialog_4',['InputDialog',['../df/d5d/classMyMusicTaste_1_1Components_1_1Dialogs_1_1InputDialog.html',1,'MyMusicTaste::Components::Dialogs']]],
+  ['isauthenticated_5',['IsAuthenticated',['../dc/d46/classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoIdentity.html#a9db83b6ec2f0b1ce2c9d983c5927b6b3',1,'MyMusicTaste.Database.Contexts.MongoDb.MongoIdentity.IsAuthenticated()'],['../da/db3/interfaceMyMusicTaste_1_1Database_1_1IIdentityProvider.html#a9db83b6ec2f0b1ce2c9d983c5927b6b3',1,'MyMusicTaste.Database.IIdentityProvider.IsAuthenticated()']]],
+  ['isearchoperation_2d1_2dg_6',['ISearchOperation-1-g',['../db/d6c/interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISearchOperation-1-g.html',1,'MyMusicTaste::Database::Operations']]],
+  ['isnewcomment_7',['IsNewComment',['../de/d90/classMyMusicTaste_1_1Components_1_1Comments_1_1CommentComp.html#a13d2ac7bcf68255daa3ad0014fcb957c',1,'MyMusicTaste::Components::Comments::CommentComp']]],
+  ['isongratinglisting_8',['ISongRatingListing',['../dd/db2/interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongRatingListing.html',1,'MyMusicTaste::Database::Operations']]],
+  ['isongstatscalculation_9',['ISongStatsCalculation',['../d6/dfd/interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongStatsCalculation.html',1,'MyMusicTaste::Database::Operations']]],
+  ['isongsubmission_10',['ISongSubmission',['../de/d43/interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongSubmission.html',1,'MyMusicTaste::Database::Operations']]],
+  ['isposted_11',['IsPosted',['../de/d90/classMyMusicTaste_1_1Components_1_1Comments_1_1CommentComp.html#a5e13a242835579636e71e8253dc17654',1,'MyMusicTaste::Components::Comments::CommentComp']]],
+  ['isvisible_12',['IsVisible',['../d1/d25/classMyMusicTaste_1_1Components_1_1Dialogs_1_1DialogBase.html#a7e94b9f66bbab75933f81df078c7aa69',1,'MyMusicTaste::Components::Dialogs::DialogBase']]],
+  ['iuserlogindto_13',['IUserLoginDto',['../d6/d37/interfaceMyMusicTaste_1_1Database_1_1IUserLoginDto.html',1,'MyMusicTaste::Database']]],
+  ['iusersignupdto_14',['IUserSignupDto',['../d3/d0e/interfaceMyMusicTaste_1_1Database_1_1IUserSignupDto.html',1,'MyMusicTaste::Database']]],
+  ['iuserstatscalculation_15',['IUserStatsCalculation',['../d0/d0b/interfaceMyMusicTaste_1_1Database_1_1Operations_1_1IUserStatsCalculation.html',1,'MyMusicTaste::Database::Operations']]]
+];

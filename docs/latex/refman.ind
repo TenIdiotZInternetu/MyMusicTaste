@@ -1,0 +1,255 @@
+\begin{theindex}
+
+  \item {AssignRoleAsync}
+    \subitem {IIdentityProvider}, \hyperpage{28}
+    \subitem {MongoIdentity}, \hyperpage{42}
+  \item {AuthController}, \hyperpage{15}
+    \subitem {LoginAsync}, \hyperpage{15}
+    \subitem {LogoutAsync}, \hyperpage{16}
+  \item {AuthController.LoginDto}, \hyperpage{37}
+    \subitem {Password}, \hyperpage{38}
+    \subitem {Username}, \hyperpage{38}
+  \item {AuthorizeUserById}
+    \subitem {IIdentityProvider}, \hyperpage{29}
+    \subitem {MongoIdentity}, \hyperpage{42}
+
+  \indexspace
+
+  \item {CalculateSongStatsAsync}
+    \subitem {ISongStatsCalculation}, \hyperpage{34}
+    \subitem {MongoSongsStatsCalculation}, \hyperpage{50}
+  \item {CalculateUserStatsAsync}
+    \subitem {IUserStatsCalculation}, \hyperpage{37}
+    \subitem {MongoUserStatsCalculation}, \hyperpage{52}
+  \item {Comment}, \hyperpage{16}
+  \item {CommentComp}, \hyperpage{17}
+  \item {CommentSection}, \hyperpage{17}
+  \item {Configure}
+    \subitem {MongoIdentity}, \hyperpage{43}
+  \item {ConfirmDialog}, \hyperpage{18}
+  \item {Connect}
+    \subitem {MongoDbContext}, \hyperpage{40}
+  \item {CreateAsync}
+    \subitem {IDbRepository$<$ TModel $>$}, \hyperpage{26}
+    \subitem {MongoRepository$<$ TModel $>$}, \hyperpage{45}
+  \item {CssSize}
+    \subitem {MyMusicTaste.Utils}, \hyperpage{13}
+
+  \indexspace
+
+  \item {DatabaseOperationException}, \hyperpage{19}
+  \item {DeleteAsync}
+    \subitem {IDbRepository$<$ TModel $>$}, \hyperpage{26}
+    \subitem {MongoRepository$<$ TModel $>$}, \hyperpage{45}
+  \item {Dialog$<$ TResult $>$}, \hyperpage{20}
+    \subitem {OpenDialog}, \hyperpage{21}
+  \item {DialogBase}, \hyperpage{21}
+  \item {DialogResult$<$ TResult $>$}, \hyperpage{22}
+  \item {Dropzone}, \hyperpage{22}
+    \subitem {SetActive}, \hyperpage{23}
+
+  \indexspace
+
+  \item {GetById}
+    \subitem {IDbRepository$<$ TModel $>$}, \hyperpage{26}
+    \subitem {MongoRepository$<$ TModel $>$}, \hyperpage{46}
+  \item {GetByIdAsync}
+    \subitem {IDbRepository$<$ TModel $>$}, \hyperpage{27}
+    \subitem {MongoRepository$<$ TModel $>$}, \hyperpage{46}
+  \item {GetByIdsAsync}
+    \subitem {IDbRepository$<$ TModel $>$}, \hyperpage{27}
+    \subitem {MongoRepository$<$ TModel $>$}, \hyperpage{47}
+  \item {GetCommentsByPageAsync}
+    \subitem {ICommentsListing}, \hyperpage{24}
+    \subitem {MongoCommentsListing}, \hyperpage{39}
+  \item {GetCommentsByUserAsync}
+    \subitem {ICommentsListing}, \hyperpage{24}
+    \subitem {MongoCommentsListing}, \hyperpage{40}
+  \item {GetRatingsBySongAsync}
+    \subitem {ISongRatingListing}, \hyperpage{33}
+    \subitem {MongoSongRatingListing}, \hyperpage{48}
+  \item {GetRatingsByUserAsync}
+    \subitem {ISongRatingListing}, \hyperpage{33}
+    \subitem {MongoSongRatingListing}, \hyperpage{48}
+  \item {GetSongRatingAsync}
+    \subitem {ISongRatingListing}, \hyperpage{34}
+    \subitem {MongoSongRatingListing}, \hyperpage{49}
+  \item {GetUserId}
+    \subitem {IIdentityProvider}, \hyperpage{29}
+    \subitem {MongoIdentity}, \hyperpage{43}
+
+  \indexspace
+
+  \item {Histogram$<$ TValue, TLabel $>$}, \hyperpage{23}
+
+  \indexspace
+
+  \item {ICommentsListing}, \hyperpage{24}
+    \subitem {GetCommentsByPageAsync}, \hyperpage{24}
+    \subitem {GetCommentsByUserAsync}, \hyperpage{24}
+  \item {IDbRepository$<$ TModel $>$}, \hyperpage{25}
+    \subitem {CreateAsync}, \hyperpage{26}
+    \subitem {DeleteAsync}, \hyperpage{26}
+    \subitem {GetById}, \hyperpage{26}
+    \subitem {GetByIdAsync}, \hyperpage{27}
+    \subitem {GetByIdsAsync}, \hyperpage{27}
+    \subitem {UpdateAsync}, \hyperpage{27}
+  \item {IIdentityProvider}, \hyperpage{28}
+    \subitem {AssignRoleAsync}, \hyperpage{28}
+    \subitem {AuthorizeUserById}, \hyperpage{29}
+    \subitem {GetUserId}, \hyperpage{29}
+    \subitem {IsAuthenticated}, \hyperpage{29}
+    \subitem {LoginUserAsync}, \hyperpage{29}
+    \subitem {LogOutUserAsync}, \hyperpage{30}
+    \subitem {SignUpUserAsync}, \hyperpage{30}
+  \item {InputDialog}, \hyperpage{30}
+  \item {IsAuthenticated}
+    \subitem {IIdentityProvider}, \hyperpage{29}
+    \subitem {MongoIdentity}, \hyperpage{43}
+  \item {ISearchOperation$<$ TModel $>$}, \hyperpage{32}
+    \subitem {SearchAsync}, \hyperpage{32}
+  \item {ISongRatingListing}, \hyperpage{33}
+    \subitem {GetRatingsBySongAsync}, \hyperpage{33}
+    \subitem {GetRatingsByUserAsync}, \hyperpage{33}
+    \subitem {GetSongRatingAsync}, \hyperpage{34}
+  \item {ISongStatsCalculation}, \hyperpage{34}
+    \subitem {CalculateSongStatsAsync}, \hyperpage{34}
+  \item {ISongSubmission}, \hyperpage{35}
+    \subitem {SubmitSongAsync}, \hyperpage{35}
+  \item {IUserLoginDto}, \hyperpage{36}
+  \item {IUserSignupDto}, \hyperpage{36}
+  \item {IUserStatsCalculation}, \hyperpage{37}
+    \subitem {CalculateUserStatsAsync}, \hyperpage{37}
+
+  \indexspace
+
+  \item {LoginAsync}
+    \subitem {AuthController}, \hyperpage{15}
+  \item {LoginPage}, \hyperpage{38}
+  \item {LoginUserAsync}
+    \subitem {IIdentityProvider}, \hyperpage{29}
+    \subitem {MongoIdentity}, \hyperpage{43}
+  \item {LogoutAsync}
+    \subitem {AuthController}, \hyperpage{16}
+  \item {LogOutUserAsync}
+    \subitem {IIdentityProvider}, \hyperpage{30}
+    \subitem {MongoIdentity}, \hyperpage{44}
+
+  \indexspace
+
+  \item {Model}, \hyperpage{39}
+  \item {MongoCommentsListing}, \hyperpage{39}
+    \subitem {GetCommentsByPageAsync}, \hyperpage{39}
+    \subitem {GetCommentsByUserAsync}, \hyperpage{40}
+  \item {MongoDbContext}, \hyperpage{40}
+    \subitem {Connect}, \hyperpage{40}
+  \item {MongoIdentity}, \hyperpage{41}
+    \subitem {AssignRoleAsync}, \hyperpage{42}
+    \subitem {AuthorizeUserById}, \hyperpage{42}
+    \subitem {Configure}, \hyperpage{43}
+    \subitem {GetUserId}, \hyperpage{43}
+    \subitem {IsAuthenticated}, \hyperpage{43}
+    \subitem {LoginUserAsync}, \hyperpage{43}
+    \subitem {LogOutUserAsync}, \hyperpage{44}
+    \subitem {MongoIdentity}, \hyperpage{42}
+    \subitem {SignUpUserAsync}, \hyperpage{44}
+  \item {MongoRepository$<$ TModel $>$}, \hyperpage{44}
+    \subitem {CreateAsync}, \hyperpage{45}
+    \subitem {DeleteAsync}, \hyperpage{45}
+    \subitem {GetById}, \hyperpage{46}
+    \subitem {GetByIdAsync}, \hyperpage{46}
+    \subitem {GetByIdsAsync}, \hyperpage{47}
+    \subitem {UpdateAsync}, \hyperpage{47}
+  \item {MongoSongRatingListing}, \hyperpage{48}
+    \subitem {GetRatingsBySongAsync}, \hyperpage{48}
+    \subitem {GetRatingsByUserAsync}, \hyperpage{48}
+    \subitem {GetSongRatingAsync}, \hyperpage{49}
+  \item {MongoSongSearch}, \hyperpage{49}
+    \subitem {SearchAsync}, \hyperpage{49}
+  \item {MongoSongsStatsCalculation}, \hyperpage{50}
+    \subitem {CalculateSongStatsAsync}, \hyperpage{50}
+  \item {MongoUserSearch}, \hyperpage{51}
+    \subitem {SearchAsync}, \hyperpage{51}
+  \item {MongoUserStatsCalculation}, \hyperpage{51}
+    \subitem {CalculateUserStatsAsync}, \hyperpage{52}
+  \item {MyMusicTaste}, \hyperpage{9}
+  \item {MyMusicTaste.Components}, \hyperpage{9}
+  \item {MyMusicTaste.Components.Comments}, \hyperpage{9}
+  \item {MyMusicTaste.Components.Dialogs}, \hyperpage{9}
+  \item {MyMusicTaste.Components.Misc}, \hyperpage{10}
+  \item {MyMusicTaste.Components.Page\_Auth}, \hyperpage{10}
+  \item {MyMusicTaste.Components.Page\_Home}, \hyperpage{10}
+  \item {MyMusicTaste.Components.Page\_Search}, \hyperpage{10}
+  \item {MyMusicTaste.Components.Page\_Song}, \hyperpage{10}
+  \item {MyMusicTaste.Components.Page\_SongSubmission}, \hyperpage{11}
+  \item {MyMusicTaste.Components.Page\_User}, \hyperpage{11}
+  \item {MyMusicTaste.Database}, \hyperpage{11}
+  \item {MyMusicTaste.Database.Contexts}, \hyperpage{11}
+  \item {MyMusicTaste.Database.Contexts.MongoDb}, \hyperpage{11}
+  \item {MyMusicTaste.Database.Contexts.MongoDb.Operations}, 
+		\hyperpage{12}
+  \item {MyMusicTaste.Database.Operations}, \hyperpage{12}
+  \item {MyMusicTaste.Models}, \hyperpage{13}
+  \item {MyMusicTaste.Startup}, \hyperpage{13}
+  \item {MyMusicTaste.Utils}, \hyperpage{13}
+    \subitem {CssSize}, \hyperpage{13}
+
+  \indexspace
+
+  \item {OpenDialog}
+    \subitem {Dialog$<$ TResult $>$}, \hyperpage{21}
+
+  \indexspace
+
+  \item {Password}
+    \subitem {AuthController.LoginDto}, \hyperpage{38}
+
+  \indexspace
+
+  \item {RateSongComp}, \hyperpage{52}
+
+  \indexspace
+
+  \item {SearchAsync}
+    \subitem {ISearchOperation$<$ TModel $>$}, \hyperpage{32}
+    \subitem {MongoSongSearch}, \hyperpage{49}
+    \subitem {MongoUserSearch}, \hyperpage{51}
+  \item {SearchComponent$<$ TModel $>$}, \hyperpage{53}
+  \item {SearchPage}, \hyperpage{53}
+  \item {SetActive}
+    \subitem {Dropzone}, \hyperpage{23}
+  \item {SignUpUserAsync}
+    \subitem {IIdentityProvider}, \hyperpage{30}
+    \subitem {MongoIdentity}, \hyperpage{44}
+  \item {Song}, \hyperpage{54}
+  \item {SongPage}, \hyperpage{54}
+  \item {SongRating}, \hyperpage{55}
+  \item {SongRatingItem}, \hyperpage{56}
+  \item {SongRatingSection}, \hyperpage{56}
+  \item {SongSearchItem}, \hyperpage{56}
+  \item {SongStats}, \hyperpage{57}
+  \item {SongSubmission}, \hyperpage{57}
+    \subitem {SubmitSongAsync}, \hyperpage{57}
+  \item {SongSubmissionPage}, \hyperpage{58}
+  \item {SubmitSongAsync}
+    \subitem {ISongSubmission}, \hyperpage{35}
+    \subitem {SongSubmission}, \hyperpage{57}
+
+  \indexspace
+
+  \item {Thumbnail}, \hyperpage{58}
+
+  \indexspace
+
+  \item {UpdateAsync}
+    \subitem {IDbRepository$<$ TModel $>$}, \hyperpage{27}
+    \subitem {MongoRepository$<$ TModel $>$}, \hyperpage{47}
+  \item {User}, \hyperpage{59}
+  \item {Username}
+    \subitem {AuthController.LoginDto}, \hyperpage{38}
+  \item {UserPage}, \hyperpage{60}
+  \item {UserSearchItem}, \hyperpage{60}
+  \item {UserSignupForm}, \hyperpage{61}
+  \item {UserStats}, \hyperpage{61}
+
+\end{theindex}

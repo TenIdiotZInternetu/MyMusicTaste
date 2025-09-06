@@ -1,0 +1,88 @@
+\doxysection{ISong\+Rating\+Listing Interface Reference}
+\hypertarget{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongRatingListing}{}\label{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongRatingListing}\index{ISongRatingListing@{ISongRatingListing}}
+
+
+Provides methods for retrieving song ratings from the database.  
+
+
+Inheritance diagram for ISong\+Rating\+Listing\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{dd/db2/interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongRatingListing}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1SongRating}{Song\+Rating}} $>$ \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongRatingListing_a4fee772622047e55bfa91d074cd71117}{Get\+Song\+Rating\+Async}} (string song\+Id, string user\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves the rating a specific user has given to a specific song. \end{DoxyCompactList}\item 
+Task$<$ IEnumerable$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1SongRating}{Song\+Rating}} $>$ $>$ \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongRatingListing_a3c9f636342b757bf1fe99dba7d8bbeb5}{Get\+Ratings\+By\+User\+Async}} (string user\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves all ratings submitted by a specific user. \end{DoxyCompactList}\item 
+Task$<$ IEnumerable$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1SongRating}{Song\+Rating}} $>$ $>$ \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongRatingListing_aae585e1349e043aa1be6c1a595bf20fc}{Get\+Ratings\+By\+Song\+Async}} (string song\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves all ratings associated with a specific song. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongRatingListing_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongRatingListing_aae585e1349e043aa1be6c1a595bf20fc}\index{ISongRatingListing@{ISongRatingListing}!GetRatingsBySongAsync@{GetRatingsBySongAsync}}
+\index{GetRatingsBySongAsync@{GetRatingsBySongAsync}!ISongRatingListing@{ISongRatingListing}}
+\doxysubsubsection{\texorpdfstring{GetRatingsBySongAsync()}{GetRatingsBySongAsync()}}
+{\footnotesize\ttfamily \label{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongRatingListing_aae585e1349e043aa1be6c1a595bf20fc} 
+Task$<$ IEnumerable$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1SongRating}{Song\+Rating}} $>$ $>$ Get\+Ratings\+By\+Song\+Async (\begin{DoxyParamCaption}\item[{string}]{song\+Id}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em song\+Id} & The ID of the song.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task for the list of ratings.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoSongRatingListing_a68af299faa99a4a80f244677237dce3f}{Mongo\+Song\+Rating\+Listing}}.
+
+\Hypertarget{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongRatingListing_a3c9f636342b757bf1fe99dba7d8bbeb5}\index{ISongRatingListing@{ISongRatingListing}!GetRatingsByUserAsync@{GetRatingsByUserAsync}}
+\index{GetRatingsByUserAsync@{GetRatingsByUserAsync}!ISongRatingListing@{ISongRatingListing}}
+\doxysubsubsection{\texorpdfstring{GetRatingsByUserAsync()}{GetRatingsByUserAsync()}}
+{\footnotesize\ttfamily \label{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongRatingListing_a3c9f636342b757bf1fe99dba7d8bbeb5} 
+Task$<$ IEnumerable$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1SongRating}{Song\+Rating}} $>$ $>$ Get\+Ratings\+By\+User\+Async (\begin{DoxyParamCaption}\item[{string}]{user\+Id}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Id} & The ID of the user.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task for the list of ratings.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoSongRatingListing_a414aa938fd058c295ad53c53a40d2128}{Mongo\+Song\+Rating\+Listing}}.
+
+\Hypertarget{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongRatingListing_a4fee772622047e55bfa91d074cd71117}\index{ISongRatingListing@{ISongRatingListing}!GetSongRatingAsync@{GetSongRatingAsync}}
+\index{GetSongRatingAsync@{GetSongRatingAsync}!ISongRatingListing@{ISongRatingListing}}
+\doxysubsubsection{\texorpdfstring{GetSongRatingAsync()}{GetSongRatingAsync()}}
+{\footnotesize\ttfamily \label{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongRatingListing_a4fee772622047e55bfa91d074cd71117} 
+Task$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1SongRating}{Song\+Rating}} $>$ Get\+Song\+Rating\+Async (\begin{DoxyParamCaption}\item[{string}]{song\+Id}{, }\item[{string}]{user\+Id}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em song\+Id} & The ID of the song.\\
+\hline
+{\em user\+Id} & The ID of the user.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task for the retrieved song rating, or null if no rating exists.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoSongRatingListing_a4fee772622047e55bfa91d074cd71117}{Mongo\+Song\+Rating\+Listing}}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+Music\+Taste/\+Database/\+Operations/ISong\+Rating\+Listing.\+cs\end{DoxyCompactItemize}

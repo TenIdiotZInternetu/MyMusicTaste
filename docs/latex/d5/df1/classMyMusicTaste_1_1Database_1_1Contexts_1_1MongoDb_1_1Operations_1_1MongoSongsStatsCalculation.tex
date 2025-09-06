@@ -1,0 +1,46 @@
+\doxysection{Mongo\+Songs\+Stats\+Calculation Class Reference}
+\hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoSongsStatsCalculation}{}\label{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoSongsStatsCalculation}\index{MongoSongsStatsCalculation@{MongoSongsStatsCalculation}}
+
+
+Calculates statistics for a song, including average rating, median rating, total listens, and rating distribution in Mongo\+DB.  
+
+
+Inheritance diagram for Mongo\+Songs\+Stats\+Calculation\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d5/df1/classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoSongsStatsCalculation}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1SongStats}{Song\+Stats}} $>$ \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoSongsStatsCalculation_a6efd194de6e4cc236a4aac6122ad8818}{Calculate\+Song\+Stats\+Async}} (\mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1Song}{Song}} song)
+\begin{DoxyCompactList}\small\item\em Calculates statistics for a song, including average rating, median rating, total listens, and rating distribution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoSongsStatsCalculation_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoSongsStatsCalculation_a6efd194de6e4cc236a4aac6122ad8818}\index{MongoSongsStatsCalculation@{MongoSongsStatsCalculation}!CalculateSongStatsAsync@{CalculateSongStatsAsync}}
+\index{CalculateSongStatsAsync@{CalculateSongStatsAsync}!MongoSongsStatsCalculation@{MongoSongsStatsCalculation}}
+\doxysubsubsection{\texorpdfstring{CalculateSongStatsAsync()}{CalculateSongStatsAsync()}}
+{\footnotesize\ttfamily \label{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoSongsStatsCalculation_a6efd194de6e4cc236a4aac6122ad8818} 
+async Task$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1SongStats}{Song\+Stats}} $>$ Calculate\+Song\+Stats\+Async (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1Song}{Song}}}]{song}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em song} & The song to calculate statistics for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task for the song\textquotesingle{}s statistics.
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongStatsCalculation_aece8987a2b64551c577bd544fd33f5b7}{ISong\+Stats\+Calculation}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+Music\+Taste/\+Database/\+Contexts/\+Mongo\+Db/\+Operations/Mongo\+Songs\+Stats\+Calculation.\+cs\end{DoxyCompactItemize}

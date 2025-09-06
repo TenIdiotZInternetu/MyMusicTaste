@@ -1,0 +1,42 @@
+\doxysection{Comment\+Comp Class Reference}
+\hypertarget{classMyMusicTaste_1_1Components_1_1Comments_1_1CommentComp}{}\label{classMyMusicTaste_1_1Components_1_1Comments_1_1CommentComp}\index{CommentComp@{CommentComp}}
+
+
+A component that displays and manages a single comment, including editing and deletion.  
+
+
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Comments_1_1CommentComp_ade98f935c81e926bcc99f6ed95c57e92}\label{classMyMusicTaste_1_1Components_1_1Comments_1_1CommentComp_ade98f935c81e926bcc99f6ed95c57e92} 
+override async Task {\bfseries On\+Initialized\+Async} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Comments_1_1CommentComp_a345bf3dbc17e015d8bd12b0f703c5bf2}\label{classMyMusicTaste_1_1Components_1_1Comments_1_1CommentComp_a345bf3dbc17e015d8bd12b0f703c5bf2} 
+\mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1Comment}{Comment}} {\bfseries Comment} = null!\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The comment object to display and manage. \end{DoxyCompactList}\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Comments_1_1CommentComp_a13d2ac7bcf68255daa3ad0014fcb957c}\label{classMyMusicTaste_1_1Components_1_1Comments_1_1CommentComp_a13d2ac7bcf68255daa3ad0014fcb957c} 
+bool {\bfseries Is\+New\+Comment} = true\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Indicates whether this comment is newly created and not yet persisted. \end{DoxyCompactList}\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Comments_1_1CommentComp_a5e13a242835579636e71e8253dc17654}\label{classMyMusicTaste_1_1Components_1_1Comments_1_1CommentComp_a5e13a242835579636e71e8253dc17654} 
+bool {\bfseries Is\+Posted}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em True if the comment has already been posted to the database. \end{DoxyCompactList}\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Comments_1_1CommentComp_ac33f2c7ce06147afd25c2be6af2ceeee}\label{classMyMusicTaste_1_1Components_1_1Comments_1_1CommentComp_ac33f2c7ce06147afd25c2be6af2ceeee} 
+Event\+Callback {\bfseries On\+Edit\+Mode\+Opened}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Event triggered when the edit mode is opened. \end{DoxyCompactList}\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Comments_1_1CommentComp_a9bd9aecb57d4dd80cdbba7611c6035df}\label{classMyMusicTaste_1_1Components_1_1Comments_1_1CommentComp_a9bd9aecb57d4dd80cdbba7611c6035df} 
+Event\+Callback$<$ bool $>$ {\bfseries On\+Edit\+Mode\+Closed}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Event triggered when the edit mode is closed. The callback receives true if changes were saved, false otherwise. \end{DoxyCompactList}\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Comments_1_1CommentComp_a798069dd8ca20fac83753fee95365cb4}\label{classMyMusicTaste_1_1Components_1_1Comments_1_1CommentComp_a798069dd8ca20fac83753fee95365cb4} 
+Event\+Callback {\bfseries On\+Changes\+Saved}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Event triggered after changes to the comment have been saved. \end{DoxyCompactList}\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Comments_1_1CommentComp_a46a76ed57127760245deced1e7ac94cb}\label{classMyMusicTaste_1_1Components_1_1Comments_1_1CommentComp_a46a76ed57127760245deced1e7ac94cb} 
+Event\+Callback {\bfseries On\+Comment\+Deleted}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Event triggered after the comment has been deleted. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+Music\+Taste/\+Components/\+Comments/Comment\+Comp.\+razor.\+cs\end{DoxyCompactItemize}

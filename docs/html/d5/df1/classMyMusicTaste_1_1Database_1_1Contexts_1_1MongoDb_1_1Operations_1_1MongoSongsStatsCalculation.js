@@ -1,0 +1,4 @@
+var classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoSongsStatsCalculation =
+[
+    [ "CalculateSongStatsAsync", "d5/df1/classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoSongsStatsCalculation.html#a6efd194de6e4cc236a4aac6122ad8818", null ]
+];

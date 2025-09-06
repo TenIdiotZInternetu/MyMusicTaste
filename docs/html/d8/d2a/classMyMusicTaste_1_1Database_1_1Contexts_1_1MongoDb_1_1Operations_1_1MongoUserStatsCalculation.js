@@ -1,0 +1,4 @@
+var classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoUserStatsCalculation =
+[
+    [ "CalculateUserStatsAsync", "d8/d2a/classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoUserStatsCalculation.html#aa0fe078ea529ea4611f49dfae7a5b217", null ]
+];

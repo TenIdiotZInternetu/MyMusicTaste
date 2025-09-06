@@ -1,0 +1,51 @@
+\doxysection{Search\+Component\texorpdfstring{$<$}{<} TModel \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classMyMusicTaste_1_1Components_1_1Page__Search_1_1SearchComponent-1-g}{}\label{classMyMusicTaste_1_1Components_1_1Page__Search_1_1SearchComponent-1-g}\index{SearchComponent$<$ TModel $>$@{SearchComponent$<$ TModel $>$}}
+
+
+Base component for search pages. Provides shared search functionality for a given model type.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Page__Search_1_1SearchComponent-1-g_ad556291a6e9858910f98634c1eac7eb9}\label{classMyMusicTaste_1_1Components_1_1Page__Search_1_1SearchComponent-1-g_ad556291a6e9858910f98634c1eac7eb9} 
+async Task {\bfseries Update\+Results} ()
+\begin{DoxyCompactList}\small\item\em Performs the search with the current query and updates the \doxylink{classMyMusicTaste_1_1Components_1_1Page__Search_1_1SearchComponent-1-g_a9f270f6f0535159f2f54668bb347bec4}{Results}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Page__Search_1_1SearchComponent-1-g_ae8860f69dc535b18d0d2d104f21588bf}\label{classMyMusicTaste_1_1Components_1_1Page__Search_1_1SearchComponent-1-g_ae8860f69dc535b18d0d2d104f21588bf} 
+override async Task {\bfseries On\+After\+Render\+Async} (bool \+\_\+)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Page__Search_1_1SearchComponent-1-g_a012c73538adb0512676e65cbca3bcd48}\label{classMyMusicTaste_1_1Components_1_1Page__Search_1_1SearchComponent-1-g_a012c73538adb0512676e65cbca3bcd48} 
+string? {\bfseries Query}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The search query string entered by the user. \end{DoxyCompactList}\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Page__Search_1_1SearchComponent-1-g_a4f477f55144557e57adbeee13830a003}\label{classMyMusicTaste_1_1Components_1_1Page__Search_1_1SearchComponent-1-g_a4f477f55144557e57adbeee13830a003} 
+int {\bfseries Results\+Count}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Maximum number of results to return. \end{DoxyCompactList}\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Page__Search_1_1SearchComponent-1-g_ac5f234441f0e9a61850f94f72216cf98}\label{classMyMusicTaste_1_1Components_1_1Page__Search_1_1SearchComponent-1-g_ac5f234441f0e9a61850f94f72216cf98} 
+ISearch\+Operation$<$ TModel $>$ {\bfseries Searcher} = null!\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The search operation service used to perform the query. \end{DoxyCompactList}\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Page__Search_1_1SearchComponent-1-g_a9f270f6f0535159f2f54668bb347bec4}\label{classMyMusicTaste_1_1Components_1_1Page__Search_1_1SearchComponent-1-g_a9f270f6f0535159f2f54668bb347bec4} 
+IEnumerable$<$ TModel $>$? {\bfseries Results}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The list of search results returned by the query. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TModel} & The type of the model to search for, must inherit from \doxylink{classMyMusicTaste_1_1Models_1_1Model}{Model}.\\
+\hline
+\end{DoxyTemplParams}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em TModel} : {\em Model}]\end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+Music\+Taste/\+Components/\+Page-\/\+Search/Search\+Component.\+cs\end{DoxyCompactItemize}

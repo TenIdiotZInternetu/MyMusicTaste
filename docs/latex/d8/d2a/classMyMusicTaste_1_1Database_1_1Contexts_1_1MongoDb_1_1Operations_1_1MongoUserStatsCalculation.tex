@@ -1,0 +1,46 @@
+\doxysection{Mongo\+User\+Stats\+Calculation Class Reference}
+\hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoUserStatsCalculation}{}\label{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoUserStatsCalculation}\index{MongoUserStatsCalculation@{MongoUserStatsCalculation}}
+
+
+Calculates statistics for a user based on their song ratings in Mongo\+DB.  
+
+
+Inheritance diagram for Mongo\+User\+Stats\+Calculation\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d8/d2a/classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoUserStatsCalculation}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1UserStats}{User\+Stats}} $>$ \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoUserStatsCalculation_aa0fe078ea529ea4611f49dfae7a5b217}{Calculate\+User\+Stats\+Async}} (string user\+Id)
+\begin{DoxyCompactList}\small\item\em Calculates statistics for a user based on their ratings, including average ratings by album, author, and genre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoUserStatsCalculation_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoUserStatsCalculation_aa0fe078ea529ea4611f49dfae7a5b217}\index{MongoUserStatsCalculation@{MongoUserStatsCalculation}!CalculateUserStatsAsync@{CalculateUserStatsAsync}}
+\index{CalculateUserStatsAsync@{CalculateUserStatsAsync}!MongoUserStatsCalculation@{MongoUserStatsCalculation}}
+\doxysubsubsection{\texorpdfstring{CalculateUserStatsAsync()}{CalculateUserStatsAsync()}}
+{\footnotesize\ttfamily \label{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoUserStatsCalculation_aa0fe078ea529ea4611f49dfae7a5b217} 
+async Task$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1UserStats}{User\+Stats}} $>$ Calculate\+User\+Stats\+Async (\begin{DoxyParamCaption}\item[{string}]{user\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Id} & The ID of the user to calculate statistics for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task for the user\textquotesingle{}s statistics.
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1IUserStatsCalculation_a20757c4df045e056f4c32804f3a24ee3}{IUser\+Stats\+Calculation}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+Music\+Taste/\+Database/\+Contexts/\+Mongo\+Db/\+Operations/Mongo\+User\+Stats\+Calculation.\+cs\end{DoxyCompactItemize}

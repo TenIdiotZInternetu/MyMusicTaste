@@ -1,0 +1,72 @@
+\doxysection{IComments\+Listing Interface Reference}
+\hypertarget{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ICommentsListing}{}\label{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ICommentsListing}\index{ICommentsListing@{ICommentsListing}}
+
+
+Provides methods for retrieving comments from the database.  
+
+
+Inheritance diagram for IComments\+Listing\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d0/d95/interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ICommentsListing}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ IEnumerable$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1Comment}{Comment}} $>$ $>$ \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ICommentsListing_a2e0fc30a8f6c71fcc40414b6fa46c5bd}{Get\+Comments\+By\+User\+Async}} (string user\+Id, int result\+Count)
+\begin{DoxyCompactList}\small\item\em Retrieves comments made by a specific user. \end{DoxyCompactList}\item 
+Task$<$ IEnumerable$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1Comment}{Comment}} $>$ $>$ \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ICommentsListing_af38750e083ffd089684c3184227b7063}{Get\+Comments\+By\+Page\+Async}} (\mbox{\hyperlink{namespaceMyMusicTaste_1_1Models_a391e26e58c307d5e4b20fb54347b66fd}{Comment\+Page\+Type}} page\+Type, string page\+Id, int result\+Count)
+\begin{DoxyCompactList}\small\item\em Retrieves comments associated with a specific page, ordered by creation time descending. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ICommentsListing_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ICommentsListing_af38750e083ffd089684c3184227b7063}\index{ICommentsListing@{ICommentsListing}!GetCommentsByPageAsync@{GetCommentsByPageAsync}}
+\index{GetCommentsByPageAsync@{GetCommentsByPageAsync}!ICommentsListing@{ICommentsListing}}
+\doxysubsubsection{\texorpdfstring{GetCommentsByPageAsync()}{GetCommentsByPageAsync()}}
+{\footnotesize\ttfamily \label{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ICommentsListing_af38750e083ffd089684c3184227b7063} 
+Task$<$ IEnumerable$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1Comment}{Comment}} $>$ $>$ Get\+Comments\+By\+Page\+Async (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceMyMusicTaste_1_1Models_a391e26e58c307d5e4b20fb54347b66fd}{Comment\+Page\+Type}}}]{page\+Type}{, }\item[{string}]{page\+Id}{, }\item[{int}]{result\+Count}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em page\+Type} & The type of the page the comments belong to.\\
+\hline
+{\em page\+Id} & The ID of the page.\\
+\hline
+{\em result\+Count} & The maximum number of comments to return.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task for the list of comments.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoCommentsListing_aabd610a9297c7774dfff36cfbaac9e3b}{Mongo\+Comments\+Listing}}.
+
+\Hypertarget{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ICommentsListing_a2e0fc30a8f6c71fcc40414b6fa46c5bd}\index{ICommentsListing@{ICommentsListing}!GetCommentsByUserAsync@{GetCommentsByUserAsync}}
+\index{GetCommentsByUserAsync@{GetCommentsByUserAsync}!ICommentsListing@{ICommentsListing}}
+\doxysubsubsection{\texorpdfstring{GetCommentsByUserAsync()}{GetCommentsByUserAsync()}}
+{\footnotesize\ttfamily \label{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ICommentsListing_a2e0fc30a8f6c71fcc40414b6fa46c5bd} 
+Task$<$ IEnumerable$<$ \mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1Comment}{Comment}} $>$ $>$ Get\+Comments\+By\+User\+Async (\begin{DoxyParamCaption}\item[{string}]{user\+Id}{, }\item[{int}]{result\+Count}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Id} & The ID of the user whose comments to retrieve.\\
+\hline
+{\em result\+Count} & The maximum number of comments to return.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task for the collection of comments.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1MongoCommentsListing_a2e0fc30a8f6c71fcc40414b6fa46c5bd}{Mongo\+Comments\+Listing}}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+Music\+Taste/\+Database/\+Operations/IComments\+Listing.\+cs\end{DoxyCompactItemize}

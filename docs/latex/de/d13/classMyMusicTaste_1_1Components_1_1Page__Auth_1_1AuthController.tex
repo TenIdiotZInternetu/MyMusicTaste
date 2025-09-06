@@ -1,0 +1,64 @@
+\doxysection{Auth\+Controller Class Reference}
+\hypertarget{classMyMusicTaste_1_1Components_1_1Page__Auth_1_1AuthController}{}\label{classMyMusicTaste_1_1Components_1_1Page__Auth_1_1AuthController}\index{AuthController@{AuthController}}
+
+
+Controller responsible for authentication operations.  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classMyMusicTaste_1_1Components_1_1Page__Auth_1_1AuthController_1_1LoginDto}{Login\+Dto}}
+\begin{DoxyCompactList}\small\item\em DTO used for login requests. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Page__Auth_1_1AuthController_a71f25afd80d4b668622af07c404a2979}\label{classMyMusicTaste_1_1Components_1_1Page__Auth_1_1AuthController_a71f25afd80d4b668622af07c404a2979} 
+{\bfseries Auth\+Controller} (\mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1IIdentityProvider}{IIdentity\+Provider}} identity)
+\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{classMyMusicTaste_1_1Components_1_1Page__Auth_1_1AuthController_a9b51fe219ca949840ad0aba06f81ff69}{Login\+Async}} (\mbox{[}From\+Form\mbox{]} \mbox{\hyperlink{classMyMusicTaste_1_1Components_1_1Page__Auth_1_1AuthController_1_1LoginDto}{Login\+Dto}} login\+Dto)
+\begin{DoxyCompactList}\small\item\em Logs in a user using provided credentials. Returns a redirect to the home page on success, or Unauthorized/\+Bad\+Request on failure. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{classMyMusicTaste_1_1Components_1_1Page__Auth_1_1AuthController_a19f697f4f34820cda6c082e792f89e4c}{Logout\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Logs out the currently authenticated user and redirects to the home page. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Page__Auth_1_1AuthController_ae2dc2f846beba624170b6bfa94dea3b9}\label{classMyMusicTaste_1_1Components_1_1Page__Auth_1_1AuthController_ae2dc2f846beba624170b6bfa94dea3b9} 
+const string {\bfseries LOGIN\+\_\+\+ROUTE} = "{}auth/login"{}
+\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Page__Auth_1_1AuthController_a3f786995f9ac72ea0c200e2789b52052}\label{classMyMusicTaste_1_1Components_1_1Page__Auth_1_1AuthController_a3f786995f9ac72ea0c200e2789b52052} 
+const string {\bfseries LOGOUT\+\_\+\+ROUTE} = "{}auth/logout"{}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Page__Auth_1_1AuthController_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Page__Auth_1_1AuthController_a9b51fe219ca949840ad0aba06f81ff69}\index{AuthController@{AuthController}!LoginAsync@{LoginAsync}}
+\index{LoginAsync@{LoginAsync}!AuthController@{AuthController}}
+\doxysubsubsection{\texorpdfstring{LoginAsync()}{LoginAsync()}}
+{\footnotesize\ttfamily \label{classMyMusicTaste_1_1Components_1_1Page__Auth_1_1AuthController_a9b51fe219ca949840ad0aba06f81ff69} 
+async Task$<$ IAction\+Result $>$ Login\+Async (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Form\mbox{]} \mbox{\hyperlink{classMyMusicTaste_1_1Components_1_1Page__Auth_1_1AuthController_1_1LoginDto}{Login\+Dto}}}]{login\+Dto}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em login\+Dto} & Login credentials.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An action result representing success or failure of the login attempt.
+\end{DoxyReturn}
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Page__Auth_1_1AuthController_a19f697f4f34820cda6c082e792f89e4c}\index{AuthController@{AuthController}!LogoutAsync@{LogoutAsync}}
+\index{LogoutAsync@{LogoutAsync}!AuthController@{AuthController}}
+\doxysubsubsection{\texorpdfstring{LogoutAsync()}{LogoutAsync()}}
+{\footnotesize\ttfamily \label{classMyMusicTaste_1_1Components_1_1Page__Auth_1_1AuthController_a19f697f4f34820cda6c082e792f89e4c} 
+async Task$<$ IAction\+Result $>$ Logout\+Async (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+An action result redirecting to the homepage.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+Music\+Taste/\+Components/\+Page-\/\+Auth/Auth\+Controller.\+cs\end{DoxyCompactItemize}

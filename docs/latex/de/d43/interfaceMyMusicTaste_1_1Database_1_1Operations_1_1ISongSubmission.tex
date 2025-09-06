@@ -1,0 +1,51 @@
+\doxysection{ISong\+Submission Interface Reference}
+\hypertarget{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongSubmission}{}\label{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongSubmission}\index{ISongSubmission@{ISongSubmission}}
+
+
+Provides an abstraction for submitting new songs to the database while avoiding duplicates.  
+
+
+Inheritance diagram for ISong\+Submission\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{de/d43/interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongSubmission}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ string $>$ \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongSubmission_ab099b82dd76ae3a38b0a177597658a36}{Submit\+Song\+Async}} (\mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1Song}{Song}} song\+Model)
+\begin{DoxyCompactList}\small\item\em Submits a new song. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongSubmission_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongSubmission_ab099b82dd76ae3a38b0a177597658a36}\index{ISongSubmission@{ISongSubmission}!SubmitSongAsync@{SubmitSongAsync}}
+\index{SubmitSongAsync@{SubmitSongAsync}!ISongSubmission@{ISongSubmission}}
+\doxysubsubsection{\texorpdfstring{SubmitSongAsync()}{SubmitSongAsync()}}
+{\footnotesize\ttfamily \label{interfaceMyMusicTaste_1_1Database_1_1Operations_1_1ISongSubmission_ab099b82dd76ae3a38b0a177597658a36} 
+Task$<$ string $>$ Submit\+Song\+Async (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMyMusicTaste_1_1Models_1_1Song}{Song}}}]{song\+Model}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em song\+Model} & The song to submit.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task for the ID of the newly created song as a string.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Entry\+Already\+Exists\+Exception} & Thrown if the song already exists.\\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1Operations_1_1SongSubmission_a4d254baf26665dc3f233662cebd2513e}{Song\+Submission}}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+Music\+Taste/\+Database/\+Operations/ISong\+Submission.\+cs\end{DoxyCompactItemize}

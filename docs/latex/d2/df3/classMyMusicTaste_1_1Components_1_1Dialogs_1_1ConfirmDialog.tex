@@ -1,0 +1,62 @@
+\doxysection{Confirm\+Dialog Class Reference}
+\hypertarget{classMyMusicTaste_1_1Components_1_1Dialogs_1_1ConfirmDialog}{}\label{classMyMusicTaste_1_1Components_1_1Dialogs_1_1ConfirmDialog}\index{ConfirmDialog@{ConfirmDialog}}
+
+
+Dialog component for simple yes/no confirmation.  
+
+
+Inheritance diagram for Confirm\+Dialog\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d2/df3/classMyMusicTaste_1_1Components_1_1Dialogs_1_1ConfirmDialog}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Dialogs_1_1ConfirmDialog_ae94f71a9b27a78fb537ef56fd3e0e888}\label{classMyMusicTaste_1_1Components_1_1Dialogs_1_1ConfirmDialog_ae94f71a9b27a78fb537ef56fd3e0e888} 
+override bool {\bfseries Get\+Result} ()
+\begin{DoxyCompactList}\small\item\em Returns the true if the dialog has been confirmed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g}{Dialog$<$ TResult $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+override void {\bfseries On\+After\+Render} (bool first\+Render)
+\item 
+TResult {\bfseries Get\+Result} ()
+\begin{DoxyCompactList}\small\item\em Returns the result of the dialog when confirmed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMyMusicTaste_1_1Components_1_1Dialogs_1_1ConfirmDialog_a6ad02dc31e35d2ea48468880052bf25b}\label{classMyMusicTaste_1_1Components_1_1Dialogs_1_1ConfirmDialog_a6ad02dc31e35d2ea48468880052bf25b} 
+string {\bfseries Question} = null!\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Question text to display in the dialog. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties inherited from \mbox{\hyperlink{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g}{Dialog$<$ TResult $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+string? {\bfseries Title}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Title of the dialog. \end{DoxyCompactList}\item 
+string {\bfseries Confirm\+Text} = "{}Confirm"{}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Text for the confirm button. \end{DoxyCompactList}\item 
+string {\bfseries Cancel\+Text} = "{}Cancel"{}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Text for the cancel button. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMyMusicTaste_1_1Components_1_1Dialogs_1_1DialogBase}{Dialog\+Base}} {\bfseries Base\+Dialog} = null!\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Reference to the underlying HTML wrapper dialog component. \end{DoxyCompactList}\item 
+Task\+Completion\+Source$<$ bool $>$ {\bfseries Completion\+Token} = new()\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Token used to track dialog completion. \end{DoxyCompactList}\item 
+Task$<$ bool $>$ {\bfseries Completion\+Task}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Task representing the completion of the dialog. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g}{Dialog$<$ TResult $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ Dialog\+Result$<$ TResult $>$ $>$ \mbox{\hyperlink{classMyMusicTaste_1_1Components_1_1Dialogs_1_1Dialog-1-g_a4e070a10e145fe42b28fa50ab1b878c4}{Open\+Dialog}} ()
+\begin{DoxyCompactList}\small\item\em Opens the dialog and returns a \doxylink{structMyMusicTaste_1_1Components_1_1Dialogs_1_1DialogResult-1-g}{Dialog\+Result$<$\+TResult$>$} when confirmed or canceled. \end{DoxyCompactList}\item 
+void {\bfseries Confirm} ()
+\begin{DoxyCompactList}\small\item\em Marks the dialog as confirmed. \end{DoxyCompactList}\item 
+void {\bfseries Cancel} ()
+\begin{DoxyCompactList}\small\item\em Marks the dialog as canceled. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+Music\+Taste/\+Components/\+Dialogs/Confirm\+Dialog.\+razor.\+cs\end{DoxyCompactItemize}

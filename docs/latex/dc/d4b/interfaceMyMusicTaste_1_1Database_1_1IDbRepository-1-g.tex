@@ -1,0 +1,180 @@
+\doxysection{IDb\+Repository\texorpdfstring{$<$}{<} TModel \texorpdfstring{$>$}{>} Interface Template Reference}
+\hypertarget{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g}{}\label{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g}\index{IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}}
+
+
+Represents a generic repository for performing CRUD operations on models.  
+
+
+Inheritance diagram for IDb\+Repository\texorpdfstring{$<$}{<} TModel \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{dc/d4b/interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+TModel \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_ae91a7d60b8ff5d3de720acd41c71b83f}{Get\+By\+Id}} (string? id)
+\begin{DoxyCompactList}\small\item\em Retrieves a model by its ID from the database. \end{DoxyCompactList}\item 
+TModel \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_af93d1d847ea4e38408b909b15c337352}{Get\+By\+Id}} (Object\+Id id)
+\begin{DoxyCompactList}\small\item\em Retrieves a model by its ID from the database. \end{DoxyCompactList}\item 
+Task$<$ TModel $>$ \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_ac483b761628d59dd023c79c76c28b190}{Get\+By\+Id\+Async}} (string? id)
+\begin{DoxyCompactList}\small\item\em Retrieves a model by its string ID from the database. \end{DoxyCompactList}\item 
+Task$<$ IEnumerable$<$ TModel $>$ $>$ \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_a27d4eb578e785bf1bd60e7f28b0058ee}{Get\+By\+Ids\+Async}} (IEnumerable$<$ string $>$ ids)
+\begin{DoxyCompactList}\small\item\em Asynchronously retrieves multiple models by their IDs form the database. \end{DoxyCompactList}\item 
+Task \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_ad96d94eb3b2ae5ff9c62ddb38444484e}{Create\+Async}} (TModel model)
+\begin{DoxyCompactList}\small\item\em Asynchronously inserts a new model to the database. \end{DoxyCompactList}\item 
+Task \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_a7cc69fa8d9669ebaa10cab6f822aa30b}{Update\+Async}} (TModel model)
+\begin{DoxyCompactList}\small\item\em Asynchronously updates an existing model in the database. \end{DoxyCompactList}\item 
+Task \mbox{\hyperlink{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_a40be25dc127e47e9ad4a4b3d7f0a6a04}{Delete\+Async}} (TModel model)
+\begin{DoxyCompactList}\small\item\em Asynchronously deletes a model from the database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TModel} & The type of model managed by this repository. Must inherit from \doxylink{classMyMusicTaste_1_1Models_1_1Model}{Model}.\\
+\hline
+\end{DoxyTemplParams}
+
+
+\label{doc-func-members}
+\Hypertarget{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_ad96d94eb3b2ae5ff9c62ddb38444484e}\index{IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}!CreateAsync@{CreateAsync}}
+\index{CreateAsync@{CreateAsync}!IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}}
+\doxysubsubsection{\texorpdfstring{CreateAsync()}{CreateAsync()}}
+{\footnotesize\ttfamily \label{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_ad96d94eb3b2ae5ff9c62ddb38444484e} 
+Task Create\+Async (\begin{DoxyParamCaption}\item[{TModel}]{model}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & The model to insert.\\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoRepository-1-g_a118aeca30bd35f240aca8e220ae35e4b}{Mongo\+Repository$<$ TModel $>$}}.
+
+\Hypertarget{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_a40be25dc127e47e9ad4a4b3d7f0a6a04}\index{IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}!DeleteAsync@{DeleteAsync}}
+\index{DeleteAsync@{DeleteAsync}!IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}}
+\doxysubsubsection{\texorpdfstring{DeleteAsync()}{DeleteAsync()}}
+{\footnotesize\ttfamily \label{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_a40be25dc127e47e9ad4a4b3d7f0a6a04} 
+Task Delete\+Async (\begin{DoxyParamCaption}\item[{TModel}]{model}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & The model to delete.\\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoRepository-1-g_a375f6ee81a7aa9499eaef64a6c4983df}{Mongo\+Repository$<$ TModel $>$}}.
+
+\Hypertarget{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_af93d1d847ea4e38408b909b15c337352}\index{IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}!GetById@{GetById}}
+\index{GetById@{GetById}!IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}}
+\doxysubsubsection{\texorpdfstring{GetById()}{GetById()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_af93d1d847ea4e38408b909b15c337352} 
+TModel Get\+By\+Id (\begin{DoxyParamCaption}\item[{Object\+Id}]{id}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The unique identifier of the model.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The model corresponding to the specified ID.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Entry\+Not\+Found\+Exception} & Thrown when the entry does not exist.\\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoRepository-1-g_af93d1d847ea4e38408b909b15c337352}{Mongo\+Repository$<$ TModel $>$}}.
+
+\Hypertarget{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_ae91a7d60b8ff5d3de720acd41c71b83f}\index{IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}!GetById@{GetById}}
+\index{GetById@{GetById}!IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}}
+\doxysubsubsection{\texorpdfstring{GetById()}{GetById()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_ae91a7d60b8ff5d3de720acd41c71b83f} 
+TModel Get\+By\+Id (\begin{DoxyParamCaption}\item[{string?}]{id}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The unique identifier of the model.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The model corresponding to the specified ID.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Entry\+Not\+Found\+Exception} & Thrown when the entry does not exist.\\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoRepository-1-g_ae91a7d60b8ff5d3de720acd41c71b83f}{Mongo\+Repository$<$ TModel $>$}}.
+
+\Hypertarget{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_ac483b761628d59dd023c79c76c28b190}\index{IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}!GetByIdAsync@{GetByIdAsync}}
+\index{GetByIdAsync@{GetByIdAsync}!IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}}
+\doxysubsubsection{\texorpdfstring{GetByIdAsync()}{GetByIdAsync()}}
+{\footnotesize\ttfamily \label{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_ac483b761628d59dd023c79c76c28b190} 
+Task$<$ TModel $>$ Get\+By\+Id\+Async (\begin{DoxyParamCaption}\item[{string?}]{id}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The unique identifier of the model.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task for the retrieved model.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Entry\+Not\+Found\+Exception} & Thrown when the entry does not exist.\\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoRepository-1-g_ac2c3de3d2911fad9473b27ea9065399f}{Mongo\+Repository$<$ TModel $>$}}.
+
+\Hypertarget{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_a27d4eb578e785bf1bd60e7f28b0058ee}\index{IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}!GetByIdsAsync@{GetByIdsAsync}}
+\index{GetByIdsAsync@{GetByIdsAsync}!IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}}
+\doxysubsubsection{\texorpdfstring{GetByIdsAsync()}{GetByIdsAsync()}}
+{\footnotesize\ttfamily \label{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_a27d4eb578e785bf1bd60e7f28b0058ee} 
+Task$<$ IEnumerable$<$ TModel $>$ $>$ Get\+By\+Ids\+Async (\begin{DoxyParamCaption}\item[{IEnumerable$<$ string $>$}]{ids}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em ids} & The collection of unique identifiers to retrieve.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task for the collection of retrieved models.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoRepository-1-g_a2b5a8e2829251db81b21a698c1b287ef}{Mongo\+Repository$<$ TModel $>$}}.
+
+\Hypertarget{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_a7cc69fa8d9669ebaa10cab6f822aa30b}\index{IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}!UpdateAsync@{UpdateAsync}}
+\index{UpdateAsync@{UpdateAsync}!IDbRepository$<$ TModel $>$@{IDbRepository$<$ TModel $>$}}
+\doxysubsubsection{\texorpdfstring{UpdateAsync()}{UpdateAsync()}}
+{\footnotesize\ttfamily \label{interfaceMyMusicTaste_1_1Database_1_1IDbRepository-1-g_a7cc69fa8d9669ebaa10cab6f822aa30b} 
+Task Update\+Async (\begin{DoxyParamCaption}\item[{TModel}]{model}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & The model with updated values.\\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classMyMusicTaste_1_1Database_1_1Contexts_1_1MongoDb_1_1MongoRepository-1-g_a4ac4f6acd21808da7a80cec66af3a146}{Mongo\+Repository$<$ TModel $>$}}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+Music\+Taste/\+Database/IDb\+Repository.\+cs\end{DoxyCompactItemize}
