@@ -1,4 +1,4 @@
-# MyMusicTaste project overview
+# MyMusicTaste Project Overview
 
 MyMusicTaste is a server-side Web Application built with ASP.NET and Blazor front-end network. It uses MongoDB, but it is designed to be database-agnostic through dependency injections.
 
